@@ -1,0 +1,3 @@
+.btn {
+  @apply py-4 px-8 rounded-lg w-max font-medium tracking-wide;
+}
