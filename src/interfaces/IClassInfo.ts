@@ -1,4 +1,4 @@
-export default interface IClass {
+export default interface IClassInfo {
   name: string,
   description: string,
   grade: string,

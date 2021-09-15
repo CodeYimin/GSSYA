@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import IQuestion from '../interfaces/IQuestion';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import IQuestionInfo from '../interfaces/IQuestion';
 
-const QuestionCard: React.FC<IQuestion> = ({ question, answer }) => {
+function QuestionCard({ question, answer }: IQuestionInfo): ReactElement {
   const answerElement = useRef<HTMLDivElement>(null);
   const [answerExpanded, setAnswerExpanded] = useState<boolean>(false);
   const [originalAnswerHeight, setOriginalAnswerHeight] = useState<string>('');
@@ -18,7 +18,7 @@ const QuestionCard: React.FC<IQuestion> = ({ question, answer }) => {
   return (
     <div className="text-center py-2 text-lg font-medium">
       <div 
-        className="transition-all hover:text-xl bg-white text-indigo-900 py-5 rounded-lg cursor-pointer" 
+        className="transition-all hover:text-xl bg-white text-indigo-900 p-5 rounded-lg cursor-pointer" 
         onClick={() => setAnswerExpanded((current) => !current)}
       >
         {question}
@@ -29,7 +29,7 @@ const QuestionCard: React.FC<IQuestion> = ({ question, answer }) => {
           "relative transition-all w-11/12 mx-auto rounded-b-lg overflow-hidden border-white"
         }
       >
-        <p className="py-5">{answer}</p>
+        <p className="p-5">{answer}</p>
       </div>
     </div>
   )

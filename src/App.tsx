@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
-import Home from "./components/HomeSection";
-import Navigation from './components/Navigation';
-import { navigationItems } from './util/mocks';
-import HomeSection from './components/HomeSection';
-import AboutSection from './components/AboutSection';
-import ProgramsSection from './components/ProgramsSection';
-import ClassesSection from './components/ClassesSection';
-import ScheduleSection from './components/ScheduleSection';
-import QuestionSection from './components/QuestionSection';
-import TeamSection from './components/TeamSection';
-import ContactSection from './components/ContactSection';
+import React from 'react';
+import Navigation from './components/sections/Navigation';
+import HomeSection from './components/sections/HomeSection';
+import AboutSection from './components/sections/AboutSection';
+import ProgramsSection from './components/sections/ProgramsSection';
+import ClassesSection from './components/sections/ClassesSection';
+import ScheduleSection from './components/sections/ScheduleSection';
+import QuestionSection from './components/sections/QuestionSection';
+import TeamSection from './components/sections/TeamSection';
+import ContactSection from './components/sections/ContactSection';
 
 const App = () => {
   return (
     <div className="font-inter bg-yellow-50">
-      <Navigation navigationItems={navigationItems}></Navigation>
+      <Navigation />
       <HomeSection />
       <AboutSection />
       <ProgramsSection />

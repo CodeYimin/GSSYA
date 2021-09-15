@@ -8,7 +8,7 @@ interface CalendarDateProps {
   isCurrentDate?: boolean,
 }
 
-const CalendarDate: React.FC<CalendarDateProps> = ({ date, onClick, disabled, selected, isCurrentDate}) => {
+function CalendarDate({ date, onClick, disabled, selected, isCurrentDate}: CalendarDateProps): ReactElement {
   return (
     <div className="p-2" style={date.getDate() === 1 ? {"gridColumn": date.getDay() + 1} : {}}>
       <button 

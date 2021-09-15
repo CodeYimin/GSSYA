@@ -1,0 +1,10 @@
+[
+  { "name": "Home", "link": "#home" },
+  { "name": "About", "link": "#about" },
+  { "name": "Programs", "link": "#programs" },
+  { "name": "Classes", "link": "#classes" },
+  { "name": "Schedule", "link": "#schedule" },
+  { "name": "FAQ", "link": "#questions" },
+  { "name": "Team", "link": "#team" },
+  { "name": "Contact", "link": "#contact" }
+]

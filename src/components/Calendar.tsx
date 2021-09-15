@@ -1,6 +1,4 @@
-import React, { ReactElement } from 'react'
-import { useState } from 'react';
-import IClassInfo from '../interfaces/IClassInfo';
+import React, { ReactElement, useState } from 'react'
 import IMonthSchedule from '../interfaces/IMonthSchedule';
 import CalendarDate from './CalendarDate';
 
@@ -12,8 +10,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 // but by using 0 as the day it will give us the last day of the prior
 // month. So passing in 1 as the month number will return the last day
 // of January, not February
-function daysInMonth(year: number, month: number): number {
-  return new Date(year, month, 0).getDate();
+function daysInMonth(year: number, zeroIndexMonth: number): number {
+  return new Date(year, zeroIndexMonth + 1, 0).getDate();
 }
 
 function getCurrentDateWithoutTime(): Date {
@@ -41,16 +39,18 @@ function dateInSchedules(targetDate: Date, schedules: IMonthSchedule[]): boolean
   }
 
   if (targetSchedule.days?.includes(day) || targetSchedule.dates?.includes(date)) {
-    return true
+    return true;
+  } else {
+    return false;
   }
 }
 
 interface CalendarProps {
   onDateClick: (date: Date) => void
-  schedules: IMonthSchedule[],
+  schedules: IMonthSchedule[] | null,
 }
 
-const Calendar: React.FC<CalendarProps> = ({onDateClick, schedules}) => {
+function Calendar({onDateClick, schedules}: CalendarProps): ReactElement {
   const currentDate = getCurrentDateWithoutTime();
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [browsingDate, setBrowsingDate] = useState<Date>(getCurrentDateWithoutTime());
@@ -74,7 +74,7 @@ const Calendar: React.FC<CalendarProps> = ({onDateClick, schedules}) => {
           selected={targetDate.getTime() === selectedDate?.getTime()}
           isCurrentDate={targetDate.getTime() === currentDate.getTime()}
           onClick={handleDateClick}
-          disabled={!dateInSchedules(targetDate, schedules)}
+          disabled={!schedules || !dateInSchedules(targetDate, schedules)}
         />
       );
     }

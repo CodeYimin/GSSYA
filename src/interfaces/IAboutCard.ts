@@ -1,4 +1,4 @@
 export default interface IAboutCard {
-  name: string,
-  svg: string,
+  title: string,
+  img: string,
 }

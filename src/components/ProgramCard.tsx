@@ -1,14 +1,7 @@
 import React, { ReactElement } from 'react';
+import { IProgramCard } from '../interfaces/IProgramCard';
 
-interface ProgramCardProps {
-  grade: string,
-  name: string,
-  description: string,
-  buttonName: string,
-  buttonLink: string,
-}
-
-const ProgramCard: React.FC<ProgramCardProps> = ({ grade, name, description, buttonName, buttonLink }) => {
+function ProgramCard({ grade, name, description, buttonName, buttonLink }: IProgramCard): ReactElement {
   return (
     <div className="flex flex-col items-center text-center w-min p-10 border-white border-8 rounded-3xl my-10">
       <h2 className="text-xl font-medium">Grade {grade}</h2>
@@ -17,6 +10,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ grade, name, description, but
       <a 
         href={buttonLink} 
         target="_blank" 
+        rel="noreferrer"
         className="btn justify-self-end mt-auto bg-white text-blue-400"
       >
         {buttonName}

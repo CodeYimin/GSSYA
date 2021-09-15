@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Math", 
+    "description": "Learn the math curriculum.",
+    "grade": "6+",
+    "svg": "images/subjects/calculator.svg"
+  },
+  {
+    "name": "Coding", 
+    "description": "Learn basic fundamentals of computer coding and programming in Python.",
+    "grade": "6+",
+    "svg":"images/subjects/terminal.svg"
+  },
+  {
+    "name": "English", 
+    "description": "Learn fundamental english or the Canadian curriculum (Essays, story telling, etc).",
+    "grade": "6+",
+    "svg":"images/subjects/flag-usa.svg"
+  },
+  {
+    "name": "French", 
+    "description": "Learn french fundamentals, such as grammar, read/write, oral communication, and more.",
+    "grade": "6+",
+    "svg":"images/subjects/font-case.svg"
+  },
+  {
+    "name": "Science", 
+    "description": "Learn fundamental science concepts and the Canadian curriculum based on your skill level.",
+    "grade": "6+",
+    "svg":"images/subjects/flask.svg"
+  },
+  {
+    "name": "Chinese", 
+    "description": "Learn to read, write, and communicate in chinese. Learn about chinese culture.",
+    "grade": "6+",
+    "svg":"images/subjects/language.svg"
+  },
+  {
+    "name": "Piano", 
+    "description": "Learn how to play the piano.",
+    "grade": "6+",
+    "svg":"images/subjects/piano.svg"
+  },
+  {
+    "name": "Instruments", 
+    "description": "Learn how to play an instrument.",
+    "grade": "6+",
+    "svg":"images/subjects/trumpet.svg"
+  }
+]

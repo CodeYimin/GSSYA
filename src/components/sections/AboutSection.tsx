@@ -1,0 +1,64 @@
+import React, { useEffect, useRef } from 'react';
+import IAboutCard from '../../interfaces/IAboutCard';
+import { useApiData } from '../../services/apiService';
+import AboutCard from '../AboutCard';
+
+function AboutSection() {
+  const heading = useRef<HTMLHeadingElement>(null);
+  const cardsContainer = useRef<HTMLDivElement>(null);
+  const cardsData = useApiData<IAboutCard[]>('about');
+
+  // Add special effects to the card closest to header
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (!heading.current || !cardsContainer.current) {
+        return;
+      }
+      
+      const cards = [...cardsContainer.current.children] as HTMLElement[];
+      const headingBoundingRect = heading.current.getBoundingClientRect();
+      const headingDocHeight = (headingBoundingRect.y + headingBoundingRect.bottom) / 2;
+
+      const closestCard = cards.reduce((prev, curr) => {
+        const prevDistance = headingDocHeight - (prev.getBoundingClientRect().y + prev.getBoundingClientRect().bottom) / 2;
+        const currDistance = headingDocHeight - (curr.getBoundingClientRect().y + curr.getBoundingClientRect().bottom) / 2;
+        return Math.abs(currDistance) < Math.abs(prevDistance) ? curr : prev;
+      });
+
+      // Add/Remove special effects
+      cards.forEach((card) => {
+        if (card === closestCard) {
+          card.style.scale = '1.10';
+          card.style.marginLeft = '4rem';
+          card.classList.remove('text-red-400');
+          card.classList.add('text-white');
+        } else {
+          card.style.scale = '1';
+          card.style.marginLeft = '6rem';
+          card.classList.remove('text-white');
+          card.classList.add('text-red-400');
+        }
+      })
+    })
+  }, [])
+
+  return (
+    <div id="about">
+      <svg height="10vh" width="100%" preserveAspectRatio="none" viewBox="0 0 500 20">
+        <path className="text-red-500 fill-current" d="M0,0 C200,20 300,20 500,0 L500,150 L0,20 Z" />
+      </svg>
+      <div className="bg-red-500 text-white fill-current py-16">
+        <div className="flex">
+          <div className="w-50v py-10 text-center font-extrabold text-5xl">
+            <h1 ref={heading} className="sticky top-1/2 w-max float-right mr-16" >WHAT ARE WE?</h1>
+          </div>
+          <div ref={cardsContainer} className="flex flex-col w-max">
+            {cardsData?.map((card) => <AboutCard key={card.title} {...card} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default AboutSection
