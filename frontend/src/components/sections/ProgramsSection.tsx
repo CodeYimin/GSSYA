@@ -3,7 +3,7 @@ import IProgram from '../../interfaces/IProgram';
 import ProgramCard from '../ProgramCard';
 
 export interface ProgramsSectionProps {
-  header: string;
+  header?: string;
   programs?: IProgram[] | null;
 }
 

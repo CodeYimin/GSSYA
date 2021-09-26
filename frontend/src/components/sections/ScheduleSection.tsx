@@ -3,7 +3,7 @@ import ISchedule from '../../interfaces/ISchedule';
 import Calendar from '../Calendar';
 
 export interface ScheduleSectionProps {
-  header: string;
+  header?: string;
   schedules: ISchedule[] | null;
 }
 

@@ -3,7 +3,7 @@ import ITeamMember from '../../interfaces/ITeamMember';
 import TeamMemberCard from '../TeamMemberCard';
 
 export interface TeamSectionProps {
-  header: string;
+  header?: string;
   members?: ITeamMember[] | null;
 }
 

@@ -3,7 +3,7 @@ import ISubject from '../../interfaces/ISubject';
 import ClassCard from '../SubjectCard';
 
 export interface SubjectsSectionProps {
-  header: string;
+  header?: string;
   subjects?: ISubject[] | null;
 }
 

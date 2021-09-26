@@ -3,7 +3,7 @@ import IAboutCard from '../../interfaces/IAboutCard';
 import AboutCard from '../AboutCard';
 
 export interface AboutSectionProps {
-  header: string;
+  header?: string;
   aboutCardsData?: IAboutCard[] | null;
 }
 

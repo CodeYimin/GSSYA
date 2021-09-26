@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import IHome from '../../interfaces/IHome'
 
 export interface HomeSectionProps {
-  content: IHome | null;
+  content?: IHome | null;
 }
 
 function HomeSection({ content }: HomeSectionProps): ReactElement {

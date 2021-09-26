@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import IContact from '../../interfaces/IContact';
 
 export interface ContactSectionProps {
-  header: string;
+  header?: string;
   contact?: IContact | null;
 }
 

@@ -3,7 +3,7 @@ import IQuestion from '../../interfaces/IQuestion';
 import QuestionCard from '../QuestionCard';
 
 export interface QuestionSectionProps {
-  header: string;
+  header?: string;
   questions?: IQuestion[] | null;
 }
 
