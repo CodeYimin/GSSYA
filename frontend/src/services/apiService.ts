@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 class ApiService {
-  private siteConfig: any = null;
+  private _siteConfig: any = null;
 
   async setConfig(): Promise<void> {
-    if (!this.siteConfig) {
-      this.siteConfig = await this.getApiResponseByUrl<any>('siteConfig.json');
+    if (!this._siteConfig) {
+      this._siteConfig = await this.getApiResponseByUrl<any>('siteConfig.json');
     }
   }
 
   async getApiResponseByName<T>(apiName: string): Promise<T> {
     await this.setConfig();
-    const apiEndPoint: string = this.siteConfig.apiEndPoints[apiName];
+    const apiEndPoint: string = this._siteConfig.apiEndPoints[apiName];
     return await this.getApiResponseByUrl<T>(apiEndPoint);
   }
 

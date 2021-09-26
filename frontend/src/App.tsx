@@ -19,6 +19,7 @@ import ISubject from './interfaces/ISubject';
 import ITeamMember from './interfaces/ITeamMember';
 import IHome from './interfaces/IHome';
 import IHeaders from './interfaces/IHeaders';
+import LoadingScreen from './components/LoadingScreen';
 
 const App = () => {
   const [language, setLanguage] = useState<string>('English');
@@ -38,19 +39,25 @@ const App = () => {
   const allHeaders = useApiData<IHeaders[]>('headers');
   const headers = allHeaders?.find((headers) => headers.language === language);
 
-  return (
-    <div className="font-inter bg-yellow-50">
-      <Navigation items={navigationData?.filter((data) => data.language === language)} languages={languages ?? []} onLanguageSelect={(language) => setLanguage(language)} />
-      <HomeSection content={homeData?.find((data) => data.language === language)}/>
-      <AboutSection header={headers?.about} aboutCardsData={aboutData?.filter((data) => data.language === language)} />
-      <ProgramsSection header={headers?.about} programs={programsData?.filter((data) => data.language === language)} />
-      <SubjectsSection header={headers?.subjects} subjects={subjectsData?.filter((data) => data.language === language)} />
-      <ScheduleSection header={headers?.schedules} schedules={schedulesData} />
-      <QuestionSection header={headers?.questions} questions={questionsData?.filter((data) => data.language === language)} />
-      <TeamSection header={headers?.teamMembers} members={teamMembersData?.filter((data) => data.language === language)} />
-      <ContactSection header={headers?.contact} contact={contactData?.filter((data) => data.language === language)[0]} />
-    </div>
-  );
+  if (languages && aboutData && contactData && homeData && navigationData && programsData && questionsData && schedulesData && subjectsData && teamMembersData && allHeaders) {
+    return (
+      <div className="font-inter bg-yellow-50">
+        <Navigation items={navigationData?.filter((data) => data.language === language)} languages={languages ?? []} onLanguageSelect={(language) => setLanguage(language)} />
+        <HomeSection content={homeData?.find((data) => data.language === language)}/>
+        <AboutSection header={headers?.about} aboutCardsData={aboutData?.filter((data) => data.language === language)} />
+        <ProgramsSection header={headers?.about} programs={programsData?.filter((data) => data.language === language)} />
+        <SubjectsSection header={headers?.subjects} subjects={subjectsData?.filter((data) => data.language === language)} />
+        <ScheduleSection header={headers?.schedules} schedules={schedulesData} />
+        <QuestionSection header={headers?.questions} questions={questionsData?.filter((data) => data.language === language)} />
+        <TeamSection header={headers?.teamMembers} members={teamMembersData?.filter((data) => data.language === language)} />
+        <ContactSection header={headers?.contact} contact={contactData?.filter((data) => data.language === language)[0]} />
+      </div>
+    );
+  } else {
+    return (
+      <LoadingScreen />
+    )
+  }
 };
 
 export default App;

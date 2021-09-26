@@ -14,7 +14,7 @@ function SubjectsSection({ subjects, header }: SubjectsSectionProps): ReactEleme
   useEffect(() => {
     const cards = [...cardsContainer.current!.children];
     cardsContainer.current!.style.height = classesExpanded ? `${cardsContainer.current?.scrollHeight}px` : `${cards[0]?.clientHeight}px`;
-  }, [cardsContainer.current, classesExpanded]);
+  }, [subjects, cardsContainer.current, classesExpanded]);
 
   return (
     <div id="classes" className="text-white fill-current">
