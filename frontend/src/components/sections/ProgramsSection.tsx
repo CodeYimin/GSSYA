@@ -1,10 +1,13 @@
 import React, { ReactElement } from 'react';
-import { IProgramCard } from '../../interfaces/IProgramCard';
-import { useApiData } from '../../services/apiService';
+import IProgram from '../../interfaces/IProgram';
 import ProgramCard from '../ProgramCard';
 
-function ProgramsSection(): ReactElement {
-  const programs = useApiData<IProgramCard[]>('programs');
+export interface ProgramsSectionProps {
+  header: string;
+  programs?: IProgram[] | null;
+}
+
+function ProgramsSection({ programs, header }: ProgramsSectionProps): ReactElement {
   
   return (
     <div id="programs" className="text-white fill-current">
@@ -17,7 +20,7 @@ function ProgramsSection(): ReactElement {
         </svg>
       </div>
       <div className="bg-blue-500 pb-16">
-        <h1 className="section-header">PROGRAMS</h1>
+        <h1 className="section-header">{header}</h1>
         <div className="flex justify-evenly flex-wrap">
           {programs?.map((program) => <ProgramCard key={program.name} {...program} />)}
         </div>

@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import IAboutCard from '../../interfaces/IAboutCard';
-import { useApiData } from '../../services/apiService';
 import AboutCard from '../AboutCard';
 
-function AboutSection() {
+export interface AboutSectionProps {
+  header: string;
+  aboutCardsData?: IAboutCard[] | null;
+}
+
+function AboutSection({ aboutCardsData, header }: AboutSectionProps) {
   const heading = useRef<HTMLHeadingElement>(null);
   const cardsContainer = useRef<HTMLDivElement>(null);
-  const cardsData = useApiData<IAboutCard[]>('about');
 
   // Add special effects to the card closest to header
   useEffect(() => {
@@ -30,13 +33,11 @@ function AboutSection() {
         if (card === closestCard) {
           card.style.scale = '1.10';
           card.style.marginLeft = '4rem';
-          card.classList.remove('text-red-400');
-          card.classList.add('text-white');
+          card.style.opacity = '100%'
         } else {
           card.style.scale = '1';
           card.style.marginLeft = '6rem';
-          card.classList.remove('text-white');
-          card.classList.add('text-red-400');
+          card.style.opacity = '30%'
         }
       })
     })
@@ -50,10 +51,10 @@ function AboutSection() {
       <div className="bg-red-500 text-white fill-current py-16">
         <div className="flex">
           <div className="w-50v py-10 text-center font-extrabold text-5xl">
-            <h1 ref={heading} className="sticky top-1/2 w-max float-right mr-16" >WHAT ARE WE?</h1>
+            <h1 ref={heading} className="sticky top-1/2 w-max float-right mr-16" >{header}</h1>
           </div>
           <div ref={cardsContainer} className="flex flex-col w-max">
-            {cardsData?.map((card) => <AboutCard key={card.title} {...card} />)}
+            {aboutCardsData?.map((card) => <AboutCard key={card.title} {...card} />)}
           </div>
         </div>
       </div>

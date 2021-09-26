@@ -1,10 +1,13 @@
 import React, { ReactElement } from 'react';
-import IQuestionInfo from '../../interfaces/IQuestion';
-import { useApiData } from '../../services/apiService';
+import IQuestion from '../../interfaces/IQuestion';
 import QuestionCard from '../QuestionCard';
 
-function QuestionSection(): ReactElement {
-  const questions = useApiData<IQuestionInfo[]>('questions');
+export interface QuestionSectionProps {
+  header: string;
+  questions?: IQuestion[] | null;
+}
+
+function QuestionSection({ questions, header }: QuestionSectionProps): ReactElement {
 
   return (
     <div id="questions" className="text-white">
@@ -12,7 +15,7 @@ function QuestionSection(): ReactElement {
         <path className="text-indigo-900 fill-current" d="M0,20 C180,-6 320,-6 500,20 L500,150 L0,20 Z" />
       </svg>
       <div className="bg-indigo-900 pb-16">
-        <h1 className="section-header">QUESTIONS</h1>
+        <h1 className="section-header">{header}</h1>
         <div className="w-3/4 mx-auto mt-5">
           {questions?.map((question) => (
             <QuestionCard key={question.question} {...question} />

@@ -1,10 +1,15 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import INavigationItem from '../../interfaces/INavigationItem'
-import { useApiData } from '../../services/apiService';
+import LanguageButton from '../LanguageButton';
 import NavigationItem from '../NavigationItem'
 
-function Navigation(): ReactElement {
-  const navigationItems = useApiData<INavigationItem[]>('navigation');
+export interface NavigationProps {
+  items?: INavigationItem[] | null;
+  languages: string[];
+  onLanguageSelect: (language: string) => void;
+}
+
+function Navigation({ items, languages, onLanguageSelect }: NavigationProps): ReactElement {
   const [currentY, setCurrentY] = useState(window.pageYOffset);
   const navBar = useRef<HTMLDivElement>(null);
 
@@ -37,16 +42,21 @@ function Navigation(): ReactElement {
   return (
     <div 
       ref={navBar} 
-      className="fixed flex w-full py-3 px-12 z-50 bg-yellow-50 transition-all duration-300 shadow-lg"
+      className="fixed flex w-full py-3 px-12 z-30 bg-yellow-50 transition-all duration-300 shadow-lg"
     >
       <header className="flex-1 text-5xl text-red-600">GSSYA</header>
-      <nav className="my-auto z-50">
-        {navigationItems?.map((item) => (
-          <NavigationItem key={item.name} {...item} />
+      <nav className="my-auto z-30">
+        {items?.map((item) => (
+          <NavigationItem key={item.label} {...item} />
         ))}
       </nav>
       <div className="flex-1">
-        
+        <div className="float-right">
+          <LanguageButton 
+            onLanguageSelect={onLanguageSelect}
+            languages={languages}
+          />
+        </div>
       </div>
     </div>
   )

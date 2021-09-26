@@ -1,16 +1,15 @@
 import React, { ReactElement } from 'react'
-import IClassInfo from '../interfaces/IClassInfo';
-import SVG from 'react-inlinesvg';
+import ISubject from '../interfaces/ISubject';
 
-function ProgramCard({ name, description, grade, svg }: IClassInfo): ReactElement {
+function SubjectCard({ name, description, grade, imageLink }: ISubject): ReactElement {
   return (
     <div className="text-center p-5 w-96">
       <div className="w-52 h-52 my-8 mx-auto">
         {
-          svg ?
-          <SVG 
-            src={svg} 
-            className="w-full h-full object-contain fill-current"
+          imageLink ?
+          <img 
+            src={imageLink} 
+            className="w-full h-full object-contain"
           /> :
           <div className="w-full h-full rounded-full bg-white" />
         }
@@ -22,4 +21,4 @@ function ProgramCard({ name, description, grade, svg }: IClassInfo): ReactElemen
   )
 }
 
-export default ProgramCard;
+export default SubjectCard;

@@ -1,13 +1,15 @@
 {
   "apiEndPoints": {
-    "about": "api/about.json",
-    "contact": "api/contact.json",
-    "home": "api/home.json",
-    "navigation": "api/navigation.json",
-    "programs": "api/programs.json",
-    "questions": "api/questions.json",
-    "schedules": "api/schedules.json",
-    "subjects": "api/subjects.json",
-    "teamMembers": "api/teamMembers.json"
+    "about": "http://localhost:3001/about",
+    "contact": "http://localhost:3001/contact",
+    "headers": "http://localhost:3001/headers",
+    "home": "http://localhost:3001/home",
+    "navigation": "http://localhost:3001/navigation",
+    "programs": "http://localhost:3001/programs",
+    "questions": "http://localhost:3001/questions",
+    "schedules": "http://localhost:3001/schedules",
+    "subjects": "http://localhost:3001/subjects",
+    "teamMembers": "http://localhost:3001/teamMembers",
+    "languages": "http://localhost:3001/languages"
   }
 }

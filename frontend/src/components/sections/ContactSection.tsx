@@ -1,21 +1,24 @@
 import React, { ReactElement } from 'react';
-import { IContactInfo } from '../../interfaces/IContactInfo';
-import { useApiData } from '../../services/apiService';
+import IContact from '../../interfaces/IContact';
 
-function ContactSection(): ReactElement {
-  const contactInfo = useApiData<IContactInfo>('contact');
+export interface ContactSectionProps {
+  header: string;
+  contact?: IContact | null;
+}
+
+function ContactSection({ contact, header }: ContactSectionProps): ReactElement {
 
   return (
     <div id="contact" className="bg-black text-white py-14">
-      <h1 className="section-header">CONTACT</h1>
+      <h1 className="section-header">{header}</h1>
       <div className="mx-auto w-max flex flex-col items-center text-xl mt-4">
         <div className="flex py-2">
           <i className="bi bi-telephone-fill" />
-          <p className="ml-2">{contactInfo?.phone}</p>
+          <p className="ml-2">{contact?.phone}</p>
         </div>
         <div className="flex py-2">
           <i className="bi bi-envelope-fill" />
-          <p className="ml-2">{contactInfo?.email}</p>
+          <p className="ml-2">{contact?.email}</p>
         </div>
       </div>
     </div>

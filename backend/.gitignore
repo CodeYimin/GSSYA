@@ -1,0 +1,4 @@
+dist
+node_modules
+src/services/sheets_credentials.json
+yarn-error.log

@@ -1,11 +1,13 @@
 import React, { ReactElement, useRef } from 'react';
-import IMonthSchedule from '../../interfaces/IMonthSchedule';
-import { useApiData } from '../../services/apiService';
+import ISchedule from '../../interfaces/ISchedule';
 import Calendar from '../Calendar';
 
-function ScheduleSection(): ReactElement {
-  const schedules = useApiData<IMonthSchedule[]>('schedules');
+export interface ScheduleSectionProps {
+  header: string;
+  schedules: ISchedule[] | null;
+}
 
+function ScheduleSection({ schedules, header }: ScheduleSectionProps): ReactElement {
   const timeElement = useRef<HTMLParagraphElement>(null);
   const selectedDateElement = useRef<HTMLParagraphElement>(null);
 
@@ -29,7 +31,7 @@ function ScheduleSection(): ReactElement {
         <path className="text-black fill-current" d="M0,20 C180,-6 320,-6 500,20 L500,150 L0,20 Z" />
       </svg>
       <div className="bg-black pb-16">
-        <h1 className="section-header text-white">SCHEDULE</h1>
+        <h1 className="section-header text-white">{header}</h1>
         <div className="w-max mx-auto mt-12">
           <Calendar onDateClick={handleDateClick} schedules={schedules} />
           <div className="bg-white py-3 mt-5 rounded-full">

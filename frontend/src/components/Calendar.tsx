@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react'
-import IMonthSchedule from '../interfaces/IMonthSchedule';
+import ISchedule from '../interfaces/ISchedule';
 import CalendarDate from './CalendarDate';
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -20,7 +20,7 @@ function getCurrentDateWithoutTime(): Date {
   return date;
 }
 
-function dateInSchedules(targetDate: Date, schedules: IMonthSchedule[]): boolean {
+function dateInSchedules(targetDate: Date, schedules: ISchedule[]): boolean {
   const year = targetDate.getFullYear();
   const correctedMonth = targetDate.getMonth() + 1;
   const date = targetDate.getDate();
@@ -38,7 +38,7 @@ function dateInSchedules(targetDate: Date, schedules: IMonthSchedule[]): boolean
     return false;
   }
 
-  if (targetSchedule.days?.includes(day) || targetSchedule.dates?.includes(date)) {
+  if (targetSchedule.daysOfWeek?.includes(day) || targetSchedule.dates?.includes(date)) {
     return true;
   } else {
     return false;
@@ -47,7 +47,7 @@ function dateInSchedules(targetDate: Date, schedules: IMonthSchedule[]): boolean
 
 interface CalendarProps {
   onDateClick: (date: Date) => void
-  schedules: IMonthSchedule[] | null,
+  schedules: ISchedule[] | null,
 }
 
 function Calendar({onDateClick, schedules}: CalendarProps): ReactElement {

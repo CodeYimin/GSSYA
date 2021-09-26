@@ -1,24 +1,20 @@
 import React, { useEffect, useRef, useState, ReactElement } from 'react';
-import IClassInfo from '../../interfaces/IClassInfo';
-import { useApiData } from '../../services/apiService';
-import ClassCard from '../ClassCard';
+import ISubject from '../../interfaces/ISubject';
+import ClassCard from '../SubjectCard';
 
-function ClassesSection(): ReactElement {
-  const subjectsInfo = useApiData<IClassInfo[]>('subjects');
-  const [originalClassDivHeight, setOriginalClassDivHeight] = useState<string>('');
+export interface SubjectsSectionProps {
+  header: string;
+  subjects?: ISubject[] | null;
+}
+
+function SubjectsSection({ subjects, header }: SubjectsSectionProps): ReactElement {
   const [classesExpanded, setClassesExpanded] = useState<boolean>(false);
   const cardsContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setOriginalClassDivHeight(`${cardsContainer.current?.clientHeight}px`);
-  }, [subjectsInfo]);
-
-  useEffect(() => {
     const cards = [...cardsContainer.current!.children];
-    if (cards.length) {
-      cardsContainer.current!.style.height = classesExpanded ? originalClassDivHeight : `${cards[0].clientHeight}px`;
-    }
-  }, [originalClassDivHeight, classesExpanded]);
+    cardsContainer.current!.style.height = classesExpanded ? `${cardsContainer.current?.scrollHeight}px` : `${cards[0]?.clientHeight}px`;
+  }, [cardsContainer.current, classesExpanded]);
 
   return (
     <div id="classes" className="text-white fill-current">
@@ -31,12 +27,12 @@ function ClassesSection(): ReactElement {
         </svg>
       </div>
       <div className="bg-blue-900 pb-12">
-        <h1 className="section-header">CLASSES</h1>
+        <h1 className="section-header">{header}</h1>
         <div 
           ref={cardsContainer} 
           className="flex flex-wrap justify-evenly overflow-hidden transition-all duration-500"
         >
-          {subjectsInfo?.map((info) => <ClassCard key={info.name} {...info} />)}
+          {subjects?.map((subject) => <ClassCard key={subject.name} {...subject} />)}
         </div>
         <div className="w-max mx-auto text-center mt-5 leading-3">
           <p>{classesExpanded ? 'Less' : 'More'}</p>
@@ -50,4 +46,4 @@ function ClassesSection(): ReactElement {
   )
 }
 
-export default ClassesSection
+export default SubjectsSection
