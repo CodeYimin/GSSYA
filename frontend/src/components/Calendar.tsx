@@ -1,49 +1,11 @@
 import React, { ReactElement, useState } from 'react'
 import ISchedule from '../interfaces/ISchedule';
+import { dateIsInSchedules, daysInMonth, getCurrentDateWithoutTime } from '../utils/dateUtils';
 import CalendarDate from './CalendarDate';
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
-
-// Month in JavaScript is 0-indexed (January is 0, February is 1, etc), 
-// but by using 0 as the day it will give us the last day of the prior
-// month. So passing in 1 as the month number will return the last day
-// of January, not February
-function daysInMonth(year: number, zeroIndexMonth: number): number {
-  return new Date(year, zeroIndexMonth + 1, 0).getDate();
-}
-
-function getCurrentDateWithoutTime(): Date {
-  const date = new Date();
-  date.setHours(0, 0, 0, 0);
-  return date;
-}
-
-function dateInSchedules(targetDate: Date, schedules: ISchedule[]): boolean {
-  const year = targetDate.getFullYear();
-  const correctedMonth = targetDate.getMonth() + 1;
-  const date = targetDate.getDate();
-  const day = targetDate.getDay();
-
-  const targetSchedule = schedules.filter((schedule) => (
-    schedule.year === year && schedule.month === correctedMonth
-  ))[0];
-
-  if (!targetSchedule) {
-    return false;
-  }
-
-  if (targetSchedule.excludeDates?.includes(date)) {
-    return false;
-  }
-
-  if (targetSchedule.daysOfWeek?.includes(day) || targetSchedule.dates?.includes(date)) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 interface CalendarProps {
   onDateClick: (date: Date) => void
@@ -51,12 +13,12 @@ interface CalendarProps {
 }
 
 function Calendar({onDateClick, schedules}: CalendarProps): ReactElement {
-  const currentDate = getCurrentDateWithoutTime();
+  const todaysDate = getCurrentDateWithoutTime();
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [browsingDate, setBrowsingDate] = useState<Date>(getCurrentDateWithoutTime());
+  const [displayedDate, setDisplayedDate] = useState<Date>(getCurrentDateWithoutTime());
 
-  const browsingYear = browsingDate.getFullYear();
-  const browsingMonth = browsingDate.getMonth();
+  const displayedYear = displayedDate.getFullYear();
+  const displayedMonth = displayedDate.getMonth();
 
   function handleDateClick(date: Date): void {
     setSelectedDate(date);
@@ -65,16 +27,16 @@ function Calendar({onDateClick, schedules}: CalendarProps): ReactElement {
 
   function renderDates(): ReactElement[] {
     const dates = [];
-    for (let i = 1; i <= daysInMonth(browsingYear, browsingMonth); i++) {
-      const targetDate = new Date(browsingYear, browsingMonth, i);
+    for (let i = 1; i <= daysInMonth(displayedYear, displayedMonth); i++) {
+      const targetDate = new Date(displayedYear, displayedMonth, i);
       dates.push(
         <CalendarDate 
           key={targetDate.getTime()}
           date={targetDate} 
           selected={targetDate.getTime() === selectedDate?.getTime()}
-          isCurrentDate={targetDate.getTime() === currentDate.getTime()}
+          isCurrentDate={targetDate.getTime() === todaysDate.getTime()}
           onClick={handleDateClick}
-          disabled={!schedules || !dateInSchedules(targetDate, schedules)}
+          disabled={!schedules || !dateIsInSchedules(targetDate, schedules)}
         />
       );
     }
@@ -82,7 +44,7 @@ function Calendar({onDateClick, schedules}: CalendarProps): ReactElement {
   }
 
   function changeBrowsingMonth(increment: number) {
-    setBrowsingDate(new Date(browsingYear, browsingMonth + increment));
+    setDisplayedDate(new Date(displayedYear, displayedMonth + increment));
   }
 
   return (
@@ -92,7 +54,7 @@ function Calendar({onDateClick, schedules}: CalendarProps): ReactElement {
           className="bi-chevron-left focus:outline-none"
           onClick={() => changeBrowsingMonth(-1)}
         />
-        <h1 className="">{monthNames[browsingMonth] + ' ' + browsingYear}</h1>
+        <h1 className="">{monthNames[displayedMonth] + ' ' + displayedYear}</h1>
         <button 
           className="bi-chevron-right focus:outline-none" 
           onClick={() => changeBrowsingMonth(1)}

@@ -20,6 +20,10 @@ function ContactSection({ contact, header }: ContactSectionProps): ReactElement 
           <i className="bi bi-envelope-fill" />
           <p className="ml-2">{contact?.email}</p>
         </div>
+        <div className="flex py-2">
+          <img src="images/weixin.svg" className="h-6 my-auto" />
+          <p className="ml-2">{contact?.wechat}</p>
+        </div>
       </div>
     </div>
   )

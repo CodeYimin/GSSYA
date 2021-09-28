@@ -45,7 +45,7 @@ const App = () => {
         <Navigation items={navigationData?.filter((data) => data.language === language)} languages={languages ?? []} onLanguageSelect={(language) => setLanguage(language)} />
         <HomeSection content={homeData?.find((data) => data.language === language)}/>
         <AboutSection header={headers?.about} aboutCardsData={aboutData?.filter((data) => data.language === language)} />
-        <ProgramsSection header={headers?.about} programs={programsData?.filter((data) => data.language === language)} />
+        <ProgramsSection header={headers?.programs} programs={programsData?.filter((data) => data.language === language)} />
         <SubjectsSection header={headers?.subjects} subjects={subjectsData?.filter((data) => data.language === language)} />
         <ScheduleSection header={headers?.schedules} schedules={schedulesData} />
         <QuestionSection header={headers?.questions} questions={questionsData?.filter((data) => data.language === language)} />

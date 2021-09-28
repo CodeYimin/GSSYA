@@ -20,6 +20,8 @@ function AboutSection({ aboutCardsData, header }: AboutSectionProps) {
       
       const cards = [...cardsContainer.current.children] as HTMLElement[];
       const headingBoundingRect = heading.current.getBoundingClientRect();
+
+      // Center of the header's document height
       const headingDocHeight = (headingBoundingRect.y + headingBoundingRect.bottom) / 2;
 
       const closestCard = cards.reduce((prev, curr) => {

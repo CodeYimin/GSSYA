@@ -1,5 +1,6 @@
 import React, { ReactElement, useRef } from 'react';
 import ISchedule from '../../interfaces/ISchedule';
+import { dateIsInSchedule } from '../../utils/dateUtils';
 import Calendar from '../Calendar';
 
 export interface ScheduleSectionProps {
@@ -16,12 +17,13 @@ function ScheduleSection({ schedules, header }: ScheduleSectionProps): ReactElem
       return;
     }
 
-    const targetSchedule = schedules.filter((schedule) => (
+    const targetSchedules = schedules.filter((schedule) => (
       schedule.year === date.getFullYear() && schedule.month - 1 === date.getMonth()
-    ))[0];
-    const time = targetSchedule.time;
+    ));
+    const targetSchedule = targetSchedules.find((schedule) => dateIsInSchedule(date, schedule));
+    const time = targetSchedule?.time;
 
-    timeElement.current && (timeElement.current.innerHTML = time!);
+    timeElement.current && (timeElement.current.innerHTML = time || "No time set");
     selectedDateElement.current && (selectedDateElement.current.innerHTML = date.toLocaleDateString());
   }
 

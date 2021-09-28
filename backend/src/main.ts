@@ -182,9 +182,9 @@ async function getSchedulesData(): Promise<ISchedule[]> {
     {
       year: parseInt(row.year),
       month: parseInt(row.month),
-      daysOfWeek: row.daysOfWeek.split(' ').map((numStr: string) => parseInt(numStr)),
-      dates: row.dates.split(' ').map((numStr: string) => parseInt(numStr)),
-      excludeDates: row.excludeDates.split(' ').map((numStr: string) => parseInt(numStr)),
+      daysOfWeek: row.daysOfWeek.split(',').map((numStr: string) => parseInt(numStr)),
+      dates: row.dates.split(',').map((numStr: string) => parseInt(numStr)),
+      excludeDates: row.excludeDates.split(',').map((numStr: string) => parseInt(numStr)),
       time: row.time,
     }
   ));
