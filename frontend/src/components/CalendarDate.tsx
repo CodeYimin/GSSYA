@@ -13,7 +13,7 @@ function CalendarDate({ date, onClick, disabled, selected, isCurrentDate}: Calen
     <div className="p-2" style={date.getDate() === 1 ? {"gridColumn": date.getDay() + 1} : {}}>
       <button 
         className={
-          "w-12 h-12 rounded-xl text-xl text-center outline-none focus:outline-none transition-all" + 
+          "w-8 h-8 md:w-12 md:h-12 rounded-xl text-xl text-center outline-none focus:outline-none transition-all" + 
           (isCurrentDate && !selected ? " bg-gray-900" : "") + 
           (selected ? " bg-red-500" : "") + 
           (disabled ? " text-gray-500 cursor-default" : " text-white")

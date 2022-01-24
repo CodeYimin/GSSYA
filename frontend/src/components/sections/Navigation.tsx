@@ -42,7 +42,7 @@ function Navigation({ items, languages, onLanguageSelect }: NavigationProps): Re
   return (
     <div 
       ref={navBar} 
-      className="fixed flex w-full py-3 px-12 z-30 bg-yellow-50 transition-all duration-300 shadow-lg"
+      className="hidden md:visible fixed md:flex w-full py-3 px-12 z-30 bg-yellow-50 transition-all duration-300 shadow-lg"
     >
       <header className="flex-1 text-5xl text-red-600">GSSYA</header>
       <nav className="my-auto z-30">

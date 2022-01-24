@@ -40,7 +40,7 @@ function ScheduleSection({ schedules, header }: ScheduleSectionProps): ReactElem
             <p ref={selectedDateElement} className="text-center text-gray-500" />
             <p 
               ref={timeElement} 
-              className="text-2xl text-black text-center"
+              className="text-l md:text-2xl text-black text-center"
             >
               Select a date to view class time
             </p>

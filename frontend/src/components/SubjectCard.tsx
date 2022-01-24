@@ -14,7 +14,7 @@ function SubjectCard({ name, description, grade, imageLink }: ISubject): ReactEl
           <div className="w-full h-full rounded-full bg-white" />
         }
       </div>
-      <h2 className="text-xl font-medium">Grade {grade}</h2>
+      <h2 className="text-xl font-medium">{grade}</h2>
       <h1 className="text-5xl font-bold">{name}</h1>
       <p className="my-2">{description}</p>
     </div>

@@ -16,9 +16,9 @@ function QuestionCard({ question, answer }: IQuestionInfo): ReactElement {
   }, [answerExpanded])
   
   return (
-    <div className="text-center py-2 text-lg font-medium">
+    <div className="text-center py-2 text-l md:text-lg font-medium">
       <div 
-        className="transition-all hover:text-xl bg-white text-indigo-900 p-5 rounded-lg cursor-pointer" 
+        className="transition-all md:hover:text-xl bg-white text-indigo-900 p-5 rounded-lg cursor-pointer" 
         onClick={() => setAnswerExpanded((current) => !current)}
       >
         {question}

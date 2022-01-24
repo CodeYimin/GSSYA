@@ -51,9 +51,9 @@ function AboutSection({ aboutCardsData, header }: AboutSectionProps) {
         <path className="text-red-500 fill-current" d="M0,0 C200,20 300,20 500,0 L500,150 L0,20 Z" />
       </svg>
       <div className="bg-red-500 text-white fill-current py-16">
-        <div className="flex">
-          <div className="w-50v py-10 text-center font-extrabold text-5xl">
-            <h1 ref={heading} className="sticky top-1/2 w-max float-right mr-16" >{header}</h1>
+        <div className="md:flex">
+          <div className=" md:visible md:w-50v py-10 text-center font-extrabold text-5xl">
+            <h1 ref={heading} className="md:sticky top-1/2 w-max m-auto md:float-right md:mr-16" >{header}</h1>
           </div>
           <div ref={cardsContainer} className="flex flex-col w-max">
             {aboutCardsData?.map((card) => <AboutCard key={card.title} {...card} />)}
