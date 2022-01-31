@@ -1,4 +1,4 @@
-dist
-node_modules
-src/services/sheets_credentials.json
+dist/
+node_modules/
 yarn-error.log
+.env

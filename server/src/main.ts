@@ -1,14 +1,18 @@
 import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import routes from "./routes";
 
-const app = express();
-const PORT = 4000;
+dotenv.config();
 
-mongoose.connect(
-  "mongodb+srv://ssytutor:ssytutor%21%21SSYTUTOR@gssya.pu7cx.mongodb.net/websiteDB"
-);
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+if (!process.env.MONGODB_URL) {
+  throw new Error("No mongodb url env variable found");
+}
+mongoose.connect(process.env.MONGODB_URL);
 
 app.use(cors());
 app.use("/", routes);
