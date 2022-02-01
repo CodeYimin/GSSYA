@@ -1,7 +1,7 @@
 import { WebsiteDataNavigationBar } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-import LanguageButton from "../LanguageButton";
-import NavigationItem from "../NavigationItem";
+import LanguageButton from "../components/LanguageButton";
+import NavigationItem from "../components/NavigationItem";
 
 export interface NavigationProps {
   data: WebsiteDataNavigationBar;

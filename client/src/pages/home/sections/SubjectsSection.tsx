@@ -1,6 +1,6 @@
 import { WebsiteDataSubjectsSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-import SubjectCard from "../SubjectCard";
+import SubjectCard from "../components/SubjectCard";
 
 function SubjectsSection({
   title,

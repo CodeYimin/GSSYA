@@ -1,6 +1,5 @@
 import { WebsiteDataTeamSectionMember } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import "../styles/flipCard.css";
 
 function TeamMemberCard({
   firstName,

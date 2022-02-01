@@ -1,6 +1,6 @@
 import { WebsiteDataQuestionsSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import QuestionCard from "../QuestionCard";
+import QuestionCard from "../components/QuestionCard";
 
 function QuestionSection({
   title,

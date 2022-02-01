@@ -1,6 +1,6 @@
 import { WebsiteDataProgramsSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import ProgramCard from "../ProgramCard";
+import ProgramCard from "../components/ProgramCard";
 
 function ProgramsSection({
   title,

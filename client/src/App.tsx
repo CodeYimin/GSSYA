@@ -1,16 +1,16 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
 import React, { useState } from "react";
 import LoadingScreen from "./components/LoadingScreen";
-import AboutSection from "./components/sections/AboutSection";
-import ContactSection from "./components/sections/ContactSection";
-import HomeSection from "./components/sections/HomeSection";
-import NavigationBar from "./components/sections/NavigationBar";
-import ProgramsSection from "./components/sections/ProgramsSection";
-import QuestionSection from "./components/sections/QuestionSection";
-import ScheduleSection from "./components/sections/ScheduleSection";
-import SubjectsSection from "./components/sections/SubjectsSection";
-import TeamSection from "./components/sections/TeamSection";
 import { useRestApiData } from "./hooks/restApi";
+import AboutSection from "./pages/home/sections/AboutSection";
+import ContactSection from "./pages/home/sections/ContactSection";
+import HomeSection from "./pages/home/sections/HomeSection";
+import NavigationBar from "./pages/home/sections/NavigationBar";
+import ProgramsSection from "./pages/home/sections/ProgramsSection";
+import QuestionSection from "./pages/home/sections/QuestionSection";
+import ScheduleSection from "./pages/home/sections/ScheduleSection";
+import SubjectsSection from "./pages/home/sections/SubjectsSection";
+import TeamSection from "./pages/home/sections/TeamSection";
 
 const App = () => {
   const [language, setLanguage] = useState<string>("English");

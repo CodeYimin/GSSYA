@@ -1,6 +1,6 @@
 import { WebsiteDataTeamSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import TeamMemberCard from "../TeamMemberCard";
+import TeamMemberCard from "../components/TeamMemberCard";
 
 function TeamSection({ title, members }: WebsiteDataTeamSection): ReactElement {
   return (

@@ -1,7 +1,7 @@
 import { WebsiteDataScheduleSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useRef } from "react";
-import { isSameDay } from "../../util/dateUtil";
-import Calendar from "../Calendar";
+import { isSameDay } from "../../../util/dateUtil";
+import Calendar from "../components/Calendar";
 
 function ScheduleSection({
   title,

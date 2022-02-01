@@ -1,6 +1,6 @@
 import { WebsiteDataAboutSection } from "@server/src/interfaces/mongoose.gen";
 import React, { useEffect, useRef } from "react";
-import AboutCard from "../AboutCard";
+import AboutCard from "../components/AboutCard";
 
 function AboutSection({ title, cards }: WebsiteDataAboutSection) {
   const heading = useRef<HTMLHeadingElement>(null);
