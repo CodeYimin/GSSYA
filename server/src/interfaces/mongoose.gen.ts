@@ -8,6 +8,20 @@
 import mongoose from "mongoose";
 
 /**
+ * Lean version of WebsiteDataHomeSectionDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataDocument.toObject()`.
+ * ```
+ * const websitedataObject = websitedata.toObject();
+ * ```
+ */
+export type WebsiteDataHomeSection = {
+  title?: string;
+  subtitle?: string;
+  _id: mongoose.Types.ObjectId;
+};
+
+/**
  * Lean version of WebsiteDataNavigationBarItemDocument
  *
  * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataNavigationBarDocument.toObject()`.
@@ -108,14 +122,14 @@ export type WebsiteDataProgramsSection = {
 };
 
 /**
- * Lean version of WebsiteDataClassesSectionClasseDocument
+ * Lean version of WebsiteDataSubjectsSectionSubjectDocument
  *
- * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataClassesSectionDocument.toObject()`.
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataSubjectsSectionDocument.toObject()`.
  * ```
- * const websitedataclassessectionObject = websitedataclassessection.toObject();
+ * const websitedatasubjectssectionObject = websitedatasubjectssection.toObject();
  * ```
  */
-export type WebsiteDataClassesSectionClasse = {
+export type WebsiteDataSubjectsSectionSubject = {
   title?: string;
   description?: string;
   image?: string;
@@ -124,18 +138,18 @@ export type WebsiteDataClassesSectionClasse = {
 };
 
 /**
- * Lean version of WebsiteDataClassesSectionDocument
+ * Lean version of WebsiteDataSubjectsSectionDocument
  *
  * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataDocument.toObject()`.
  * ```
  * const websitedataObject = websitedata.toObject();
  * ```
  */
-export type WebsiteDataClassesSection = {
+export type WebsiteDataSubjectsSection = {
   title?: string;
   viewMoreLabel?: string;
   _id: mongoose.Types.ObjectId;
-  classes: WebsiteDataClassesSectionClasse[];
+  subjects: WebsiteDataSubjectsSectionSubject[];
 };
 
 /**
@@ -147,7 +161,7 @@ export type WebsiteDataClassesSection = {
  * ```
  */
 export type WebsiteDataScheduleSectionActiveDate = {
-  date?: string;
+  date?: Date;
   time?: string;
   _id: mongoose.Types.ObjectId;
 };
@@ -203,8 +217,8 @@ export type WebsiteDataQuestionsSection = {
  * ```
  */
 export type WebsiteDataTeamSectionMember = {
-  firstName?: string;
-  lastName?: string;
+  firstName: string;
+  lastName: string;
   image?: string;
   role?: string;
   description?: string;
@@ -265,10 +279,11 @@ export type WebsiteDataContactSection = {
 export type WebsiteData = {
   language: string;
   _id: mongoose.Types.ObjectId;
+  homeSection: WebsiteDataHomeSection;
   navigationBar: WebsiteDataNavigationBar;
   aboutSection: WebsiteDataAboutSection;
   programsSection: WebsiteDataProgramsSection;
-  classesSection: WebsiteDataClassesSection;
+  subjectsSection: WebsiteDataSubjectsSection;
   scheduleSection: WebsiteDataScheduleSection;
   questionsSection: WebsiteDataQuestionsSection;
   teamSection: WebsiteDataTeamSection;
@@ -340,6 +355,21 @@ export type WebsiteDataSchema = mongoose.Schema<
   WebsiteDataMethods,
   WebsiteDataQueries
 >;
+
+/**
+ * Mongoose Document type
+ *
+ * Pass this type to the Mongoose Model constructor:
+ * ```
+ * const WebsiteData = mongoose.model<WebsiteDataDocument, WebsiteDataModel>("WebsiteData", WebsiteDataSchema);
+ * ```
+ */
+export type WebsiteDataHomeSectionDocument =
+  mongoose.Document<mongoose.Types.ObjectId> & {
+    title?: string;
+    subtitle?: string;
+    _id: mongoose.Types.ObjectId;
+  };
 
 /**
  * Mongoose Subdocument type
@@ -441,9 +471,9 @@ export type WebsiteDataProgramsSectionDocument =
 /**
  * Mongoose Subdocument type
  *
- * Type of `WebsiteDataClassesSectionDocument["classes"]` element.
+ * Type of `WebsiteDataSubjectsSectionDocument["subjects"]` element.
  */
-export type WebsiteDataClassesSectionClasseDocument =
+export type WebsiteDataSubjectsSectionSubjectDocument =
   mongoose.Types.Subdocument & {
     title?: string;
     description?: string;
@@ -460,12 +490,12 @@ export type WebsiteDataClassesSectionClasseDocument =
  * const WebsiteData = mongoose.model<WebsiteDataDocument, WebsiteDataModel>("WebsiteData", WebsiteDataSchema);
  * ```
  */
-export type WebsiteDataClassesSectionDocument =
+export type WebsiteDataSubjectsSectionDocument =
   mongoose.Document<mongoose.Types.ObjectId> & {
     title?: string;
     viewMoreLabel?: string;
     _id: mongoose.Types.ObjectId;
-    classes: mongoose.Types.DocumentArray<WebsiteDataClassesSectionClasseDocument>;
+    subjects: mongoose.Types.DocumentArray<WebsiteDataSubjectsSectionSubjectDocument>;
   };
 
 /**
@@ -475,7 +505,7 @@ export type WebsiteDataClassesSectionDocument =
  */
 export type WebsiteDataScheduleSectionActiveDateDocument =
   mongoose.Types.Subdocument & {
-    date?: string;
+    date?: Date;
     time?: string;
     _id: mongoose.Types.ObjectId;
   };
@@ -529,8 +559,8 @@ export type WebsiteDataQuestionsSectionDocument =
  */
 export type WebsiteDataTeamSectionMemberDocument =
   mongoose.Types.Subdocument & {
-    firstName?: string;
-    lastName?: string;
+    firstName: string;
+    lastName: string;
     image?: string;
     role?: string;
     description?: string;
@@ -598,10 +628,11 @@ export type WebsiteDataDocument = mongoose.Document<
   WebsiteDataMethods & {
     language: string;
     _id: mongoose.Types.ObjectId;
+    homeSection: WebsiteDataHomeSectionDocument;
     navigationBar: WebsiteDataNavigationBarDocument;
     aboutSection: WebsiteDataAboutSectionDocument;
     programsSection: WebsiteDataProgramsSectionDocument;
-    classesSection: WebsiteDataClassesSectionDocument;
+    subjectsSection: WebsiteDataSubjectsSectionDocument;
     scheduleSection: WebsiteDataScheduleSectionDocument;
     questionsSection: WebsiteDataQuestionsSectionDocument;
     teamSection: WebsiteDataTeamSectionDocument;

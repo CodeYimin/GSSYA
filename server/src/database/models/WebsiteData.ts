@@ -10,6 +10,13 @@ export const websiteDataSchema = new mongoose.Schema({
     unique: true,
     type: String,
   },
+  homeSection: {
+    required: true,
+    type: {
+      title: String,
+      subtitle: String,
+    },
+  },
   navigationBar: {
     required: true,
     type: {
@@ -65,11 +72,11 @@ export const websiteDataSchema = new mongoose.Schema({
       },
     },
   },
-  classesSection: {
+  subjectsSection: {
     required: true,
     type: {
       title: String,
-      classes: {
+      subjects: {
         required: true,
         type: [
           {
@@ -91,7 +98,7 @@ export const websiteDataSchema = new mongoose.Schema({
         required: true,
         type: [
           {
-            date: String,
+            date: Date,
             time: String,
           },
         ],
@@ -121,8 +128,14 @@ export const websiteDataSchema = new mongoose.Schema({
         required: true,
         type: [
           {
-            firstName: String,
-            lastName: String,
+            firstName: {
+              required: true,
+              type: String,
+            },
+            lastName: {
+              required: true,
+              type: String,
+            },
             image: String,
             role: String,
             description: String,
