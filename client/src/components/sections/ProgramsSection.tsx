@@ -1,12 +1,6 @@
 import { WebsiteDataProgramsSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import IProgram from "../../interfaces/IProgram";
 import ProgramCard from "../ProgramCard";
-
-export interface ProgramsSectionProps {
-  header?: string;
-  programs?: IProgram[] | null;
-}
 
 function ProgramsSection({
   title,

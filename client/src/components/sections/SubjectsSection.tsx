@@ -1,12 +1,6 @@
 import { WebsiteDataSubjectsSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-import ISubject from "../../interfaces/ISubject";
 import SubjectCard from "../SubjectCard";
-
-export interface SubjectsSectionProps {
-  header?: string;
-  subjects?: ISubject[] | null;
-}
 
 function SubjectsSection({
   title,
