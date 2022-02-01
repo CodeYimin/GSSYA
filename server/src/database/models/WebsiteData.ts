@@ -98,7 +98,10 @@ export const websiteDataSchema = new mongoose.Schema({
         required: true,
         type: [
           {
-            date: Date,
+            date: {
+              required: true,
+              type: Date,
+            },
             time: String,
           },
         ],

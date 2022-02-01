@@ -1,51 +1,66 @@
-import React, { ReactElement, useRef } from 'react'
-import ISchedule from '../../interfaces/ISchedule'
-import { dateIsInSchedule } from '../../util/dateUtil'
-import Calendar from '../Calendar'
+import { WebsiteDataScheduleSection } from "@server/src/interfaces/mongoose.gen";
+import React, { ReactElement, useRef } from "react";
+import { isSameDay } from "../../util/dateUtil";
+import Calendar from "../Calendar";
 
-export interface ScheduleSectionProps {
-  header?: string
-  schedules: ISchedule[] | null
-}
+function ScheduleSection({
+  title,
+  activeDates,
+}: WebsiteDataScheduleSection): ReactElement {
+  const timeElement = useRef<HTMLParagraphElement>(null);
+  const selectedDateElement = useRef<HTMLParagraphElement>(null);
 
-function ScheduleSection({ schedules, header }: ScheduleSectionProps): ReactElement {
-  const timeElement = useRef<HTMLParagraphElement>(null)
-  const selectedDateElement = useRef<HTMLParagraphElement>(null)
+  function handleDateClick(clickedDate: Date): void {
+    const clickedActiveDate = activeDates.find((activeDate) =>
+      isSameDay(activeDate.date, clickedDate)
+    );
 
-  function handleDateClick(date: Date): void {
-    if (!schedules) {
-      return
+    if (!clickedActiveDate) {
+      return;
     }
 
-    const targetSchedules = schedules.filter(
-      schedule => schedule.year === date.getFullYear() && schedule.month - 1 === date.getMonth(),
-    )
-    const targetSchedule = targetSchedules.find(schedule => dateIsInSchedule(date, schedule))
-    const time = targetSchedule?.time
-
-    timeElement.current && (timeElement.current.innerHTML = time || 'No time set')
-    selectedDateElement.current && (selectedDateElement.current.innerHTML = date.toLocaleDateString())
+    timeElement.current &&
+      (timeElement.current.innerHTML = clickedActiveDate.time || "No time set");
+    selectedDateElement.current &&
+      (selectedDateElement.current.innerHTML = clickedActiveDate.date.toLocaleDateString());
   }
 
   return (
     <div id="schedule" className="">
-      <svg className="h-15 bg-blue-900" width="100%" preserveAspectRatio="none" viewBox="0 0 500 20">
-        <path className="text-black fill-current" d="M0,20 C180,-6 320,-6 500,20 L500,150 L0,20 Z" />
+      <svg
+        className="h-15 bg-blue-900"
+        width="100%"
+        preserveAspectRatio="none"
+        viewBox="0 0 500 20"
+      >
+        <path
+          className="text-black fill-current"
+          d="M0,20 C180,-6 320,-6 500,20 L500,150 L0,20 Z"
+        />
       </svg>
       <div className="bg-black pb-16">
-        <h1 className="section-header text-white">{header}</h1>
+        <h1 className="section-header text-white">{title}</h1>
         <div className="w-max mx-auto mt-12">
-          <Calendar onDateClick={handleDateClick} schedules={schedules} />
+          <Calendar
+            onDateClick={handleDateClick}
+            enabledDates={activeDates.map((activeDate) => activeDate.date)}
+          />
           <div className="bg-white py-3 mt-5 rounded-full">
-            <p ref={selectedDateElement} className="text-center text-gray-500" />
-            <p ref={timeElement} className="text-l md:text-2xl text-black text-center">
+            <p
+              ref={selectedDateElement}
+              className="text-center text-gray-500"
+            />
+            <p
+              ref={timeElement}
+              className="text-l md:text-2xl text-black text-center"
+            >
               Select a date to view class time
             </p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ScheduleSection
+export default ScheduleSection;

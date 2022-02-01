@@ -1,15 +1,16 @@
 {
+  "baseUrl": "https://api.ssytutor.org",
   "apiEndPoints": {
-    "about": "http://localhost:3001/about",
-    "contact": "http://localhost:3001/contact",
-    "headers": "http://localhost:3001/headers",
-    "home": "http://localhost:3001/home",
-    "navigation": "http://localhost:3001/navigation",
-    "programs": "http://localhost:3001/programs",
-    "questions": "http://localhost:3001/questions",
-    "schedules": "http://localhost:3001/schedules",
-    "subjects": "http://localhost:3001/subjects",
-    "teamMembers": "http://localhost:3001/teamMembers",
-    "languages": "http://localhost:3001/languages"
+    "about": "/about",
+    "contact": "/contact",
+    "headers": "/headers",
+    "home": "/home",
+    "navigation": "/navigation",
+    "programs": "/programs",
+    "questions": "/questions",
+    "schedules": "/schedules",
+    "subjects": "/subjects",
+    "teamMembers": "/teamMembers",
+    "languages": "/languages"
   }
 }

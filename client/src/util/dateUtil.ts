@@ -1,6 +1,6 @@
 import ISchedule from "../interfaces/ISchedule";
 
-// Month in JavaScript is 0-indexed (January is 0, February is 1, etc), 
+// Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
 // but by using 0 as the day it will give us the last day of the prior
 // month. So passing in 1 as the month number will return the last day
 // of January, not February
@@ -14,7 +14,17 @@ export function getCurrentDateWithoutTime(): Date {
   return date;
 }
 
-export function dateIsInSchedule(targetDate: Date, schedule: ISchedule): boolean {
+export function isSameDay(dateA: Date, dateB: Date) {
+  return (
+    new Date(dateA).setHours(0, 0, 0, 0) ===
+    new Date(dateB).setHours(0, 0, 0, 0)
+  );
+}
+
+export function dateIsInSchedule(
+  targetDate: Date,
+  schedule: ISchedule
+): boolean {
   const date = targetDate.getDate();
   const day = targetDate.getDay();
 
@@ -33,13 +43,16 @@ export function dateIsInSchedule(targetDate: Date, schedule: ISchedule): boolean
   }
 }
 
-export function dateIsInSchedules(targetDate: Date, schedules: ISchedule[]): boolean {
+export function dateIsInSchedules(
+  targetDate: Date,
+  schedules: ISchedule[]
+): boolean {
   const year = targetDate.getFullYear();
   const correctedMonth = targetDate.getMonth() + 1;
 
-  const targetSchedules = schedules.filter((schedule) => (
-    schedule.year === year && schedule.month === correctedMonth
-  ));
+  const targetSchedules = schedules.filter(
+    (schedule) => schedule.year === year && schedule.month === correctedMonth
+  );
 
   for (const schedule of targetSchedules) {
     if (dateIsInSchedule(targetDate, schedule)) {

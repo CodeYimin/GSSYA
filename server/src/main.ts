@@ -20,3 +20,36 @@ app.use("/", routes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// WebsiteData.findOneAndUpdate(
+//   { language: "English" },
+//   {
+//     $set: {
+//       navigationBar: {},
+//       homeSection: {
+//         title: "Global Share Support Youth Association",
+//         subtitle:
+//           "We are a global youth organization that supports the youth of the world. We provide a free safe and secure tutoring environment for youth to learn, grow and develop their skills.",
+//       },
+//       aboutSection: {
+//         title: "About",
+//         cards: [
+//           {
+//             title: "Bruh",
+//             image:
+//               "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/NewTux.svg/640px-NewTux.svg.png",
+//           },
+//           { title: "Bruh" },
+//           { title: "Bruh" },
+//           { title: "aoeue" },
+//         ],
+//       },
+//       programsSection: {},
+//       subjectsSection: {},
+//       scheduleSection: { activeDates: [{ date: new Date(), time: "EU" }] },
+//       questionsSection: {},
+//       teamSection: {},
+//       contactSection: { contactInfo: {} },
+//     },
+//   }
+// ).then(() => {});

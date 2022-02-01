@@ -1,59 +1,89 @@
-import React, { ReactElement, useState } from 'react'
-import ISchedule from '../interfaces/ISchedule'
-import { dateIsInSchedules, daysInMonth, getCurrentDateWithoutTime } from '../util/dateUtil'
-import CalendarDate from './CalendarDate'
+import React, { ReactElement, useState } from "react";
+import {
+  daysInMonth,
+  getCurrentDateWithoutTime,
+  isSameDay,
+} from "../util/dateUtil";
+import CalendarDate from "./CalendarDate";
 
-const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 interface CalendarProps {
-  onDateClick: (date: Date) => void
-  schedules: ISchedule[] | null
+  onDateClick: (date: Date) => void;
+  enabledDates: Date[];
 }
 
-function Calendar({ onDateClick, schedules }: CalendarProps): ReactElement {
-  const todaysDate = getCurrentDateWithoutTime()
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-  const [displayedDate, setDisplayedDate] = useState<Date>(getCurrentDateWithoutTime())
+function Calendar({ onDateClick, enabledDates }: CalendarProps): ReactElement {
+  const todaysDate = getCurrentDateWithoutTime();
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [displayedDate, setDisplayedDate] = useState<Date>(
+    getCurrentDateWithoutTime()
+  );
 
-  const displayedYear = displayedDate.getFullYear()
-  const displayedMonth = displayedDate.getMonth()
+  const displayedYear = displayedDate.getFullYear();
+  const displayedMonth = displayedDate.getMonth();
 
   function handleDateClick(date: Date): void {
-    setSelectedDate(date)
-    onDateClick(date)
+    setSelectedDate(date);
+    onDateClick(date);
   }
 
   function renderDates(): ReactElement[] {
-    const dates = []
+    const dates = [];
     for (let i = 1; i <= daysInMonth(displayedYear, displayedMonth); i++) {
-      const targetDate = new Date(displayedYear, displayedMonth, i)
+      const targetDate = new Date(displayedYear, displayedMonth, i);
       dates.push(
         <CalendarDate
           key={targetDate.getTime()}
           date={targetDate}
-          selected={targetDate.getTime() === selectedDate?.getTime()}
-          isCurrentDate={targetDate.getTime() === todaysDate.getTime()}
+          selected={
+            selectedDate !== null && isSameDay(targetDate, selectedDate)
+          }
+          isCurrentDate={isSameDay(targetDate, todaysDate)}
           onClick={handleDateClick}
-          disabled={!schedules || !dateIsInSchedules(targetDate, schedules)}
-        />,
-      )
+          disabled={
+            !enabledDates.some((enabledDate) =>
+              isSameDay(enabledDate, targetDate)
+            )
+          }
+        />
+      );
     }
-    return dates
+    return dates;
   }
 
   function changeBrowsingMonth(increment: number) {
-    setDisplayedDate(new Date(displayedYear, displayedMonth + increment))
+    setDisplayedDate(new Date(displayedYear, displayedMonth + increment));
   }
 
   return (
     <div className="w-max text-center">
       <div className="flex justify-between text-white text-3xl">
-        <button className="bi-chevron-left focus:outline-none" onClick={() => changeBrowsingMonth(-1)} />
-        <h1 className="">{monthNames[displayedMonth] + ' ' + displayedYear}</h1>
-        <button className="bi-chevron-right focus:outline-none" onClick={() => changeBrowsingMonth(1)} />
+        <button
+          className="bi-chevron-left focus:outline-none"
+          onClick={() => changeBrowsingMonth(-1)}
+        />
+        <h1 className="">{monthNames[displayedMonth] + " " + displayedYear}</h1>
+        <button
+          className="bi-chevron-right focus:outline-none"
+          onClick={() => changeBrowsingMonth(1)}
+        />
       </div>
       <div className="grid grid-cols-7 text-black bg-white h-12 mt-5 rounded-full">
-        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => (
+        {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
           <div key={index} className="my-auto">
             {day}
           </div>
@@ -61,7 +91,7 @@ function Calendar({ onDateClick, schedules }: CalendarProps): ReactElement {
       </div>
       <div className="grid grid-cols-7 rounded-2xl">{renderDates()}</div>
     </div>
-  )
+  );
 }
 
-export default Calendar
+export default Calendar;

@@ -161,7 +161,7 @@ export type WebsiteDataSubjectsSection = {
  * ```
  */
 export type WebsiteDataScheduleSectionActiveDate = {
-  date?: Date;
+  date: Date;
   time?: string;
   _id: mongoose.Types.ObjectId;
 };
@@ -505,7 +505,7 @@ export type WebsiteDataSubjectsSectionDocument =
  */
 export type WebsiteDataScheduleSectionActiveDateDocument =
   mongoose.Types.Subdocument & {
-    date?: Date;
+    date: Date;
     time?: string;
     _id: mongoose.Types.ObjectId;
   };
