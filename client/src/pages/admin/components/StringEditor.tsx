@@ -19,7 +19,6 @@ const StringEditor = ({
   ): void {
     event.target.style.height = "auto";
     event.target.style.height = `${event.target.scrollHeight}px`;
-    console.log(event.target.scrollHeight);
 
     onValueChange(event.target.value);
   }

@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { createEmptyObjectFromSchema } from "../util/schemaUtil";
+import { createEmptyObjectFromSchema } from "../../../util/schemaUtil";
 import SchemaEditor from "./SchemaEditor";
 
 interface ArrayEditorProps {

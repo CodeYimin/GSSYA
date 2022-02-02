@@ -1,5 +1,6 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
 import { useRestApiData } from "@src/hooks/restApi";
+import { typeSyncObjectWithSchema } from "@src/util/schemaUtil";
 import { Schema } from "mongoose";
 import React, { ReactElement, useEffect, useState } from "react";
 import SchemaEditor from "./components/SchemaEditor";
@@ -12,6 +13,10 @@ const AdminPage = (): ReactElement => {
     "http://localhost:4000/websiteDatas"
   );
   const [websiteData, setWebsiteData] = useState<WebsiteData | null>(null);
+
+  websiteData &&
+    mongooseSchema &&
+    console.log(typeSyncObjectWithSchema(websiteData, mongooseSchema));
 
   useEffect(() => {
     if (websiteDatas) {
