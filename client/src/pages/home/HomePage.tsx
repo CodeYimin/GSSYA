@@ -1,7 +1,7 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
 import { typeSyncObjectWithSchema } from "@src/util/schemaUtil";
 import { Schema } from "mongoose";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { useRestApiData } from "src/hooks/restApi";
 import AboutSection from "./sections/AboutSection";
 import ContactSection from "./sections/ContactSection";
@@ -22,10 +22,13 @@ const HomePage = (): ReactElement => {
   const websiteDatas = useRestApiData<WebsiteData[]>(
     "http://localhost:4000/websitedatas"
   );
-  const websiteData =
-    websiteDatas &&
-    mongooseSchema &&
-    typeSyncObjectWithSchema(websiteDatas[0], mongooseSchema);
+  const [websiteData, setWebsiteData] = useState<WebsiteData | null>(null);
+
+  useEffect(() => {
+    if (websiteDatas && mongooseSchema) {
+      setWebsiteData(typeSyncObjectWithSchema(websiteDatas[0], mongooseSchema));
+    }
+  }, [websiteDatas]);
 
   if (!websiteData) {
     return <></>;

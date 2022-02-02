@@ -2,17 +2,20 @@ import { SchemaType } from "mongoose";
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 import ArrayEditor from "./ArrayEditor";
+import DateEditor from "./DateEditor";
 import SchemaEditor from "./SchemaEditor";
 import StringEditor from "./StringEditor";
 
-interface SchemaTypeEditorProps<T extends Record<string, any>> {
+interface SchemaTypeEditorProps<T> {
   schemaTypeName: string;
   schemaType: SchemaType;
   data: T;
   onDataChange: (newData: T) => void;
 }
 
-function SchemaTypeEditor<T extends Record<string, any>>({
+function SchemaTypeEditor<
+  T extends string | Date | any[] | Record<string, any> | null
+>({
   schemaTypeName,
   schemaType,
   data,
@@ -29,18 +32,20 @@ function SchemaTypeEditor<T extends Record<string, any>>({
           <StringEditor
             key={schemaTypeName}
             name={schemaTypeName}
-            value={data ? data[schemaTypeName] : null}
+            value={data as string}
             required={schemaType.options.required}
-            onValueChange={(newValue) => {
-              onDataChange({ ...data, [schemaTypeName]: newValue });
-            }}
+            onValueChange={onDataChange as (newData: string) => void}
           />
         );
       case "Date":
         return (
-          <div key={schemaTypeName}>
-            <b>Date:</b> {schemaTypeName}
-          </div>
+          <DateEditor
+            key={schemaTypeName}
+            name={schemaTypeName}
+            date={data as Date}
+            required={schemaType.options.required}
+            onValueChange={onDataChange as (newData: Date | null) => void}
+          />
         );
       case "Array":
         return (
@@ -48,10 +53,8 @@ function SchemaTypeEditor<T extends Record<string, any>>({
             key={schemaTypeName}
             name={schemaTypeName}
             itemsSchema={schemaType.schema}
-            items={data ? data[schemaTypeName] : []}
-            onItemsChange={(newData) => {
-              onDataChange({ ...data, [schemaTypeName]: newData });
-            }}
+            items={(data as any[]) || []}
+            onItemsChange={onDataChange as (newData: any[]) => void}
           />
         );
       case "Embedded":
@@ -60,10 +63,10 @@ function SchemaTypeEditor<T extends Record<string, any>>({
             key={schemaTypeName}
             name={schemaTypeName}
             schema={schemaType.schema}
-            data={data ? data[schemaTypeName] : null}
-            onDataChange={(newData) => {
-              onDataChange({ ...data, [schemaTypeName]: newData });
-            }}
+            data={data as Record<string, any>}
+            onDataChange={
+              onDataChange as (newData: Record<string, any>) => void
+            }
           />
         );
       default:

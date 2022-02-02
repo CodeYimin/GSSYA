@@ -14,13 +14,9 @@ const AdminPage = (): ReactElement => {
   );
   const [websiteData, setWebsiteData] = useState<WebsiteData | null>(null);
 
-  websiteData &&
-    mongooseSchema &&
-    console.log(typeSyncObjectWithSchema(websiteData, mongooseSchema));
-
   useEffect(() => {
-    if (websiteDatas) {
-      setWebsiteData(websiteDatas[0]);
+    if (websiteDatas && mongooseSchema) {
+      setWebsiteData(typeSyncObjectWithSchema(websiteDatas[0], mongooseSchema));
     }
   }, [websiteDatas]);
 
@@ -36,20 +32,22 @@ const AdminPage = (): ReactElement => {
     }
   }
 
+  if (!websiteData || !mongooseSchema) {
+    return <></>;
+  }
+
   return (
     <div>
       <h1>Admin Page</h1>
       <button onClick={saveUpdatedWebsiteData}>Save</button>
-      {mongooseSchema && websiteData && (
-        <SchemaEditor
-          name="Main"
-          schema={mongooseSchema}
-          data={websiteData}
-          onDataChange={(newData) => {
-            setWebsiteData(newData);
-          }}
-        />
-      )}
+      <SchemaEditor
+        name="Main"
+        schema={mongooseSchema}
+        data={websiteData}
+        onDataChange={(newData) => {
+          setWebsiteData(newData);
+        }}
+      />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { Schema, SchemaType } from "mongoose";
 
 export function createEmptyObjectFromSchema(schema: Schema) {
-  Object.entries(schema.paths).reduce<Record<string, any>>(
+  return Object.entries(schema.paths).reduce<Record<string, any>>(
     (object, [schemaTypeName, schemaType]) => {
       object[schemaTypeName] = createEmptyValueFromSchemaType(schemaType);
       return object;
@@ -24,22 +24,22 @@ export function createEmptyValueFromSchemaType(schemaType: SchemaType) {
   }
 }
 
-export function typeSyncObjectWithSchema(
-  object: Record<string, any>,
+// Mutates
+export function typeSyncObjectWithSchema<T extends Record<string, any>>(
+  object: T,
   schema: Schema
-): Record<string, any> {
-  return Object.entries(schema.paths).reduce<Record<string, any>>(
-    (object, [schemaTypeName, schemaType]) => {
-      object[schemaTypeName] = typeSyncValueWithSchemaType(
-        object[schemaTypeName],
-        schemaType
-      );
-      return object;
-    },
-    object
-  );
+): T {
+  Object.entries(schema.paths).forEach(([schemaTypeName, schemaType]) => {
+    (object as any)[schemaTypeName] = typeSyncValueWithSchemaType(
+      object[schemaTypeName],
+      schemaType
+    );
+  });
+
+  return object;
 }
 
+// Mutates
 export function typeSyncValueWithSchemaType(
   value: any,
   schemaType: SchemaType

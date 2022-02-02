@@ -30,8 +30,10 @@ function SchemaEditor<T extends Record<string, any>>({
           key={schemaTypeName}
           schemaTypeName={schemaTypeName}
           schemaType={schemaType}
-          data={data}
-          onDataChange={onDataChange}
+          data={data[schemaTypeName]}
+          onDataChange={(newData) => {
+            onDataChange({ ...data, [schemaTypeName]: newData });
+          }}
         />
       );
     });
