@@ -1,6 +1,5 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useState } from "react";
-import LoadingScreen from "src/components/LoadingScreen";
 import { useRestApiData } from "src/hooks/restApi";
 import AboutSection from "./sections/AboutSection";
 import ContactSection from "./sections/ContactSection";
@@ -31,29 +30,29 @@ const HomePage = (): ReactElement => {
     );
   }
 
-  if (websiteData) {
-    return (
-      <div className="font-inter bg-yellow-50">
-        <NavigationBar
-          languages={
-            websiteDatas ? websiteDatas.map((data) => data.language) : []
-          }
-          onLanguageSelect={(language) => setLanguage(language)}
-          data={websiteData.navigationBar}
-        />
-        <HomeSection {...websiteData.homeSection} />
-        <AboutSection {...websiteData.aboutSection} />
-        <ProgramsSection {...websiteData.programsSection} />
-        <SubjectsSection {...websiteData.subjectsSection} />
-        <ScheduleSection {...websiteData.scheduleSection} />
-        <QuestionSection {...websiteData.questionsSection} />
-        <TeamSection {...websiteData.teamSection} />
-        <ContactSection {...websiteData.contactSection} />
-      </div>
-    );
-  } else {
-    return <LoadingScreen />;
+  if (!websiteData) {
+    return <></>;
   }
+
+  return (
+    <div className="font-inter bg-yellow-50">
+      <NavigationBar
+        languages={
+          websiteDatas ? websiteDatas.map((data) => data.language) : []
+        }
+        onLanguageSelect={(language) => setLanguage(language)}
+        data={websiteData.navigationBar}
+      />
+      <HomeSection {...websiteData.homeSection} />
+      <AboutSection {...websiteData.aboutSection} />
+      <ProgramsSection {...websiteData.programsSection} />
+      <SubjectsSection {...websiteData.subjectsSection} />
+      <ScheduleSection {...websiteData.scheduleSection} />
+      <QuestionSection {...websiteData.questionsSection} />
+      <TeamSection {...websiteData.teamSection} />
+      <ContactSection {...websiteData.contactSection} />
+    </div>
+  );
 };
 
 export default HomePage;
