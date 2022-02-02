@@ -32,7 +32,7 @@ app.listen(PORT, () => {
 //           "We are a global youth organization that supports the youth of the world. We provide a free safe and secure tutoring environment for youth to learn, grow and develop their skills.",
 //       },
 //       aboutSection: {
-//         title: "About",
+//         title: "Aboute",
 //         cards: [
 //           {
 //             title: "Bruh",
@@ -46,7 +46,9 @@ app.listen(PORT, () => {
 //       },
 //       programsSection: {},
 //       subjectsSection: {},
-//       scheduleSection: { activeDates: [{ date: new Date(), time: "EU" }] },
+//       scheduleSection: {
+//         activeDates: [{ date: new Date().toString(), time: "EUEU" }],
+//       },
 //       questionsSection: {},
 //       teamSection: {},
 //       contactSection: { contactInfo: {} },
