@@ -3,7 +3,7 @@ import React, { ReactElement } from "react";
 import SchemaTypeEditor from "./SchemaTypeEditor";
 
 interface SchemaEditorProps<T extends Record<string, any>> {
-  name: string;
+  name?: string;
   schema: Schema;
   data: T;
   onDataChange: (newData: T) => void;
@@ -15,7 +15,7 @@ function SchemaEditor<T extends Record<string, any>>({
   data,
   onDataChange,
 }: SchemaEditorProps<T>): ReactElement {
-  const [pathsVisible, setPathsVisible] = React.useState<boolean>(false);
+  const [pathsVisible, setPathsVisible] = React.useState<boolean>(!name);
 
   const paths = schema.paths;
 
@@ -41,10 +41,12 @@ function SchemaEditor<T extends Record<string, any>>({
 
   return (
     <div>
-      {name}{" "}
-      <button onClick={() => setPathsVisible(!pathsVisible)}>
-        Expand/Collapse
-      </button>
+      {name}
+      {name ? (
+        <button onClick={() => setPathsVisible(!pathsVisible)}>
+          Expand/Collapse
+        </button>
+      ) : null}
       <div hidden={!pathsVisible}>{renderPaths()}</div>
     </div>
   );

@@ -7,7 +7,7 @@ import SchemaEditor from "./SchemaEditor";
 import StringEditor from "./StringEditor";
 
 interface SchemaTypeEditorProps<T> {
-  schemaTypeName: string;
+  schemaTypeName?: string;
   schemaType: SchemaType;
   data: T;
   onDataChange: (newData: T) => void;
@@ -22,15 +22,10 @@ function SchemaTypeEditor<
   onDataChange,
 }: SchemaTypeEditorProps<T>): ReactElement {
   function renderEditor() {
-    if (["__v", "_id"].includes(schemaTypeName)) {
-      return null;
-    }
-
     switch (schemaType.instance) {
       case "String":
         return (
           <StringEditor
-            key={schemaTypeName}
             name={schemaTypeName}
             value={data as string}
             required={schemaType.options.required}
@@ -40,7 +35,6 @@ function SchemaTypeEditor<
       case "Date":
         return (
           <DateEditor
-            key={schemaTypeName}
             name={schemaTypeName}
             date={data as Date}
             required={schemaType.options.required}
@@ -50,7 +44,6 @@ function SchemaTypeEditor<
       case "Array":
         return (
           <ArrayEditor
-            key={schemaTypeName}
             name={schemaTypeName}
             itemsSchema={schemaType.schema}
             items={(data as any[]) || []}
@@ -60,7 +53,6 @@ function SchemaTypeEditor<
       case "Embedded":
         return (
           <SchemaEditor
-            key={schemaTypeName}
             name={schemaTypeName}
             schema={schemaType.schema}
             data={data as Record<string, any>}
@@ -77,7 +69,7 @@ function SchemaTypeEditor<
   return (
     <div>
       {name}
-      <IndentedDiv>{renderEditor()}</IndentedDiv>
+      <div>{renderEditor()}</div>
     </div>
   );
 }

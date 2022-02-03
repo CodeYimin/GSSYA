@@ -1,8 +1,9 @@
-import React, { ReactElement } from "react";
+import { camelCaseToNormal } from "@src/util/stringUtil";
+import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
 
 interface StringEditorProps {
-  name: string;
+  name?: string;
   value: string;
   required: boolean;
   onValueChange: (newData: string) => void;
@@ -14,9 +15,9 @@ const StringEditor = ({
   required,
   onValueChange,
 }: StringEditorProps): ReactElement => {
-  function handleInputChange(
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ): void {
+  const [inputFocused, setInputFocused] = useState<boolean>(false);
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>): void {
     event.target.style.height = "auto";
     event.target.style.height = `${event.target.scrollHeight}px`;
 
@@ -24,25 +25,56 @@ const StringEditor = ({
   }
 
   return (
-    <div>
-      <label>{name}</label>
-      <StyledTextArea
-        alert={required && !value}
+    <MainContainer>
+      <StyledLabel>{name && camelCaseToNormal(name)}</StyledLabel>
+      <StyledInput
         onChange={handleInputChange}
         value={value || ""}
+        placeholder="Type something..."
+        onFocus={() => setInputFocused(true)}
+        onBlur={() => setInputFocused(false)}
       />
-    </div>
+      <InputUnderline focused={inputFocused} />
+    </MainContainer>
   );
 };
 
-const StyledTextArea = styled.textarea<{ alert: boolean }>`
-  background-color: ${(props) => (props.alert ? "red" : "none")};
+const MainContainer = styled.div`
+  background-color: white;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem 1rem 1.5rem;
+  margin: 1.5rem 0;
+`;
+
+const StyledLabel = styled.label`
+  font-size: 1.5rem;
+`;
+
+const StyledInput = styled.input`
   display: block;
-  width: 15rem;
-  border: 1px solid black;
-  resize: none;
-  ::-webkit-scrollbar {
-    display: none;
+  width: 100%;
+  padding: 0.5rem 0.2rem 0.2rem 0;
+  color: black;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const InputUnderline = styled.div<{ focused: boolean }>`
+  width: 100%;
+  height: 1px;
+  background-color: #cbcbcb;
+
+  &:before {
+    display: block;
+    content: "";
+    margin: auto;
+    width: ${(props) => (props.focused ? 100 : 0)}%;
+    height: 2px;
+    background-color: #585858;
+    transition: all 0.2s;
   }
 `;
 
