@@ -16,7 +16,9 @@ const AdminPage = (): ReactElement => {
 
   useEffect(() => {
     if (websiteDatas && mongooseSchema) {
-      setWebsiteData(typeSyncObjectWithSchema(websiteDatas[0], mongooseSchema));
+      setWebsiteData(
+        typeSyncObjectWithSchema<WebsiteData>(websiteDatas[0], mongooseSchema)
+      );
     }
   }, [websiteDatas]);
 

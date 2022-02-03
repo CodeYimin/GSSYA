@@ -1,4 +1,5 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
+import { Jsonized } from "@src/types/util";
 import { typeSyncObjectWithSchema } from "@src/util/schemaUtil";
 import { Schema } from "mongoose";
 import React, { ReactElement, useEffect, useState } from "react";
@@ -19,14 +20,16 @@ const HomePage = (): ReactElement => {
   const mongooseSchema = useRestApiData<Schema>(
     "http://localhost:4000/mongooseSchema"
   );
-  const websiteDatas = useRestApiData<WebsiteData[]>(
+  const websiteDatas = useRestApiData<Jsonized<WebsiteData[]>>(
     "http://localhost:4000/websitedatas"
   );
   const [websiteData, setWebsiteData] = useState<WebsiteData | null>(null);
 
   useEffect(() => {
     if (websiteDatas && mongooseSchema) {
-      setWebsiteData(typeSyncObjectWithSchema(websiteDatas[0], mongooseSchema));
+      setWebsiteData(
+        typeSyncObjectWithSchema<WebsiteData>(websiteDatas[0], mongooseSchema)
+      );
     }
   }, [websiteDatas]);
 

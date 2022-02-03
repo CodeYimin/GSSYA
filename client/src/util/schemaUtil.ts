@@ -26,7 +26,7 @@ export function createEmptyValueFromSchemaType(schemaType: SchemaType) {
 
 // Mutates
 export function typeSyncObjectWithSchema<T extends Record<string, any>>(
-  object: T,
+  object: Record<string, any>,
   schema: Schema
 ): T {
   Object.entries(schema.paths).forEach(([schemaTypeName, schemaType]) => {
@@ -36,7 +36,7 @@ export function typeSyncObjectWithSchema<T extends Record<string, any>>(
     );
   });
 
-  return object;
+  return object as T;
 }
 
 // Mutates
