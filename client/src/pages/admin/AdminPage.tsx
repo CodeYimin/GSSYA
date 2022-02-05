@@ -87,6 +87,7 @@ const MainContainer = styled.div`
 
 const EditorContainer = styled.div`
   padding: 5rem;
+  overflow: scroll;
   flex-grow: 1;
 `;
 

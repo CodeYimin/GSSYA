@@ -1,3 +1,4 @@
+import { FieldContainer, FieldLabel } from "@src/styles/styles";
 import { camelCaseToNormal } from "@src/util/stringUtil";
 import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
@@ -25,8 +26,8 @@ const StringEditor = ({
   }
 
   return (
-    <MainContainer>
-      <StyledLabel>{name && camelCaseToNormal(name)}</StyledLabel>
+    <FieldContainer>
+      <FieldLabel>{name && camelCaseToNormal(name)}</FieldLabel>
       <StyledInput
         onChange={handleInputChange}
         value={value || ""}
@@ -35,21 +36,9 @@ const StringEditor = ({
         onBlur={() => setInputFocused(false)}
       />
       <InputUnderline focused={inputFocused} />
-    </MainContainer>
+    </FieldContainer>
   );
 };
-
-const MainContainer = styled.div`
-  background-color: white;
-  width: 100%;
-  border-radius: 1rem;
-  padding: 0.75rem 1.5rem 1rem 1.5rem;
-  margin: 1.5rem 0;
-`;
-
-const StyledLabel = styled.label`
-  font-size: 1.5rem;
-`;
 
 const StyledInput = styled.input`
   display: block;

@@ -1,5 +1,8 @@
+import { FieldLabel } from "@src/styles/styles";
+import { camelCaseToNormal } from "@src/util/stringUtil";
 import { Schema } from "mongoose";
 import React, { ReactElement } from "react";
+import styled from "styled-components";
 import SchemaTypeEditor from "./SchemaTypeEditor";
 
 interface SchemaEditorProps<T extends Record<string, any>> {
@@ -40,16 +43,31 @@ function SchemaEditor<T extends Record<string, any>>({
   }
 
   return (
-    <div>
-      {name}
-      {name ? (
-        <button onClick={() => setPathsVisible(!pathsVisible)}>
-          Expand/Collapse
-        </button>
-      ) : null}
-      <div hidden={!pathsVisible}>{renderPaths()}</div>
-    </div>
+    <MainContainer>
+      <HeaderContainer>
+        {name && <FieldLabel>{camelCaseToNormal(name)}</FieldLabel>}
+        {name ? (
+          <button onClick={() => setPathsVisible(!pathsVisible)}>
+            Expand/Collapse
+          </button>
+        ) : null}
+      </HeaderContainer>
+      <ContentContainer hidden={!pathsVisible}>
+        {renderPaths()}
+      </ContentContainer>
+    </MainContainer>
   );
 }
+
+const MainContainer = styled.div``;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ContentContainer = styled.div`
+  padding: 1rem;
+`;
 
 export default SchemaEditor;
