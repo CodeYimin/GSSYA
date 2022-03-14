@@ -130,7 +130,7 @@ const AdminPage = (): ReactElement => {
             );
           })}
         </SideBarButtonContainer>
-        <SideBarButton onClick={saveWebsiteDataToServer}>Save</SideBarButton>
+        <SaveButton onClick={saveWebsiteDataToServer}>Save</SaveButton>
       </SideBar>
       <EditorContainer>
         {selectedPathName && (
@@ -185,10 +185,21 @@ const SideBarButton = styled.button<{ selected?: boolean }>`
 
   border-radius: 0.5rem;
 
+  transition: background-color 0.2s ease-in-out;
+
   &,
   &:focus {
     outline: ${(props) => (props.selected ? 2 : 0)}px solid #ff3c3c;
   }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`;
+
+const SaveButton = styled(SideBarButton)`
+  font-weight: 700;
+  color: #00b359;
 `;
 
 export default AdminPage;

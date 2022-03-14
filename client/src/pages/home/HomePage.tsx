@@ -25,11 +25,22 @@ const HomePage = (): ReactElement => {
   );
   const [websiteData, setWebsiteData] = useState<WebsiteData | null>(null);
 
+  // Change website data on language change
   useEffect(() => {
     if (websiteDatas && mongooseSchema) {
       setWebsiteData(
-        typeSyncObjectWithSchema<WebsiteData>(websiteDatas[0], mongooseSchema)
+        typeSyncObjectWithSchema<WebsiteData>(
+          websiteDatas.find((data) => data.language === language)!,
+          mongooseSchema
+        )
       );
+    }
+  }, [language]);
+
+  // Set first language on load
+  useEffect(() => {
+    if (websiteDatas) {
+      setLanguage(websiteDatas[0].language);
     }
   }, [websiteDatas]);
 
