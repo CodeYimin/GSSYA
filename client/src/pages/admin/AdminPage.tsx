@@ -1,6 +1,10 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
 import { useRestApiData } from "@src/hooks/restApi";
-import { typeSyncObjectWithSchema } from "@src/util/schemaUtil";
+import { Jsonized } from "@src/types/util";
+import {
+  createEmptyObjectFromSchema,
+  typeSyncObjectWithSchema,
+} from "@src/util/schemaUtil";
 import { camelCaseToNormal } from "@src/util/stringUtil";
 import { Schema } from "mongoose";
 import React, { ReactElement, useEffect, useState } from "react";
@@ -8,47 +12,116 @@ import styled from "styled-components";
 import SchemaTypeEditor from "./components/SchemaTypeEditor";
 
 const AdminPage = (): ReactElement => {
-  const mongooseSchema = useRestApiData<Schema>(
+  const mongooseSchemaApi = useRestApiData<Jsonized<Schema>>(
     "http://localhost:4000/mongooseSchema"
   );
-  const websiteDatas = useRestApiData<WebsiteData[]>(
+  const websiteDatasApi = useRestApiData<Jsonized<WebsiteData[]>>(
     "http://localhost:4000/websiteDatas"
   );
-  const [websiteData, setWebsiteData] = useState<WebsiteData | null>(null);
 
+  const [websiteDatas, setWebsiteDatas] = useState<WebsiteData[] | null>(null);
+  const [selectedDataId, setSelectedDataId] = useState<string | null>(null);
   const [selectedPathName, setSelectedPathName] = useState<string | null>(null);
+  const selectedWebsiteData = websiteDatas?.find(
+    (data) => data._id.toString() === selectedDataId
+  );
 
+  // Type sync websiteDatasApi and store it in websiteDatas
   useEffect(() => {
-    if (websiteDatas && mongooseSchema) {
-      setWebsiteData(
-        typeSyncObjectWithSchema<WebsiteData>(websiteDatas[0], mongooseSchema)
+    if (websiteDatasApi && mongooseSchemaApi) {
+      setWebsiteDatas(
+        websiteDatasApi.map((websiteDataApi) =>
+          typeSyncObjectWithSchema<WebsiteData>(
+            websiteDataApi,
+            mongooseSchemaApi
+          )
+        )
       );
+    }
+  }, [websiteDatasApi]);
+
+  // Automatically select first website data on load
+  useEffect(() => {
+    if (selectedDataId === null && websiteDatas != null) {
+      setSelectedDataId(websiteDatas[0]._id.toString());
     }
   }, [websiteDatas]);
 
-  function saveWebsiteData() {
-    if (websiteData) {
-      fetch("http://localhost:4000/websiteData", {
+  // Save modified website data
+  async function saveWebsiteDataToServer() {
+    if (selectedWebsiteData) {
+      const res = await fetch("http://localhost:4000/websiteData", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(websiteData),
+        body: JSON.stringify(selectedWebsiteData),
       });
+
+      if (res.status === 200) {
+        alert("WebsiteData saved successfully");
+      } else {
+        alert("Failed to save WebsiteData");
+      }
     }
   }
 
-  if (!websiteData || !mongooseSchema) {
-    return <></>;
+  function handleEditorDataChange(newPathData: any) {
+    if (!websiteDatas || !selectedPathName) {
+      return;
+    }
+
+    const newWebsiteDatas = websiteDatas.map((websiteData) =>
+      websiteData._id.toString() === selectedDataId
+        ? { ...websiteData, [selectedPathName]: newPathData }
+        : websiteData
+    );
+    setWebsiteDatas(newWebsiteDatas);
   }
 
-  return (
+  function handleWebsiteDataSelect(
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) {
+    if (!websiteDatas || !mongooseSchemaApi) {
+      return;
+    }
+
+    if (event.target.value === "new") {
+      const newData = createEmptyObjectFromSchema<WebsiteData>(
+        mongooseSchemaApi
+      );
+      console.log(newData);
+
+      setWebsiteDatas([...websiteDatas, newData]);
+      setSelectedDataId(newData._id.toString());
+    } else {
+      setSelectedDataId(event.target.value);
+    }
+  }
+
+  return websiteDatas && mongooseSchemaApi ? (
     <MainContainer>
       <SideBar>
+        <select
+          onChange={handleWebsiteDataSelect}
+          defaultValue={websiteDatas[0]._id as any}
+          value={selectedDataId || undefined}
+        >
+          {websiteDatas.map((websiteData, index) => (
+            <option
+              key={websiteData._id.toString()}
+              value={websiteData._id.toString()}
+            >
+              Data {index}
+            </option>
+          ))}
+          <option value="new">+ Add New</option>
+        </select>
         <SideBarButtonContainer>
-          {Object.keys(mongooseSchema.paths).map((pathName) => {
+          {Object.keys(mongooseSchemaApi.paths).map((pathName) => {
             return pathName.startsWith("_") ? null : (
               <SideBarButton
+                key={pathName}
                 onClick={() => setSelectedPathName(pathName)}
                 selected={pathName === selectedPathName}
               >
@@ -57,23 +130,21 @@ const AdminPage = (): ReactElement => {
             );
           })}
         </SideBarButtonContainer>
-        <SideBarButton onClick={saveWebsiteData}>Save</SideBarButton>
+        <SideBarButton onClick={saveWebsiteDataToServer}>Save</SideBarButton>
       </SideBar>
       <EditorContainer>
         {selectedPathName && (
           <SchemaTypeEditor
-            schemaType={mongooseSchema.paths[selectedPathName]}
-            data={websiteData[selectedPathName]}
-            onDataChange={(newData) =>
-              setWebsiteData({
-                ...websiteData,
-                [selectedPathName]: newData,
-              })
-            }
+            schemaType={mongooseSchemaApi.paths[selectedPathName]}
+            data={(selectedWebsiteData as any)[selectedPathName]}
+            onDataChange={handleEditorDataChange}
+            addFieldContainers
           />
         )}
       </EditorContainer>
     </MainContainer>
+  ) : (
+    <></>
   );
 };
 

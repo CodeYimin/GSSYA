@@ -1,12 +1,16 @@
-import { Schema, SchemaType } from "mongoose";
+import { Schema, SchemaType, Types } from "mongoose";
 
-export function createEmptyObjectFromSchema(schema: Schema) {
-  return Object.entries(schema.paths).reduce<Record<string, any>>(
+export function createEmptyObjectFromSchema<T extends Record<string, any>>(
+  schema: Schema
+): T {
+  return Object.entries(schema.paths).reduce<T>(
     (object, [schemaTypeName, schemaType]) => {
-      object[schemaTypeName] = createEmptyValueFromSchemaType(schemaType);
-      return object;
+      (object as any)[schemaTypeName] = createEmptyValueFromSchemaType(
+        schemaType
+      );
+      return object as T;
     },
-    {}
+    {} as T
   );
 }
 
@@ -18,9 +22,10 @@ export function createEmptyValueFromSchemaType(schemaType: SchemaType) {
       return new Date();
     case "Array":
       return [];
-    case "Embedded": {
+    case "Embedded":
       return createEmptyObjectFromSchema(schemaType.schema);
-    }
+    case "ObjectID":
+      return new Types.ObjectId();
   }
 }
 
@@ -60,6 +65,8 @@ export function typeSyncValueWithSchemaType(
       }
     case "Embedded":
       return typeSyncObjectWithSchema(value, schemaType.schema);
+    case "ObjectID":
+      return new Types.ObjectId(value);
     default:
       return value;
   }

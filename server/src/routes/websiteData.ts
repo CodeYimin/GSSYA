@@ -10,12 +10,20 @@ router.use(bodyParser.json());
 router.put("/", async (req, res) => {
   const newWebsiteData = req.body as WebsiteDataDocument;
 
-  await WebsiteData.updateOne(
-    { _id: newWebsiteData._id },
-    { $set: newWebsiteData }
-  );
-
-  res.sendStatus(200);
+  try {
+    if (await WebsiteData.findById(newWebsiteData._id)) {
+      const updatedWebsiteData = await WebsiteData.findByIdAndUpdate(
+        newWebsiteData._id,
+        { $set: newWebsiteData }
+      );
+      res.json(updatedWebsiteData);
+    } else {
+      const createdWebsiteData = await WebsiteData.create(newWebsiteData);
+      res.json(createdWebsiteData);
+    }
+  } catch {
+    res.status(500).send();
+  }
 });
 
 export default router;

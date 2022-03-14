@@ -10,6 +10,7 @@ interface SchemaEditorProps<T extends Record<string, any>> {
   schema: Schema;
   data: T;
   onDataChange: (newData: T) => void;
+  addFieldContainers?: boolean;
 }
 
 function SchemaEditor<T extends Record<string, any>>({
@@ -17,6 +18,7 @@ function SchemaEditor<T extends Record<string, any>>({
   schema,
   data,
   onDataChange,
+  addFieldContainers,
 }: SchemaEditorProps<T>): ReactElement {
   const [pathsVisible, setPathsVisible] = React.useState<boolean>(!name);
 
@@ -31,12 +33,13 @@ function SchemaEditor<T extends Record<string, any>>({
       return (
         <SchemaTypeEditor
           key={schemaTypeName}
-          schemaTypeName={schemaTypeName}
+          name={schemaTypeName && camelCaseToNormal(schemaTypeName)}
           schemaType={schemaType}
           data={data[schemaTypeName]}
           onDataChange={(newData) => {
             onDataChange({ ...data, [schemaTypeName]: newData });
           }}
+          addFieldContainers={addFieldContainers}
         />
       );
     });
@@ -66,8 +69,6 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
 `;
 
-const ContentContainer = styled.div`
-  padding: 1rem;
-`;
+const ContentContainer = styled.div``;
 
 export default SchemaEditor;

@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 
 interface DateEditorProps {
-  name: string;
+  name?: string;
   date?: Date | null;
   required: boolean;
   onValueChange: (newDate: Date | null) => void;

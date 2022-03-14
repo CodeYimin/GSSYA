@@ -21,16 +21,23 @@ const ArrayEditor = ({
 }: ArrayEditorProps): ReactElement => {
   function renderItemEditors() {
     return items.map((item, itemIndex) => (
-      <Item>
+      <Item key={itemIndex}>
         <SchemaEditor
-          key={itemIndex}
           name={`Item ${itemIndex + 1}`}
           schema={itemsSchema}
           data={item}
           onDataChange={(newData) => {
             onItemsChange(Object.assign([...items], { [itemIndex]: newData }));
           }}
+          addFieldContainers
         />
+        <DeleteButton
+          onClick={() => {
+            onItemsChange(items.filter((_, index) => index !== itemIndex));
+          }}
+        >
+          Delete
+        </DeleteButton>
       </Item>
     ));
   }
@@ -49,6 +56,13 @@ const ArrayEditor = ({
     </FieldContainer>
   );
 };
+
+const DeleteButton = styled.button`
+  padding: 0.5rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  border: 0.1rem solid red;
+`;
 
 const ItemsContainer = styled.div`
   display: flex;

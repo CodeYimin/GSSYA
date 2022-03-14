@@ -1,5 +1,4 @@
 import { FieldContainer, FieldLabel } from "@src/styles/styles";
-import { camelCaseToNormal } from "@src/util/stringUtil";
 import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
 
@@ -8,6 +7,7 @@ interface StringEditorProps {
   value: string;
   required: boolean;
   onValueChange: (newData: string) => void;
+  addContainer?: boolean;
 }
 
 const StringEditor = ({
@@ -15,6 +15,7 @@ const StringEditor = ({
   value,
   required,
   onValueChange,
+  addContainer,
 }: StringEditorProps): ReactElement => {
   const [inputFocused, setInputFocused] = useState<boolean>(false);
 
@@ -25,22 +26,29 @@ const StringEditor = ({
     onValueChange(event.target.value);
   }
 
-  return (
-    <FieldContainer>
-      <FieldLabel>{name && camelCaseToNormal(name)}</FieldLabel>
+  const baseElement = (
+    <div>
+      <FieldLabel>{name}</FieldLabel>
       <StyledInput
         onChange={handleInputChange}
         value={value || ""}
+        required={required}
         placeholder="Type something..."
         onFocus={() => setInputFocused(true)}
         onBlur={() => setInputFocused(false)}
       />
       <InputUnderline focused={inputFocused} />
-    </FieldContainer>
+    </div>
   );
+
+  if (addContainer) {
+    return <FieldContainer>{baseElement}</FieldContainer>;
+  } else {
+    return baseElement;
+  }
 };
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<{ required: boolean }>`
   display: block;
   width: 100%;
   padding: 0.5rem 0.2rem 0.2rem 0;
@@ -48,6 +56,10 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  &::placeholder {
+    color: ${(props) => (props.required ? "red" : "gray")};
   }
 `;
 
