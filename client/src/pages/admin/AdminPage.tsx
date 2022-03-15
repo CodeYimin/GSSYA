@@ -1,5 +1,5 @@
 import { WebsiteData } from "@server/src/interfaces/mongoose.gen";
-import { useWebsiteApi, useWebsiteDatas } from "@src/hooks/restApi";
+import { useRest, useWebsiteApi, useWebsiteDatas } from "@src/hooks/restApi";
 import { Jsonized } from "@src/types/util";
 import { createEmptyObjectFromSchema } from "@src/util/schemaUtil";
 import { camelCaseToNormal } from "@src/util/stringUtil";
@@ -9,7 +9,8 @@ import styled from "styled-components";
 import SchemaTypeEditor from "./components/SchemaTypeEditor";
 
 const AdminPage = (): ReactElement => {
-  const mongooseSchemaApi = useWebsiteApi<Jsonized<Schema>>(`mongooseSchema`);
+  const mongooseSchemaApi = useWebsiteApi<Jsonized<Schema>>("mongooseSchema");
+  const siteConfig = useRest<any>("./config/siteConfig.json");
   const websiteDatas = useWebsiteDatas();
 
   const [modifiedWebsiteDatas, setModifiedWebsiteDatas] = useState<
@@ -37,10 +38,10 @@ const AdminPage = (): ReactElement => {
 
   // Save modified website data
   async function saveWebsiteDataToServer() {
-    if (selectedWebsiteData) {
+    if (selectedWebsiteData && siteConfig) {
       const password = prompt("Enter password to save website data");
 
-      const res = await fetch("http://localhost:4000/websiteData", {
+      const res = await fetch(`${siteConfig.BASE_API_URL}/websiteData`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
