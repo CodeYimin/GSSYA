@@ -157,9 +157,15 @@ export const websiteDataSchema = new mongoose.Schema({
           email: String,
           phone: String,
           wechat: String,
+          instagram: String,
+          youtube: String,
         },
       },
     },
+  },
+  terms: {
+    required: true,
+    type: String,
   },
 });
 

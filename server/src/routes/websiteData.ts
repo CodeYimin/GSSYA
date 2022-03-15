@@ -8,17 +8,24 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 router.put("/", async (req, res) => {
-  const newWebsiteData = req.body as WebsiteDataDocument;
+  const { data, password } = req.body as {
+    data: WebsiteDataDocument;
+    password: string;
+  };
+
+  if (password !== process.env.PASSWORD) {
+    res.status(401).send("Invalid password");
+    return;
+  }
 
   try {
-    if (await WebsiteData.findById(newWebsiteData._id)) {
-      const updatedWebsiteData = await WebsiteData.findByIdAndUpdate(
-        newWebsiteData._id,
-        { $set: newWebsiteData }
-      );
+    if (await WebsiteData.findById(data._id)) {
+      const updatedWebsiteData = await WebsiteData.findByIdAndUpdate(data._id, {
+        $set: data,
+      });
       res.json(updatedWebsiteData);
     } else {
-      const createdWebsiteData = await WebsiteData.create(newWebsiteData);
+      const createdWebsiteData = await WebsiteData.create(data);
       res.json(createdWebsiteData);
     }
   } catch {

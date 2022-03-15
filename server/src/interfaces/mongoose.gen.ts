@@ -251,6 +251,8 @@ export type WebsiteDataContactSectionContactInfo = {
   email?: string;
   phone?: string;
   wechat?: string;
+  instagram?: string;
+  youtube?: string;
   _id: mongoose.Types.ObjectId;
 };
 
@@ -278,6 +280,7 @@ export type WebsiteDataContactSection = {
  */
 export type WebsiteData = {
   language: string;
+  terms: string;
   _id: mongoose.Types.ObjectId;
   homeSection: WebsiteDataHomeSection;
   navigationBar: WebsiteDataNavigationBar;
@@ -595,6 +598,8 @@ export type WebsiteDataContactSectionContactInfoDocument =
     email?: string;
     phone?: string;
     wechat?: string;
+    instagram?: string;
+    youtube?: string;
     _id: mongoose.Types.ObjectId;
   };
 
@@ -627,6 +632,7 @@ export type WebsiteDataDocument = mongoose.Document<
 > &
   WebsiteDataMethods & {
     language: string;
+    terms: string;
     _id: mongoose.Types.ObjectId;
     homeSection: WebsiteDataHomeSectionDocument;
     navigationBar: WebsiteDataNavigationBarDocument;

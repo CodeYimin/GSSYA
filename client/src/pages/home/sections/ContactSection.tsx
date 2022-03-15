@@ -21,6 +21,14 @@ function ContactSection({
           <img src="images/weixin.svg" className="h-6 my-auto" />
           <p className="ml-2">{contactInfo.wechat}</p>
         </div>
+        <div className="flex py-2">
+          <img src="images/instagram.svg" className="h-6 my-auto" />
+          <p className="ml-2">{contactInfo.instagram}</p>
+        </div>
+        <div className="flex py-2">
+          <img src="images/youtube.svg" className="h-6 my-auto" />
+          <p className="ml-2">{contactInfo.youtube}</p>
+        </div>
       </div>
     </div>
   );
