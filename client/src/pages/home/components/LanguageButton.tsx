@@ -1,12 +1,17 @@
-import React, { ReactElement, useEffect } from 'react'
-import LanguageMenu from './LanguageMenu';
+import React, { ReactElement, useEffect } from "react";
+import LanguageMenu from "./LanguageMenu";
 
 export interface LanguageButtonProps {
+  label?: string;
   languages: string[];
   onLanguageSelect: (language: string) => void;
 }
 
-function LanguageButton({ languages, onLanguageSelect }: LanguageButtonProps): ReactElement {
+function LanguageButton({
+  label,
+  languages,
+  onLanguageSelect,
+}: LanguageButtonProps): ReactElement {
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
 
   useEffect(() => {
@@ -19,20 +24,20 @@ function LanguageButton({ languages, onLanguageSelect }: LanguageButtonProps): R
 
   return (
     <div className="">
-      <button 
+      <button
         onClick={() => setMenuOpen(true)}
-        className="bg-red-600 rounded p-3 text-center text-white focus:outline-none" 
+        className="bg-red-600 rounded p-3 text-center text-white focus:outline-none"
       >
-        Change Language
+        {label || "Change Language"}
       </button>
-      <LanguageMenu 
-        languages={languages} 
-        onLanguageSelect={onLanguageSelect} 
-        onExit={() => setMenuOpen(!menuOpen)} 
+      <LanguageMenu
+        languages={languages}
+        onLanguageSelect={onLanguageSelect}
+        onExit={() => setMenuOpen(!menuOpen)}
         hidden={!menuOpen}
       />
     </div>
-  )
+  );
 }
 
 export default LanguageButton;

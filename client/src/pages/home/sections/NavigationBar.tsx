@@ -58,6 +58,7 @@ function NavigationBar({
       <div className="flex-1">
         <div className="float-right">
           <LanguageButton
+            label={data.changeLanguageLabel}
             onLanguageSelect={onLanguageSelect}
             languages={languages}
           />
