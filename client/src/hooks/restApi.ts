@@ -55,7 +55,7 @@ export function useWebsiteDatas(): WebsiteData[] | null {
         )
       );
     }
-  }, [websiteDatasApi]);
+  }, [websiteDatasApi, mongooseSchemaApi]);
 
   return websiteDatas;
 }
