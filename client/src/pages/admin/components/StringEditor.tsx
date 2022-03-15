@@ -19,7 +19,9 @@ const StringEditor = ({
 }: StringEditorProps): ReactElement => {
   const [inputFocused, setInputFocused] = useState<boolean>(false);
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>): void {
+  function handleInputChange(
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void {
     event.target.style.height = "auto";
     event.target.style.height = `${event.target.scrollHeight}px`;
 
@@ -48,7 +50,7 @@ const StringEditor = ({
   }
 };
 
-const StyledInput = styled.input<{ required: boolean }>`
+const StyledInput = styled.textarea<{ required: boolean }>`
   display: block;
   width: 100%;
   padding: 0.5rem 0.2rem 0.2rem 0;

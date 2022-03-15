@@ -12,7 +12,7 @@ function TermsPage(): ReactElement {
   return (
     <Container>
       Terms
-      <p>{websiteDatas[0].terms}</p>
+      <p style={{ whiteSpace: "pre-line" }}>{websiteDatas[0].terms}</p>
     </Container>
   );
 }
