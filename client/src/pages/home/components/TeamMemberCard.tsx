@@ -1,40 +1,44 @@
 import { WebsiteDataTeamSectionMember } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+
+const FlipCardInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+`;
+
+const FlipCardFace = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  backface-visibility: hidden;
+`;
+
+const FlipCardFront = styled(FlipCardFace)`
+  color: black;
+`;
+
+const FlipCardBack = styled(FlipCardFace)`
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+`;
 
 const FlipCard = styled.div`
   background-color: transparent;
   width: 300px;
   height: 300px;
-  position: relative;
   perspective: 1000px;
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-  &:hover {
+
+  &:hover ${FlipCardInner} {
     transform: rotateY(180deg);
   }
-`;
-
-const CardSide = css`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-`;
-
-const FlipCardFront = styled.div`
-  ${CardSide};
-
-  text-align: center;
-`;
-
-const FlipCardBack = styled.div`
-  ${CardSide};
-
-  transform: rotateY(-180deg);
 `;
 
 function TeamMemberCard({
@@ -45,23 +49,27 @@ function TeamMemberCard({
   image,
 }: WebsiteDataTeamSectionMember): ReactElement {
   return (
-    <FlipCard>
-      <FlipCardFront>
-        <img
-          src={image || "images/team/defaultAvatar.svg"}
-          className={`rounded-full w-40 h-40 bg-blue-500 mx-auto ${
-            image ? "object-cover" : "object-contain"
-          }`}
-        />
-        <h1 className="mt-3 font-medium text-3xl">
-          {firstName} {lastName}
-        </h1>
-        <h2 className="">{role}</h2>
-      </FlipCardFront>
-      <FlipCardBack>
-        <p className="text-sm">{description}</p>
-      </FlipCardBack>
-    </FlipCard>
+    <div className="CardWrapper">
+      <FlipCard>
+        <FlipCardInner>
+          <FlipCardFront>
+            <img
+              src={image || "images/team/defaultAvatar.svg"}
+              className={`rounded-full w-40 h-40 bg-blue-500 mx-auto ${
+                image ? "object-cover" : "object-contain"
+              }`}
+            />
+            <h1 className="mt-3 font-medium text-3xl">
+              {firstName} {lastName}
+            </h1>
+            <h2 className="">{role}</h2>
+          </FlipCardFront>
+          <FlipCardBack>
+            <p className="text-sm">{description}</p>
+          </FlipCardBack>
+        </FlipCardInner>
+      </FlipCard>
+    </div>
   );
 }
 
