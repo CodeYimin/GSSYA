@@ -7,9 +7,8 @@ const FlipCardInner = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform 0.5s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const FlipCardFace = styled.div`
@@ -21,18 +20,17 @@ const FlipCardFace = styled.div`
 `;
 
 const FlipCardFront = styled(FlipCardFace)`
-  color: black;
+  color: white;
 `;
 
 const FlipCardBack = styled(FlipCardFace)`
-  background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
 `;
 
 const FlipCard = styled.div`
   background-color: transparent;
-  width: 300px;
+  width: 250px;
   height: 300px;
   perspective: 1000px;
 
@@ -49,27 +47,23 @@ function TeamMemberCard({
   image,
 }: WebsiteDataTeamSectionMember): ReactElement {
   return (
-    <div className="CardWrapper">
-      <FlipCard>
-        <FlipCardInner>
-          <FlipCardFront>
-            <img
-              src={image || "images/team/defaultAvatar.svg"}
-              className={`rounded-full w-40 h-40 bg-blue-500 mx-auto ${
-                image ? "object-cover" : "object-contain"
-              }`}
-            />
-            <h1 className="mt-3 font-medium text-3xl">
-              {firstName} {lastName}
-            </h1>
-            <h2 className="">{role}</h2>
-          </FlipCardFront>
-          <FlipCardBack>
-            <p className="text-sm">{description}</p>
-          </FlipCardBack>
-        </FlipCardInner>
-      </FlipCard>
-    </div>
+    <FlipCard>
+      <FlipCardInner>
+        <FlipCardFront>
+          <img
+            src={image || "images/defaultAvatar.svg"}
+            className={`rounded-full w-40 h-40 bg-blue-500 mx-auto`}
+          />
+          <h1 className="mt-3 font-medium text-3xl">
+            {firstName} {lastName}
+          </h1>
+          <h2 className="">{role}</h2>
+        </FlipCardFront>
+        <FlipCardBack>
+          <p className="text-sm">{description}</p>
+        </FlipCardBack>
+      </FlipCardInner>
+    </FlipCard>
   );
 }
 

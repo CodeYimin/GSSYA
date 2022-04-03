@@ -7,5 +7,6 @@ export default defineConfig({
   plugins: [reactRefresh(), tsConfigPaths()],
   server: {
     hmr: true,
+    port: 3044,
   },
 });

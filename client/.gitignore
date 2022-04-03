@@ -7,3 +7,4 @@ dist-ssr
 .vscode
 yarn-error.log
 public/config/siteConfig.json
+.env
