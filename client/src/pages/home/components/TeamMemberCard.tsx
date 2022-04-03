@@ -1,5 +1,41 @@
 import { WebsiteDataTeamSectionMember } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
+import styled, { css } from "styled-components";
+
+const FlipCard = styled.div`
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  perspective: 1000px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  &:hover {
+    transform: rotateY(180deg);
+  }
+`;
+
+const CardSide = css`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+`;
+
+const FlipCardFront = styled.div`
+  ${CardSide};
+
+  text-align: center;
+`;
+
+const FlipCardBack = styled.div`
+  ${CardSide};
+
+  transform: rotateY(-180deg);
+`;
 
 function TeamMemberCard({
   firstName,
@@ -9,25 +45,23 @@ function TeamMemberCard({
   image,
 }: WebsiteDataTeamSectionMember): ReactElement {
   return (
-    <div className="flip-card-container w-64 h-64">
-      <div className="flip-card-body transition duration-300">
-        <div className="flip-card-front text-center">
-          <img
-            src={image || "images/team/defaultAvatar.svg"}
-            className={`rounded-full w-40 h-40 bg-blue-500 mx-auto ${
-              image ? "object-cover" : "object-contain"
-            }`}
-          />
-          <h1 className="mt-3 font-medium text-3xl">
-            {firstName} {lastName}
-          </h1>
-          <h2 className="">{role}</h2>
-        </div>
-        <div className="flip-card-back bg-blue-500 text-center">
-          <p className="text-sm">{description}</p>
-        </div>
-      </div>
-    </div>
+    <FlipCard>
+      <FlipCardFront>
+        <img
+          src={image || "images/team/defaultAvatar.svg"}
+          className={`rounded-full w-40 h-40 bg-blue-500 mx-auto ${
+            image ? "object-cover" : "object-contain"
+          }`}
+        />
+        <h1 className="mt-3 font-medium text-3xl">
+          {firstName} {lastName}
+        </h1>
+        <h2 className="">{role}</h2>
+      </FlipCardFront>
+      <FlipCardBack>
+        <p className="text-sm">{description}</p>
+      </FlipCardBack>
+    </FlipCard>
   );
 }
 
