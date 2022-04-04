@@ -25,7 +25,9 @@ const FlipCardFront = styled(FlipCardFace)`
 `;
 
 const FlipCardBack = styled(FlipCardFace)`
-  background-color: #2980b9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: white;
   transform: rotateY(180deg);
 `;
