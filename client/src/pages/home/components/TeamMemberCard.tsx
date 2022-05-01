@@ -20,7 +20,7 @@ const FlipCardFace = styled.div`
 `;
 
 const FlipCardFront = styled(FlipCardFace)`
-  color: black;
+  color: white;
 `;
 
 const FlipCardBack = styled(FlipCardFace)`
