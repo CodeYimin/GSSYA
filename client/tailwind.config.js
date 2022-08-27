@@ -27,7 +27,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'rubik': ['rubik'],
-        'inter': ['inter']
+        'inter': ['inter'],
+        'welcomeSummer': ['WelcomeSummer'],
       },
       spacing: {
         "full": "100%",

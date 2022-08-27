@@ -1,14 +1,14 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { useWebsiteDatas } from "src/hooks/restApi";
-import AboutSection from "./sections/AboutSection";
-import ContactSection from "./sections/ContactSection";
-import HomeSection from "./sections/HomeSection";
-import NavigationBar from "./sections/NavigationBar";
-import ProgramsSection from "./sections/ProgramsSection";
-import QuestionSection from "./sections/QuestionSection";
-import ScheduleSection from "./sections/ScheduleSection";
-import SubjectsSection from "./sections/SubjectsSection";
-import TeamSection from "./sections/TeamSection";
+import AboutSection from "./sections/about/AboutSection";
+import ContactSection from "./sections/contact/ContactSection";
+import HomeSection from "./sections/home/HomeSection";
+import NavigationBar from "./sections/navigation/NavigationBar";
+import ProgramsSection from "./sections/programs/ProgramsSection";
+import QuestionsSection from "./sections/questions/QuestionsSection";
+import ScheduleSection from "./sections/schedule/ScheduleSection";
+import SubjectsSection from "./sections/subjects/SubjectsSection";
+import TeamSection from "./sections/team/TeamSection";
 
 const HomePage = (): ReactElement => {
   const [language, setLanguage] = useState<string>("English");
@@ -41,7 +41,7 @@ const HomePage = (): ReactElement => {
       <ProgramsSection {...websiteData.programsSection} />
       <SubjectsSection {...websiteData.subjectsSection} />
       <ScheduleSection {...websiteData.scheduleSection} />
-      <QuestionSection {...websiteData.questionsSection} />
+      <QuestionsSection {...websiteData.questionsSection} />
       <TeamSection {...websiteData.teamSection} />
       <ContactSection {...websiteData.contactSection} />
     </div>

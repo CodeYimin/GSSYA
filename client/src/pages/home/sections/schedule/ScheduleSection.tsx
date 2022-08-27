@@ -1,7 +1,7 @@
 import { WebsiteDataScheduleSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useRef } from "react";
-import { isSameDay } from "../../../util/dateUtil";
-import Calendar from "../components/Calendar";
+import { isSameDay } from "../../../../util/dateUtil";
+import Calendar from "./components/Calendar";
 
 function ScheduleSection({
   title,
@@ -22,7 +22,8 @@ function ScheduleSection({
     timeElement.current &&
       (timeElement.current.innerHTML = clickedActiveDate.time || "No time set");
     selectedDateElement.current &&
-      (selectedDateElement.current.innerHTML = clickedActiveDate.date.toLocaleDateString());
+      (selectedDateElement.current.innerHTML =
+        clickedActiveDate.date.toLocaleDateString());
   }
 
   return (
@@ -40,12 +41,12 @@ function ScheduleSection({
       </svg>
       <div className="bg-black pb-16">
         <h1 className="section-header text-white">{title}</h1>
-        <div className="w-max mx-auto mt-12">
+        <div className="w-min mx-auto mt-12">
           <Calendar
             onDateClick={handleDateClick}
             enabledDates={activeDates.map((activeDate) => activeDate.date)}
           />
-          <div className="bg-white py-3 mt-5 rounded-full">
+          <div className="bg-white p-3 mt-5 rounded-2xl w-full">
             <p
               ref={selectedDateElement}
               className="text-center text-gray-500"

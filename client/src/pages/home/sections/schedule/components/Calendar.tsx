@@ -3,7 +3,7 @@ import {
   daysInMonth,
   getCurrentDateWithoutTime,
   isSameDay,
-} from "../../../util/dateUtil";
+} from "../../../../../util/dateUtil";
 import CalendarDate from "./CalendarDate";
 
 const monthNames = [
@@ -70,7 +70,7 @@ function Calendar({ onDateClick, enabledDates }: CalendarProps): ReactElement {
   }
 
   return (
-    <div className="w-max text-center">
+    <div className="w-max text-center mx-auto">
       <div className="flex justify-between text-white text-3xl">
         <button
           className="bi-chevron-left focus:outline-none"

@@ -23,11 +23,11 @@ function ContactSection({
         </div>
         <div className="flex py-2">
           <img src="images/instagram.svg" className="h-6 my-auto" />
-          <p className="ml-2">{contactInfo.instagram}</p>
+          <a href={contactInfo.instagram} className="ml-2">{contactInfo.instagram}</a>
         </div>
         <div className="flex py-2">
           <img src="images/youtube.svg" className="h-6 my-auto" />
-          <p className="ml-2">{contactInfo.youtube}</p>
+          <a href={contactInfo.youtube} className="ml-2">{contactInfo.youtube}</a>
         </div>
       </div>
     </div>

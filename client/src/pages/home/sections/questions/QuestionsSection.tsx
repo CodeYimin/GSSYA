@@ -1,8 +1,8 @@
 import { WebsiteDataQuestionsSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
-import QuestionCard from "../components/QuestionCard";
+import QuestionCard from "./components/QuestionCard";
 
-function QuestionSection({
+function QuestionsSection({
   title,
   questions,
 }: WebsiteDataQuestionsSection): ReactElement {
@@ -31,4 +31,4 @@ function QuestionSection({
   );
 }
 
-export default QuestionSection;
+export default QuestionsSection;

@@ -1,7 +1,7 @@
 import { WebsiteDataNavigationBar } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-import LanguageButton from "../components/LanguageButton";
-import NavigationItem from "../components/NavigationItem";
+import LanguageButton from "./components/LanguageButton";
+import NavigationItem from "./components/NavigationItem";
 
 export interface NavigationProps {
   data: WebsiteDataNavigationBar;
@@ -47,10 +47,10 @@ function NavigationBar({
   return (
     <div
       ref={navBar}
-      className="hidden md:visible fixed md:flex w-full py-3 px-12 z-30 bg-yellow-50 transition-all duration-300 shadow-lg"
+      className="hidden md:visible fixed md:flex w-full py-3 px-12 z-30 bg-yellow-50 transition-all duration-300 shadow-lg items-center"
     >
-      <header className="flex-1 text-5xl text-red-600">GSSYA</header>
-      <nav className="my-auto z-30">
+      <header className="flex-1 text-5xl text-red-600 font-welcomeSummer">GSSYA</header>
+      <nav className="z-30">
         {data.items.map((item) => (
           <NavigationItem key={item.label} {...item} />
         ))}
