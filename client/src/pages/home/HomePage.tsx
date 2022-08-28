@@ -9,6 +9,7 @@ import QuestionsSection from "./sections/questions/QuestionsSection";
 import ScheduleSection from "./sections/schedule/ScheduleSection";
 import SubjectsSection from "./sections/subjects/SubjectsSection";
 import TeamSection from "./sections/team/TeamSection";
+import TestinomialsSection from "./sections/testinomials/TestimonialsSection";
 
 const HomePage = (): ReactElement => {
   const [language, setLanguage] = useState<string>("English");
@@ -43,6 +44,7 @@ const HomePage = (): ReactElement => {
       <ScheduleSection {...websiteData.scheduleSection} />
       <QuestionsSection {...websiteData.questionsSection} />
       <TeamSection {...websiteData.teamSection} />
+      <TestinomialsSection {...websiteData.testimonialsSection} />
       <ContactSection {...websiteData.contactSection} />
     </div>
   );

@@ -147,6 +147,35 @@ export const websiteDataSchema = new mongoose.Schema({
       },
     },
   },
+  testimonialsSection: {
+    required: true,
+    type: {
+      title: String,
+      testimonials: {
+        required: true,
+        type: [
+          {
+            attestant: {
+              required: true,
+              type: String,
+            },
+            title: {
+              required: true,
+              type: String,
+            },
+            description: {
+              required: true,
+              type: String,
+            },
+            viewMoreLink: {
+              required: false,
+              type: String,
+            },
+          },
+        ],
+      },
+    },
+  },
   contactSection: {
     required: true,
     type: {

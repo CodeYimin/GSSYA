@@ -240,6 +240,36 @@ export type WebsiteDataTeamSection = {
 };
 
 /**
+ * Lean version of WebsiteDataTestimonialsSectionTestimonialDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataTestimonialsSectionDocument.toObject()`.
+ * ```
+ * const websitedatatestimonialssectionObject = websitedatatestimonialssection.toObject();
+ * ```
+ */
+export type WebsiteDataTestimonialsSectionTestimonial = {
+  attestant: string;
+  title: string;
+  description: string;
+  viewMoreLink?: string;
+  _id: mongoose.Types.ObjectId;
+};
+
+/**
+ * Lean version of WebsiteDataTestimonialsSectionDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataDocument.toObject()`.
+ * ```
+ * const websitedataObject = websitedata.toObject();
+ * ```
+ */
+export type WebsiteDataTestimonialsSection = {
+  title?: string;
+  _id: mongoose.Types.ObjectId;
+  testimonials: WebsiteDataTestimonialsSectionTestimonial[];
+};
+
+/**
  * Lean version of WebsiteDataContactSectionContactInfoDocument
  *
  * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataContactSectionDocument.toObject()`.
@@ -290,6 +320,7 @@ export type WebsiteData = {
   scheduleSection: WebsiteDataScheduleSection;
   questionsSection: WebsiteDataQuestionsSection;
   teamSection: WebsiteDataTeamSection;
+  testimonialsSection: WebsiteDataTestimonialsSection;
   contactSection: WebsiteDataContactSection;
 };
 
@@ -586,6 +617,35 @@ export type WebsiteDataTeamSectionDocument =
   };
 
 /**
+ * Mongoose Subdocument type
+ *
+ * Type of `WebsiteDataTestimonialsSectionDocument["testimonials"]` element.
+ */
+export type WebsiteDataTestimonialsSectionTestimonialDocument =
+  mongoose.Types.Subdocument & {
+    attestant: string;
+    title: string;
+    description: string;
+    viewMoreLink?: string;
+    _id: mongoose.Types.ObjectId;
+  };
+
+/**
+ * Mongoose Document type
+ *
+ * Pass this type to the Mongoose Model constructor:
+ * ```
+ * const WebsiteData = mongoose.model<WebsiteDataDocument, WebsiteDataModel>("WebsiteData", WebsiteDataSchema);
+ * ```
+ */
+export type WebsiteDataTestimonialsSectionDocument =
+  mongoose.Document<mongoose.Types.ObjectId> & {
+    title?: string;
+    _id: mongoose.Types.ObjectId;
+    testimonials: mongoose.Types.DocumentArray<WebsiteDataTestimonialsSectionTestimonialDocument>;
+  };
+
+/**
  * Mongoose Document type
  *
  * Pass this type to the Mongoose Model constructor:
@@ -642,6 +702,7 @@ export type WebsiteDataDocument = mongoose.Document<
     scheduleSection: WebsiteDataScheduleSectionDocument;
     questionsSection: WebsiteDataQuestionsSectionDocument;
     teamSection: WebsiteDataTeamSectionDocument;
+    testimonialsSection: WebsiteDataTestimonialsSectionDocument;
     contactSection: WebsiteDataContactSectionDocument;
   };
 
