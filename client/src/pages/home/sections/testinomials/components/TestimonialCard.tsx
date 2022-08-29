@@ -18,11 +18,13 @@ function TestinomialCard({
 }
 
 const Container = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   width: 20em;
   color: white;
+  margin: 2em;
+  text-align: left;
 `;
 
 const Title = styled.div`

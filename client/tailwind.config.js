@@ -61,6 +61,10 @@ module.exports = {
         "min": "min-content",
         "1/7": "calc(100% / 7)",
       },
+      colors: {
+        "red-500": "#EF4444",
+        "red-600": "#EF0000",
+      }
     },
   },
   variants: {},

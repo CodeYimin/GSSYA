@@ -1,5 +1,6 @@
 import { WebsiteDataContactSection } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement } from "react";
+import styled from "styled-components";
 
 function ContactSection({
   title,
@@ -23,15 +24,26 @@ function ContactSection({
         </div>
         <div className="flex py-2">
           <img src="images/instagram.svg" className="h-6 my-auto" />
-          <a href={contactInfo.instagram} className="ml-2">{contactInfo.instagram}</a>
+          <Link href={contactInfo.instagram} className="ml-2">Instagram</Link>
         </div>
         <div className="flex py-2">
           <img src="images/youtube.svg" className="h-6 my-auto" />
-          <a href={contactInfo.youtube} className="ml-2">{contactInfo.youtube}</a>
+          <Link href={contactInfo.youtube} className="ml-2">Youtube</Link>
+        </div>
+        <div className="flex py-2">
+          <Link href="/terms" className="ml-2">Terms and conditions</Link>
         </div>
       </div>
     </div>
   );
 }
+
+const Link = styled.a`
+  text-decoration: underline;
+
+  &:hover {
+    color: gray;
+  }
+`
 
 export default ContactSection;

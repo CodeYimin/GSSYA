@@ -13,7 +13,7 @@ function TestinomialsSection({
       <Testimonials>
         {testimonials?.map(
           (testimonial, i) =>
-            i < 3 && (
+            i < 30 && (
               <TestinomialCard
                 key={testimonial._id as unknown as string}
                 {...testimonial}
@@ -26,11 +26,13 @@ function TestinomialsSection({
 }
 
 const Testimonials = styled.div`
-  display: flex;
-  align-items: flex-start;
-  overflow-x: hidden;
+  /* display: flex; */
+  /* align-items: flex-start; */
+  column-width: 20em;
+  text-align: center;
+  /* overflow-x: hidden; */
   width: 80%;
-  margin: 2em auto;
+  margin: 0 auto;
   justify-content: space-between;
 `;
 

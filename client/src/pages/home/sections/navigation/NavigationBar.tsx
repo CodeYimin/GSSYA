@@ -1,5 +1,6 @@
 import { WebsiteDataNavigationBar } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 import LanguageButton from "./components/LanguageButton";
 import NavigationItem from "./components/NavigationItem";
 
@@ -47,12 +48,15 @@ function NavigationBar({
   return (
     <div
       ref={navBar}
-      className="hidden md:visible fixed md:flex w-full py-3 px-12 z-30 bg-yellow-50 transition-all duration-300 shadow-lg items-center"
+      className="hidden md:visible fixed md:flex w-full py-5 px-12 z-30 transition-all duration-300 items-center"
+      style={{ backgroundColor: "#FFFBEB" }}
     >
-      <header className="flex-1 text-5xl text-red-600 font-welcomeSummer">GSSYA</header>
+      <header className="flex-1 text-5xl text-red-600 font-welcomeSummer">
+        GSSYA
+      </header>
       <nav className="z-30">
         {data.items.map((item) => (
-          <NavigationItem key={item.label} {...item} />
+          <NavItem key={item.label} href={item.link}>{item.label}</NavItem>
         ))}
       </nav>
       <div className="flex-1">
@@ -64,8 +68,32 @@ function NavigationBar({
           />
         </div>
       </div>
+      {/* <FloatingNavigation>
+
+      </FloatingNavigation> */}
     </div>
   );
 }
+
+const FloatingNavigation = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 2em;
+  width: 10em;
+  height: 10em;
+  background-color: white;
+  z-index: 100;
+  transform: translateY(-50%);
+`;
+
+const NavItem = styled.a`
+  color: #023047;
+  padding: 0 0.8em;
+  font-size: 1.25em;
+  
+  &:hover {
+    opacity: 50%;
+  }
+`
 
 export default NavigationBar;

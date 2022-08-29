@@ -21,7 +21,7 @@ function QuestionCard({
   }, [answerExpanded]);
 
   return (
-    <div className="text-center py-2 text-l md:text-lg font-medium">
+    <div className="text-center py-2 text-l md:text-lg font-normal">
       <div
         className="transition-all md:hover:text-xl bg-white text-indigo-900 p-5 rounded-lg cursor-pointer"
         onClick={() => setAnswerExpanded((current) => !current)}

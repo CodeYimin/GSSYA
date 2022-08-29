@@ -29,7 +29,7 @@ const HomePage = (): ReactElement => {
   }
 
   return (
-    <div className="font-inter bg-yellow-50">
+    <div className="font-rubik" style={{ backgroundColor: "#FFFBEB" }}>
       <NavigationBar
         languages={
           websiteDatas ? websiteDatas.map((data) => data.language) : []

@@ -1,6 +1,6 @@
 import { WebsiteDataAboutSection } from "@server/src/interfaces/mongoose.gen";
 import React, { useEffect, useRef } from "react";
-import AboutCard from "./AboutCard";
+import AboutCard from "./components/AboutCard";
 
 function AboutSection({ title, cards }: WebsiteDataAboutSection) {
   const heading = useRef<HTMLHeadingElement>(null);
@@ -64,7 +64,7 @@ function AboutSection({ title, cards }: WebsiteDataAboutSection) {
       </svg>
       <div className="bg-red-500 text-white fill-current py-16">
         <div className="md:flex">
-          <div className=" md:visible md:w-50v py-10 text-center font-extrabold text-5xl">
+          <div className=" md:visible md:w-50v py-10 text-center font-bold text-5xl">
             <h1
               ref={heading}
               className="md:sticky top-1/2 w-max m-auto md:float-right md:mr-16"

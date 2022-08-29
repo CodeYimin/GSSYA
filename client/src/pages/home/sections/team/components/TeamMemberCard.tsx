@@ -60,7 +60,7 @@ function TeamMemberCard({
                 image ? "object-cover" : "object-contain"
               }`}
             />
-            <h1 className="mt-3 font-medium text-3xl">
+            <h1 className="mt-3 font-normal text-3xl">
               {firstName} {lastName}
             </h1>
             <h2 className="">{role}</h2>
