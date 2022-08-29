@@ -6,7 +6,6 @@ function TestinomialCard({
   attestant,
   title,
   description,
-  viewMoreLink,
 }: WebsiteDataTestimonialsSectionTestimonial): ReactElement {
   return (
     <Container>

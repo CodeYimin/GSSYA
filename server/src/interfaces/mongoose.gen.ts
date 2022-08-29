@@ -251,7 +251,6 @@ export type WebsiteDataTestimonialsSectionTestimonial = {
   attestant: string;
   title: string;
   description: string;
-  viewMoreLink?: string;
   _id: mongoose.Types.ObjectId;
 };
 
@@ -626,7 +625,6 @@ export type WebsiteDataTestimonialsSectionTestimonialDocument =
     attestant: string;
     title: string;
     description: string;
-    viewMoreLink?: string;
     _id: mongoose.Types.ObjectId;
   };
 

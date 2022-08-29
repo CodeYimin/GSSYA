@@ -167,10 +167,6 @@ export const websiteDataSchema = new mongoose.Schema({
               required: true,
               type: String,
             },
-            viewMoreLink: {
-              required: false,
-              type: String,
-            },
           },
         ],
       },
