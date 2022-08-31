@@ -48,7 +48,7 @@ function EventsSection({
   }, [currentIndex]);
 
   return (
-    <div id="classes" className="text-white fill-current">
+    <div id="events" className="text-white fill-current">
       <div className="relative h-20">
         <svg
           className="h-20 bg-red-500 absolute"
@@ -57,7 +57,7 @@ function EventsSection({
           viewBox="0 0 500 20"
         >
           <path
-            className="text-red-900 fill-current"
+            className="text-slate-800 fill-current"
             d="M0,0 C250,30 300,-20 500,12 L500,150 L0,150 Z"
           />
         </svg>
@@ -68,12 +68,12 @@ function EventsSection({
           viewBox="0 0 500 20"
         >
           <path
-            className="text-black fill-current"
+            className="text-slate-900 fill-current"
             d="M0,12 C250,-20 300,30 500,0 L500,150 L0,150 Z"
           />
         </svg>
       </div>
-      <div className="bg-black pb-1">
+      <div className="bg-slate-900 pb-1">
         <h1 className="section-header">{title}</h1>
         <CarouselContainer>
           <SlideButton
@@ -117,6 +117,7 @@ const SlideButton = styled.button`
 
   &:hover {
     opacity: 0.5;
+    transform: scale(1.1);
   }
 `;
 
