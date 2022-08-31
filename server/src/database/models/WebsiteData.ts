@@ -50,6 +50,32 @@ export const websiteDataSchema = new mongoose.Schema({
       },
     },
   },
+  eventsSection: {
+    required: true,
+    type: {
+      title: String,
+      events: {
+        required: true,
+        type: [
+          {
+            title: {
+              type: String,
+              required: true,
+            },
+            image: {
+              type: String,
+              required: true,
+            },
+            startDate: {
+              type: Date,
+              required: true,
+            },
+            endDate: Date,
+          },
+        ],
+      },
+    },
+  },
   programsSection: {
     required: true,
     type: {

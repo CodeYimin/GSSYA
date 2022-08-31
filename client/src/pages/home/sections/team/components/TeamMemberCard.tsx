@@ -55,7 +55,7 @@ function TeamMemberCard({
         <FlipCardInner>
           <FlipCardFront>
             <img
-              src={image || "images/team/defaultAvatar.svg"}
+              src={image || "images/defaultAvatar.svg"}
               className={`rounded-full w-40 h-40 bg-blue-500 mx-auto ${
                 image ? "object-cover" : "object-contain"
               }`}

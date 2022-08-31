@@ -78,6 +78,36 @@ export type WebsiteDataAboutSection = {
 };
 
 /**
+ * Lean version of WebsiteDataEventsSectionEventDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataEventsSectionDocument.toObject()`.
+ * ```
+ * const websitedataeventssectionObject = websitedataeventssection.toObject();
+ * ```
+ */
+export type WebsiteDataEventsSectionEvent = {
+  title: string;
+  image: string;
+  startDate: Date;
+  endDate?: Date;
+  _id: mongoose.Types.ObjectId;
+};
+
+/**
+ * Lean version of WebsiteDataEventsSectionDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataDocument.toObject()`.
+ * ```
+ * const websitedataObject = websitedata.toObject();
+ * ```
+ */
+export type WebsiteDataEventsSection = {
+  title?: string;
+  _id: mongoose.Types.ObjectId;
+  events: WebsiteDataEventsSectionEvent[];
+};
+
+/**
  * Lean version of WebsiteDataProgramsSectionProgramButtonDocument
  *
  * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataProgramsSectionProgramDocument.toObject()`.
@@ -314,6 +344,7 @@ export type WebsiteData = {
   homeSection: WebsiteDataHomeSection;
   navigationBar: WebsiteDataNavigationBar;
   aboutSection: WebsiteDataAboutSection;
+  eventsSection: WebsiteDataEventsSection;
   programsSection: WebsiteDataProgramsSection;
   subjectsSection: WebsiteDataSubjectsSection;
   scheduleSection: WebsiteDataScheduleSection;
@@ -455,6 +486,35 @@ export type WebsiteDataAboutSectionDocument =
     title?: string;
     _id: mongoose.Types.ObjectId;
     cards: mongoose.Types.DocumentArray<WebsiteDataAboutSectionCardDocument>;
+  };
+
+/**
+ * Mongoose Subdocument type
+ *
+ * Type of `WebsiteDataEventsSectionDocument["events"]` element.
+ */
+export type WebsiteDataEventsSectionEventDocument =
+  mongoose.Types.Subdocument & {
+    title: string;
+    image: string;
+    startDate: Date;
+    endDate?: Date;
+    _id: mongoose.Types.ObjectId;
+  };
+
+/**
+ * Mongoose Document type
+ *
+ * Pass this type to the Mongoose Model constructor:
+ * ```
+ * const WebsiteData = mongoose.model<WebsiteDataDocument, WebsiteDataModel>("WebsiteData", WebsiteDataSchema);
+ * ```
+ */
+export type WebsiteDataEventsSectionDocument =
+  mongoose.Document<mongoose.Types.ObjectId> & {
+    title?: string;
+    _id: mongoose.Types.ObjectId;
+    events: mongoose.Types.DocumentArray<WebsiteDataEventsSectionEventDocument>;
   };
 
 /**
@@ -695,6 +755,7 @@ export type WebsiteDataDocument = mongoose.Document<
     homeSection: WebsiteDataHomeSectionDocument;
     navigationBar: WebsiteDataNavigationBarDocument;
     aboutSection: WebsiteDataAboutSectionDocument;
+    eventsSection: WebsiteDataEventsSectionDocument;
     programsSection: WebsiteDataProgramsSectionDocument;
     subjectsSection: WebsiteDataSubjectsSectionDocument;
     scheduleSection: WebsiteDataScheduleSectionDocument;

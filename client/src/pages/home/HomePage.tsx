@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import { useWebsiteDatas } from "src/hooks/restApi";
 import AboutSection from "./sections/about/AboutSection";
 import ContactSection from "./sections/contact/ContactSection";
+import EventsSection from "./sections/events/EventsSection";
 import HomeSection from "./sections/home/HomeSection";
 import NavigationBar from "./sections/navigation/NavigationBar";
 import ProgramsSection from "./sections/programs/ProgramsSection";
@@ -39,6 +40,7 @@ const HomePage = (): ReactElement => {
       />
       <HomeSection {...websiteData.homeSection} />
       <AboutSection {...websiteData.aboutSection} />
+      <EventsSection {...websiteData.eventsSection} />
       <ProgramsSection {...websiteData.programsSection} />
       <SubjectsSection {...websiteData.subjectsSection} />
       <ScheduleSection {...websiteData.scheduleSection} />

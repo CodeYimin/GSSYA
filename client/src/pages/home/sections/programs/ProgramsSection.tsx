@@ -10,7 +10,7 @@ function ProgramsSection({
     <div id="programs" className="text-white fill-current">
       <div className="relative h-20">
         <svg
-          className="h-20 bg-red-500 absolute"
+          className="h-20 bg-black absolute"
           width="100%"
           preserveAspectRatio="none"
           viewBox="0 0 500 20"

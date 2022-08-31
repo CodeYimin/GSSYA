@@ -49,6 +49,10 @@ export function typeSyncValueWithSchemaType(
   value: any,
   schemaType: SchemaType
 ): any {
+  if (value === undefined || value === null) {
+    return value;
+  }
+
   switch (schemaType.instance) {
     case "Date":
       return new Date(value);
