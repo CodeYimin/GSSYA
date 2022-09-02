@@ -68,12 +68,12 @@ function EventsSection({
           viewBox="0 0 500 20"
         >
           <path
-            className="text-slate-900 fill-current"
+            className="text-black fill-current"
             d="M0,12 C250,-20 300,30 500,0 L500,150 L0,150 Z"
           />
         </svg>
       </div>
-      <div className="bg-slate-900 pb-1">
+      <div className="bg-black pb-1">
         <h1 className="section-header">{title}</h1>
         <CarouselContainer>
           <SlideButton

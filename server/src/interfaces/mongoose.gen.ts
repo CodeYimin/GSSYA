@@ -312,6 +312,8 @@ export type WebsiteDataContactSectionContactInfo = {
   wechat?: string;
   instagram?: string;
   youtube?: string;
+  facebook?: string;
+  twitter?: string;
   _id: mongoose.Types.ObjectId;
 };
 
@@ -718,6 +720,8 @@ export type WebsiteDataContactSectionContactInfoDocument =
     wechat?: string;
     instagram?: string;
     youtube?: string;
+    facebook?: string;
+    twitter?: string;
     _id: mongoose.Types.ObjectId;
   };
 

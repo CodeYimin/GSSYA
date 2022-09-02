@@ -31,6 +31,14 @@ function ContactSection({
           <Link href={contactInfo.youtube} className="ml-2">Youtube</Link>
         </div>
         <div className="flex py-2">
+          <img src="images/facebook.svg" className="h-6 my-auto" />
+          <Link href={contactInfo.facebook} className="ml-2">Facebook</Link>
+        </div>
+        <div className="flex py-2">
+          <img src="images/twitter.svg" className="h-6 my-auto" />
+          <Link href={contactInfo.twitter} className="ml-2">Twitter</Link>
+        </div>
+        <div className="flex py-2">
           <Link href="/terms" className="ml-2">Terms and conditions</Link>
         </div>
       </div>

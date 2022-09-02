@@ -210,6 +210,8 @@ export const websiteDataSchema = new mongoose.Schema({
           wechat: String,
           instagram: String,
           youtube: String,
+          facebook: String,
+          twitter: String,
         },
       },
     },
