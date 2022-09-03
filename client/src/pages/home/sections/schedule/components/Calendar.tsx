@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from "react";
 import {
-  daysInMonth,
-  getCurrentDateWithoutTime,
-  isSameDay,
+    daysInMonth,
+    getCurrentDateWithoutTime,
+    isSameDay
 } from "../../../../../util/dateUtil";
 import CalendarDate from "./CalendarDate";
 

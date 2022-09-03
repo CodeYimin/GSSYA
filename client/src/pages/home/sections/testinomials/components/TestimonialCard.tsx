@@ -20,14 +20,14 @@ const Container = styled.div`
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  width: 20em;
+  width: 20rem;
   color: white;
-  margin: 2em;
+  margin: 2rem;
   text-align: left;
 `;
 
 const Title = styled.div`
-  font-size: 2em;
+  font-size: 2rem;
   font-style: italic;
   font-weight: 500;
   width: 80%;
@@ -39,7 +39,7 @@ const Description = styled.div`
 `;
 
 const Attestant = styled.div`
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 500;
 `;
 

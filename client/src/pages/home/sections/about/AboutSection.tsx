@@ -58,11 +58,11 @@ function AboutSection({ title, cards }: WebsiteDataAboutSection) {
         viewBox="0 0 500 20"
       >
         <path
-          className="text-red-500 fill-current"
+          className="text-blue-900 fill-current"
           d="M0,0 C200,20 300,20 500,0 L500,150 L0,20 Z"
         />
       </svg>
-      <div className="bg-red-500 text-white fill-current py-16">
+      <div className="bg-blue-900 text-white fill-current py-16">
         <div className="md:flex">
           <div className=" md:visible md:w-50v py-10 text-center font-bold text-5xl">
             <h1

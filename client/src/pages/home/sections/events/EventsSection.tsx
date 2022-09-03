@@ -20,25 +20,25 @@ function EventsSection({
     const currentCard = cards[currentIndex];
     const surroundingCards = [cards[currentIndex - 1], cards[currentIndex + 1]];
 
-    const cardsContainerCenter =
-      cardsContainer.current.getBoundingClientRect().left +
-      cardsContainer.current.getBoundingClientRect().width / 2;
+    const innerCardsContainerLeft =
+      innerCardsContainer.current.getBoundingClientRect().left;
     const currentCardCenter =
       currentCard.getBoundingClientRect().left +
       currentCard.getBoundingClientRect().width / 2;
-    const offset = cardsContainerCenter - currentCardCenter;
+    const cardContainerWidth =
+      cardsContainer.current.getBoundingClientRect().width;
 
-    innerCardsContainer.current.style.marginLeft = `${
-      (parseFloat(innerCardsContainer.current.style.marginLeft.slice(0, -2)) ||
-        0) + offset
-    }px`;
+    const offset =
+      -(currentCardCenter - innerCardsContainerLeft) + cardContainerWidth / 2;
+
+    innerCardsContainer.current.style.marginLeft = `${offset}px`;
 
     // Add/Remove special effects
-    cards.forEach((card, i) => {
-      if (i === currentIndex) {
+    cards.forEach((card) => {
+      if (card === currentCard) {
         card.style.scale = "1";
         card.style.opacity = "100%";
-      } else if (i === currentIndex - 1 || i === currentIndex + 1) {
+      } else if (surroundingCards.includes(card)) {
         card.style.scale = "0.9";
         card.style.opacity = "30%";
       } else {
@@ -51,7 +51,7 @@ function EventsSection({
     <div id="events" className="text-white fill-current">
       <div className="relative h-20">
         <svg
-          className="h-20 bg-red-500 absolute"
+          className="h-20 bg-blue-900 absolute"
           width="100%"
           preserveAspectRatio="none"
           viewBox="0 0 500 20"
@@ -111,8 +111,8 @@ const CarouselContainer = styled.div`
 `;
 
 const SlideButton = styled.button`
-  padding: 0 0.25em;
-  font-size: 5em;
+  padding: 0 0.25rem;
+  font-size: 5rem;
   transition: all 0.2s ease-in-out;
 
   &:hover {

@@ -28,7 +28,7 @@ function TestinomialsSection({
 const Testimonials = styled.div`
   /* display: flex; */
   /* align-items: flex-start; */
-  column-width: 20em;
+  column-width: 20rem;
   text-align: center;
   /* overflow-x: hidden; */
   width: 80%;

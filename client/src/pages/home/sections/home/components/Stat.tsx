@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface StatProps {
   title: string;
   value: string;
-};
+}
 
 function Stat({ title, value }: StatProps): ReactElement {
   return (
@@ -13,22 +13,22 @@ function Stat({ title, value }: StatProps): ReactElement {
       <Title>{title}</Title>
     </Container>
   );
-};
+}
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const Title = styled.div`
-  font-size: 2em;
-  color: #1E3A8A;
-`
+  font-size: 2rem;
+  color: #1e3a8a;
+`;
 
 const Value = styled.div`
-  font-size: 1.5em;
-  color: #1E3A8A;
-`
+  font-size: 1.5rem;
+  color: #1e3a8a;
+`;
 
 export default Stat;

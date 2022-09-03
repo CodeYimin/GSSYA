@@ -20,7 +20,8 @@ function ScheduleSection({
     }
 
     timeElement.current &&
-      (timeElement.current.innerHTML = clickedActiveDate.time || "No time set");
+      (timeElement.current.innerHTML =
+        clickedActiveDate.time || "No time set");
     selectedDateElement.current &&
       (selectedDateElement.current.innerHTML =
         clickedActiveDate.date.toLocaleDateString());

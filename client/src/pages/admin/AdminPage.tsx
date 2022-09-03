@@ -80,9 +80,8 @@ const AdminPage = (): ReactElement => {
     }
 
     if (event.target.value === "new") {
-      const newData = createEmptyObjectFromSchema<WebsiteData>(
-        mongooseSchemaApi
-      );
+      const newData =
+        createEmptyObjectFromSchema<WebsiteData>(mongooseSchemaApi);
       console.log(newData);
 
       setModifiedWebsiteDatas([...modifiedWebsiteDatas, newData]);
@@ -150,14 +149,14 @@ const MainContainer = styled.div`
 `;
 
 const EditorContainer = styled.div`
-  padding: 5rem;
+  padding: 5rrem;
   overflow: scroll;
   flex-grow: 1;
 `;
 
 const SideBar = styled.div`
   width: max-content;
-  padding: 2rem;
+  padding: 2rrem;
   height: 100vh;
   background-color: white;
 `;
@@ -170,13 +169,13 @@ const SideBarButtonContainer = styled.div`
 `;
 
 const SideBarButton = styled.button<{ selected?: boolean }>`
-  font-size: 1.5rem;
+  font-size: 1.5rrem;
   color: ${(props) => (props.selected ? "#FF3C3C" : "#B9BABD")};
   margin: 0.25rem 0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rrem;
   width: 100%;
 
-  border-radius: 0.5rem;
+  border-radius: 0.5rrem;
 
   transition: background-color 0.2s ease-in-out;
 

@@ -2,7 +2,6 @@ import { WebsiteDataNavigationBar } from "@server/src/interfaces/mongoose.gen";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import LanguageButton from "./components/LanguageButton";
-import NavigationItem from "./components/NavigationItem";
 
 export interface NavigationProps {
   data: WebsiteDataNavigationBar;
@@ -49,16 +48,18 @@ function NavigationBar({
     <div
       ref={navBar}
       className="hidden md:visible fixed md:flex w-full py-5 px-12 z-30 transition-all duration-300 items-center"
-      style={{ backgroundColor: "#FFFBEB" }}
+      style={{ backgroundColor: "white" }}
     >
-      <header className="flex-1 text-5xl text-red-600 font-welcomeSummer">
+      <header className="flex-1 text-5xl text-blue-900 font-welcomeSummer">
         GSSYA
       </header>
-      <nav className="z-30">
+      <div className="z-30">
         {data.items.map((item) => (
-          <NavItem key={item.label} href={item.link}>{item.label}</NavItem>
+          <NavItem key={item.label} href={item.link}>
+            {item.label}
+          </NavItem>
         ))}
-      </nav>
+      </div>
       <div className="flex-1">
         <div className="float-right">
           <LanguageButton
@@ -78,22 +79,26 @@ function NavigationBar({
 const FloatingNavigation = styled.div`
   position: fixed;
   top: 50%;
-  left: 2em;
-  width: 10em;
-  height: 10em;
+  left: 2rem;
+  width: 10rem;
+  height: 10rem;
   background-color: white;
   z-index: 100;
   transform: translateY(-50%);
 `;
 
 const NavItem = styled.a`
+  display: inline-block;
   color: #023047;
-  padding: 0 0.8em;
-  font-size: 1.25em;
-  
+  padding: 0 1rem;
+  font-size: 1.1rem;
+
   &:hover {
     opacity: 50%;
+    scale: 1.1;
   }
-`
+
+  transition: all 0.2s ease-in-out;
+`;
 
 export default NavigationBar;

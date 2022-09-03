@@ -26,7 +26,7 @@ function LanguageButton({
     <div className="">
       <button
         onClick={() => setMenuOpen(true)}
-        className="bg-red-600 rounded p-3 text-center text-white focus:outline-none"
+        className="bg-blue-900 rounded p-3 text-center text-white focus:outline-none"
       >
         {label || "Change Language"}
       </button>
