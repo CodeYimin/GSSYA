@@ -8,6 +8,20 @@
 import mongoose from "mongoose";
 
 /**
+ * Lean version of WebsiteDataHomeSectionStatDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataHomeSectionDocument.toObject()`.
+ * ```
+ * const websitedatahomesectionObject = websitedatahomesection.toObject();
+ * ```
+ */
+export type WebsiteDataHomeSectionStat = {
+  title?: string;
+  value?: string;
+  _id: mongoose.Types.ObjectId;
+};
+
+/**
  * Lean version of WebsiteDataHomeSectionDocument
  *
  * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataDocument.toObject()`.
@@ -17,8 +31,10 @@ import mongoose from "mongoose";
  */
 export type WebsiteDataHomeSection = {
   title?: string;
+  founded?: string;
   subtitle?: string;
   _id: mongoose.Types.ObjectId;
+  stats: WebsiteDataHomeSectionStat[];
 };
 
 /**
@@ -423,6 +439,17 @@ export type WebsiteDataSchema = mongoose.Schema<
 >;
 
 /**
+ * Mongoose Subdocument type
+ *
+ * Type of `WebsiteDataHomeSectionDocument["stats"]` element.
+ */
+export type WebsiteDataHomeSectionStatDocument = mongoose.Types.Subdocument & {
+  title?: string;
+  value?: string;
+  _id: mongoose.Types.ObjectId;
+};
+
+/**
  * Mongoose Document type
  *
  * Pass this type to the Mongoose Model constructor:
@@ -433,8 +460,10 @@ export type WebsiteDataSchema = mongoose.Schema<
 export type WebsiteDataHomeSectionDocument =
   mongoose.Document<mongoose.Types.ObjectId> & {
     title?: string;
+    founded?: string;
     subtitle?: string;
     _id: mongoose.Types.ObjectId;
+    stats: mongoose.Types.DocumentArray<WebsiteDataHomeSectionStatDocument>;
   };
 
 /**

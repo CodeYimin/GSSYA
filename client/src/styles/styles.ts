@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const borderRadius = "1rem";
 
 export const FieldLabel = styled.label`
-  font-size: 1.5rrem;
+  font-size: 1.5rem;
 `;
 
 export const FieldContainer = styled.div`

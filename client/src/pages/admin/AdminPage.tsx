@@ -149,14 +149,14 @@ const MainContainer = styled.div`
 `;
 
 const EditorContainer = styled.div`
-  padding: 5rrem;
+  padding: 1rem;
   overflow: scroll;
   flex-grow: 1;
 `;
 
 const SideBar = styled.div`
   width: max-content;
-  padding: 2rrem;
+  padding: 2rem;
   height: 100vh;
   background-color: white;
 `;
@@ -169,13 +169,12 @@ const SideBarButtonContainer = styled.div`
 `;
 
 const SideBarButton = styled.button<{ selected?: boolean }>`
-  font-size: 1.5rrem;
   color: ${(props) => (props.selected ? "#FF3C3C" : "#B9BABD")};
   margin: 0.25rem 0;
-  padding: 0.5rem 1rrem;
+  padding: 0.5rem 1rem;
   width: 100%;
 
-  border-radius: 0.5rrem;
+  border-radius: 0.5rem;
 
   transition: background-color 0.2s ease-in-out;
 

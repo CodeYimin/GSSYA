@@ -58,9 +58,9 @@ const ArrayEditor = ({
 };
 
 const DeleteButton = styled.button`
-  padding: 0.5rrem;
+  padding: 0.5rem;
   margin: 0 auto;
-  border-radius: 0.5rrem;
+  border-radius: 0.5rem;
   border: 0.1rem solid red;
 `;
 
@@ -72,9 +72,9 @@ const ItemsContainer = styled.div`
 
 const Item = styled.div`
   border-radius: ${borderRadius};
-  padding: 1rrem;
-  margin: 1rrem;
-  width: 20rrem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 20rem;
   height: max-content;
   border: 1px solid black;
 `;

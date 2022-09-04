@@ -20,7 +20,7 @@ function SchemaEditor<T extends Record<string, any>>({
   onDataChange,
   addFieldContainers,
 }: SchemaEditorProps<T>): ReactElement {
-  const [pathsVisible, setPathsVisible] = React.useState<boolean>(!name);
+  const [pathsVisible, setPathsVisible] = React.useState<boolean>(true);
 
   const paths = schema.paths;
 

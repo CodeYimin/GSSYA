@@ -14,7 +14,17 @@ export const websiteDataSchema = new mongoose.Schema({
     required: true,
     type: {
       title: String,
+      founded: String,
       subtitle: String,
+      stats: {
+        required: true,
+        type: [
+          {
+            title: String,
+            value: String,
+          },
+        ],
+      },
     },
   },
   navigationBar: {

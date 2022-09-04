@@ -39,7 +39,6 @@ const DateEditor = ({
 const StyledInput = styled.input<{ alert: boolean }>`
   background-color: ${(props) => (props.alert ? "red" : "none")};
   display: block;
-  width: 15rrem;
   border: 1px solid black;
   resize: none;
   ::-webkit-scrollbar {
