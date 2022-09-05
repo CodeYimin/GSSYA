@@ -23,12 +23,16 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
   color: #1e3a8a;
 `;
 
 const Value = styled.div`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
   color: #1e3a8a;
 `;
 

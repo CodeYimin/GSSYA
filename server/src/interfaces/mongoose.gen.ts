@@ -94,6 +94,20 @@ export type WebsiteDataAboutSection = {
 };
 
 /**
+ * Lean version of WebsiteDataEventsSectionEventButtonDocument
+ *
+ * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataEventsSectionEventDocument.toObject()`.
+ * ```
+ * const websitedataeventssectioneventObject = websitedataeventssectionevent.toObject();
+ * ```
+ */
+export type WebsiteDataEventsSectionEventButton = {
+  label?: string;
+  link?: string;
+  _id: mongoose.Types.ObjectId;
+};
+
+/**
  * Lean version of WebsiteDataEventsSectionEventDocument
  *
  * This has all Mongoose getters & functions removed. This type will be returned from `WebsiteDataEventsSectionDocument.toObject()`.
@@ -107,6 +121,7 @@ export type WebsiteDataEventsSectionEvent = {
   startDate: Date;
   endDate?: Date;
   _id: mongoose.Types.ObjectId;
+  button?: WebsiteDataEventsSectionEventButton;
 };
 
 /**
@@ -520,6 +535,21 @@ export type WebsiteDataAboutSectionDocument =
   };
 
 /**
+ * Mongoose Document type
+ *
+ * Pass this type to the Mongoose Model constructor:
+ * ```
+ * const WebsiteDataEventsSectionEvent = mongoose.model<WebsiteDataEventsSectionEventDocument, WebsiteDataEventsSectionEventModel>("WebsiteDataEventsSectionEvent", WebsiteDataEventsSectionEventSchema);
+ * ```
+ */
+export type WebsiteDataEventsSectionEventButtonDocument =
+  mongoose.Document<mongoose.Types.ObjectId> & {
+    label?: string;
+    link?: string;
+    _id: mongoose.Types.ObjectId;
+  };
+
+/**
  * Mongoose Subdocument type
  *
  * Type of `WebsiteDataEventsSectionDocument["events"]` element.
@@ -531,6 +561,7 @@ export type WebsiteDataEventsSectionEventDocument =
     startDate: Date;
     endDate?: Date;
     _id: mongoose.Types.ObjectId;
+    button?: WebsiteDataEventsSectionEventButtonDocument;
   };
 
 /**

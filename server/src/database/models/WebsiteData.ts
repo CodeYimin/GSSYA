@@ -81,6 +81,12 @@ export const websiteDataSchema = new mongoose.Schema({
               required: true,
             },
             endDate: Date,
+            button: {
+              type: {
+                label: String,
+                link: String,
+              },
+            },
           },
         ],
       },

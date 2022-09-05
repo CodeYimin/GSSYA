@@ -12,6 +12,20 @@ function EventsSection({
   const innerCardsContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    scrollToCurrentCard();
+
+    function listener(event: unknown) {
+      scrollToCurrentCard();
+    }
+
+    window.addEventListener("resize", listener);
+
+    return () => {
+      window.removeEventListener("resize", listener);
+    };
+  }, [currentIndex]);
+
+  function scrollToCurrentCard() {
     if (!cardsContainer.current || !innerCardsContainer.current) {
       return;
     }
@@ -45,7 +59,7 @@ function EventsSection({
         card.style.opacity = "0";
       }
     });
-  }, [currentIndex]);
+  }
 
   return (
     <div id="events" className="text-white fill-current">
@@ -89,6 +103,8 @@ function EventsSection({
                 <EventCard {...event} />
               ))}
             </CardsInnerContainer>
+            <Fade side="right"/>
+            <Fade side="left"/>
           </CardsContainer>
           <SlideButton
             onClick={() =>
@@ -124,11 +140,29 @@ const SlideButton = styled.button`
 const CardsContainer = styled.div`
   overflow-x: hidden;
   flex-grow: 1;
+  position: relative;
 `;
 
 const CardsInnerContainer = styled.div`
   white-space: nowrap;
   transition: margin-left 0.5s ease-in-out;
+`;
+
+const Fade = styled.div<{side: "left" | "right"}>`
+  position: absolute;
+  bottom: 0;
+  ${({side}) => side === "left" ? "left: 0" : "right: 0"};
+
+  display: block;
+
+  height: 100%;
+  width: 15%;
+
+  background-image: linear-gradient(
+    to ${({side}) => side},
+    transparent,
+    black 100%
+  );
 `;
 
 export default EventsSection;

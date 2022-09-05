@@ -7,6 +7,7 @@ function EventCard({
   image,
   startDate,
   endDate,
+  button,
 }: WebsiteDataEventsSectionEvent): ReactElement {
   return (
     <Container>
@@ -16,6 +17,9 @@ function EventCard({
         {startDate.toLocaleDateString()}
         {endDate && ` - ${endDate.toLocaleDateString()}`}
       </Date>
+      {(button?.link || button?.label) && (
+        <LinkButton href={button.link} target="_blank">{button.label}</LinkButton>
+      )}
     </Container>
   );
 }
@@ -23,6 +27,7 @@ function EventCard({
 const Container = styled.div`
   display: inline-flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   margin: 0 3rem;
   transition: all 0.5s ease-in-out;
@@ -41,6 +46,18 @@ const Title = styled.div`
 
 const Date = styled.div`
   font-size: 1.2rem;
+`;
+
+const LinkButton = styled.a`
+  padding: 0.75rem 1rem;
+  background-color: #193da1;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: #1e3a8a;
+    cursor: pointer;
+  }
 `;
 
 export default EventCard;
