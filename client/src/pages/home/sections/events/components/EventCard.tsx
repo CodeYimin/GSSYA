@@ -52,12 +52,16 @@ const LinkButton = styled.a`
   padding: 0.75rem 1rem;
   background-color: #193da1;
   border-radius: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+  scale: 0.9;
 
   &:hover {
     background-color: #1e3a8a;
     cursor: pointer;
+    scale: 1;
   }
+
+  transition: all 0.2s ease-in-out;
 `;
 
 export default EventCard;
