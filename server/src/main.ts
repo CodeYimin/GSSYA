@@ -8,6 +8,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+const BASE_PATH = process.env.BASE_PATH || "/api";
 
 if (!process.env.MONGODB_URL) {
   throw new Error("No mongodb url env variable found");
@@ -15,7 +16,7 @@ if (!process.env.MONGODB_URL) {
 mongoose.connect(process.env.MONGODB_URL);
 
 app.use(cors());
-app.use("/", routes);
+app.use(BASE_PATH, routes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
