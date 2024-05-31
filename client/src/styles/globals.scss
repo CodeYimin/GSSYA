@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .filter-scrollbar::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+
+  .filter-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .filter-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-200;
+    @apply rounded-full;
+  }
+
+  .filter-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-300;
+  }
+
+  .filter-modal::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  .filter-modal::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .filter-modal::-webkit-scrollbar-thumb {
+    @apply bg-zinc-400;
+    @apply rounded-full;
+  }
+
+  .filter-modal::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-500;
+  }
+}
