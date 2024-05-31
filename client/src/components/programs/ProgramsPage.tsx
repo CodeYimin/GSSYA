@@ -12,6 +12,9 @@ export default function ProgramsPage({
           SO WE BUILT A <span className="text-red-500">COMMUNITY</span>
         </p>
         <p>
+          WITH <span className="text-red-500">PROGRAMS</span>
+        </p>
+        <p>
           TO SUPPORT <span className="text-red-500">YOUTH</span>
         </p>
         <p>

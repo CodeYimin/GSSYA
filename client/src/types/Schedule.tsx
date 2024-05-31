@@ -5,7 +5,7 @@ export interface SchedulePageProps {
 export type Category =
   | "Tutoring"
   | "Youth Exchange"
-  | "Multiculturalism
+  | "Multiculturalism"
   | "Clubs"
   | "Mental Health"
   | "Art4Earth"
