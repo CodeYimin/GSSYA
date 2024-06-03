@@ -63,16 +63,16 @@ export default function LandingPage({
           </div>
           <div className="flex gap-8 text-sm md:text-md mt-4 md:mt-8">
             <a
-              href="#programs"
-              className="text-red-50 rounded-md bg-red-500 p-3 w-32  hover:bg-red-600"
-            >
-              Programs
-            </a>
-            <a
               href="#schedule"
               className="text-red-50 rounded-md bg-red-500 p-3 w-32 hover:bg-red-600"
             >
               Schedule
+            </a>
+            <a
+              href="#programs"
+              className="text-red-50 rounded-md bg-red-500 p-3 w-32  hover:bg-red-600"
+            >
+              Programs
             </a>
           </div>
         </div>

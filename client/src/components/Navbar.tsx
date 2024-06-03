@@ -39,8 +39,14 @@ export default function Navbar({}: NavbarProps): ReactElement {
           <div className="text-zinc-50 relative text-sm">
             <div className="text-zinc-200">
               <div className="flex-grow flex gap-8 float-right absolute right-full items-center h-full">
-                <a href="#about" className="cursor-pointer hover:text-zinc-50">
+                {/* <a href="#about" className="cursor-pointer hover:text-zinc-50">
                   About
+                </a> */}
+                <a
+                  href="#schedule"
+                  className="cursor-pointer hover:text-zinc-50"
+                >
+                  Schedule
                 </a>
                 <a
                   href="#programs"
@@ -50,12 +56,6 @@ export default function Navbar({}: NavbarProps): ReactElement {
                 </a>
               </div>
               <div className="absolute flex-grow flex gap-8 left-full items-center h-full">
-                <a
-                  href="#schedule"
-                  className="cursor-pointer hover:text-zinc-50"
-                >
-                  Schedule
-                </a>
                 <a href="#team" className="cursor-pointer hover:text-zinc-50">
                   Team
                 </a>
@@ -96,12 +96,19 @@ export default function Navbar({}: NavbarProps): ReactElement {
               open ? "h-max py-5" : "py-0 h-0"
             }`}
           >
-            <a
+            {/* <a
               href="#about"
               onClick={() => setOpen(false)}
               className="cursor-pointer hover:text-zinc-50"
             >
               About
+            </a> */}
+            <a
+              href="#schedule"
+              onClick={() => setOpen(false)}
+              className="cursor-pointer hover:text-zinc-50"
+            >
+              Schedule
             </a>
             <a
               href="#programs"
@@ -109,13 +116,6 @@ export default function Navbar({}: NavbarProps): ReactElement {
               className="cursor-pointer hover:text-zinc-50"
             >
               Programs
-            </a>
-            <a
-              href="#schedule"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer hover:text-zinc-50"
-            >
-              Schedule
             </a>
             <a
               href="#team"
