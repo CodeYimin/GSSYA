@@ -37,7 +37,8 @@ export default function FilmTape({
         <FilmStripVertical
           size={holeSize || "0.6rem"}
           colorFg={colors.zinc[950]}
-          colorBg={colors.zinc[50]}
+          colorBg={colors.zinc[200]}
+          // colorBg="#ffefef70"
           thickness={thickness}
           className=""
         >
@@ -48,7 +49,7 @@ export default function FilmTape({
                 <div className="absolute top-0 left-0 shadow-[inset_0_0_10px_0_theme('colors.zinc.600')] h-full w-full" />
               </div>
               {titles?.length && (
-                <div className="text-zinc-50 text-xl font-semibold my-3 w-[75%] text-center">
+                <div className="text-zinc-200 text-xl font-semibold my-3 w-[75%] text-center">
                   {titles[i % titles.length]}
                 </div>
               )}
@@ -59,7 +60,8 @@ export default function FilmTape({
         <FilmStripHorizontal
           size={holeSize || "0.6rem"}
           colorFg={colors.zinc[950]}
-          colorBg={colors.zinc[50]}
+          colorBg={colors.zinc[200]}
+          // colorBg="#ffefef70"
           thickness={thickness}
           className=""
         >
@@ -74,7 +76,8 @@ export default function FilmTape({
         <FilmStripHorizontal
           size={holeSize || "0.4rem"}
           colorFg={colors.red[500] || colors.zinc[950]}
-          colorBg={colors.zinc[50]}
+          colorBg={colors.zinc[200]}
+          // colorBg="#ffefef70"
           thickness="5rem"
           className=""
         >

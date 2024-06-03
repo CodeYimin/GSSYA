@@ -5,7 +5,7 @@ export interface ProgramsPageProps {
 export interface IProgramCard {
   title: string;
   description: string;
-  link: string;
+  buttons: { label: string; link: string }[];
   subheading1: string;
   subheading2?: string;
   polaroids: IPolaroid[];

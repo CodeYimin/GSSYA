@@ -1,6 +1,7 @@
 import { Media } from "@/app/media";
 import { LandingPageProps } from "@/types/LandingPage";
 import { ReactElement } from "react";
+import NextImage from "../NextImage";
 import FilmTape from "./FilmTape";
 
 export default function LandingPage({
@@ -30,25 +31,37 @@ export default function LandingPage({
           />
         </div>
       </Media> */}
-      <div className="flex justify-center h-[30rem] md:h-[80vh] overflow-hidden">
-        <Media greaterThan="md" className="flex-grow">
+      <div className="flex justify-center h-[30rem] md:h-[80vh] md:min-h-[35rem] overflow-hidden">
+        <Media greaterThan="lg" className="flex-grow">
           <FilmTape
             titles={titles.slice(0, Math.floor(titles.length / 2))}
             images={images.slice(0, Math.floor(images.length / 3))}
             direction="down"
             timePerImage={10}
-            className="-rotate-[5deg] h-[90vh] m-auto"
+            className="-rotate-[7deg] h-[90vh] ml-auto mr-[30%]"
           />
         </Media>
-        <div className="flex flex-col gap-8 justify-center items-center">
-          <div className="flex flex-col gap-2 md:gap-4 items-center font-bold">
-            <p className="text-red-300 text-3xl md:text-5xl">
-              THE <span className="text-5xl md:text-7xl text-red-500">#1</span>
-            </p>
-            <p className="text-4xl md:text-6xl text-red-500">YOUTH SUPPORT</p>
-            <p className="text-4xl md:text-6xl text-red-300">COMMUNITY</p>
+        <div className="flex flex-col justify-center items-center">
+          <div className="relative w-28 md:w-36 aspect-[0.8]">
+            <NextImage
+              src="/images/logo.svg"
+              alt="Logo"
+              className=""
+              objectFit="contain"
+            />
           </div>
-          <div className="flex gap-8 text-sm md:text-md">
+          <div className="flex flex-col md:gap-1 items-center font-bold mt-1 md:mt-3">
+            <p className="text-red-100 text-3xl md:text-4xl lg:text-5xl">
+              GLOBAL SHARE
+            </p>
+            <p className="text-4xl md:text-5xl lg:text-6xl text-red-50">
+              SUPPORT YOUTH
+            </p>
+            <p className="text-3xl md:text-4xl lg:text-5xl text-red-100">
+              ASSOCIATION
+            </p>
+          </div>
+          <div className="flex gap-8 text-sm md:text-md mt-4 md:mt-8">
             <a
               href="#programs"
               className="text-red-50 rounded-md bg-red-500 p-3 w-32  hover:bg-red-600"
@@ -63,7 +76,7 @@ export default function LandingPage({
             </a>
           </div>
         </div>
-        <Media greaterThan="md" className="flex-grow">
+        <Media greaterThan="lg" className="flex-grow">
           <FilmTape
             titles={titles.slice(Math.floor(titles.length / 2), titles.length)}
             images={images.slice(
@@ -72,7 +85,7 @@ export default function LandingPage({
             )}
             direction="down"
             timePerImage={10}
-            className="rotate-[5deg] h-[90vh] m-auto"
+            className="rotate-[7deg] h-[90vh] ml-[30%] mr-auto"
           />
         </Media>
       </div>
@@ -100,6 +113,16 @@ export default function LandingPage({
           thickness="12rem"
         />
       </Media>
+      <div className="absolute top-0 left-0 w-full h-full -z-10">
+        <div className="relative -ml-[10%] w-[120%] h-[100%] -mt-[10%]">
+          <NextImage
+            src="/images/programs/exchange/7.jpg"
+            alt="Background image"
+            className="blur-sm brightness-[.2]"
+          />
+          <div className="absolute top-0 left-0 w-full h-full bg-red-900 bg-opacity-10" />
+        </div>
+      </div>
     </div>
   );
 }

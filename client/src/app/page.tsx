@@ -72,7 +72,16 @@ const programsPageProps: ProgramsPageProps = {
       title: "Art Exhibition",
       description:
         "Art4Earth is a series of successful art exhibition events that showcase the work of talented local artists.",
-      link: "https://sites.google.com/view/vibrant-living-biodiversity/virtual-art-gallery",
+      buttons: [
+        {
+          label: "Learn more",
+          link: "https://sites.google.com/view/vibrant-living-biodiversity/virtual-art-gallery",
+        },
+        {
+          label: "Register",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+        },
+      ],
       subheading1: "Artistic Expression",
       subheading2: "Art4Earth",
       polaroids: [
@@ -94,7 +103,16 @@ const programsPageProps: ProgramsPageProps = {
       title: "Clubs",
       description:
         "Celebrate diversity at our art, dance, chess, debate, and opera clubs. Join us for inclusive events, gain volunteer hours, and share cultural experiences.",
-      link: "https://sites.google.com/view/gssya/clubs/chess-club",
+      buttons: [
+        {
+          label: "Learn more",
+          link: "https://sites.google.com/view/gssya/clubs/chess-club",
+        },
+        {
+          label: "Register",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+        },
+      ],
       subheading1: "Social Support",
       subheading2: "",
       polaroids: [
@@ -116,7 +134,16 @@ const programsPageProps: ProgramsPageProps = {
       title: "Mental Health",
       description:
         "Our Mental Health Service offers compassionate and comprehensive care to individuals seeking support for their emotional well-being, fostering healing and resilience.",
-      link: "https://sites.google.com/view/mentalhealthgssya/home",
+      buttons: [
+        {
+          label: "Learn more",
+          link: "https://sites.google.com/view/mentalhealthgssya/home",
+        },
+        {
+          label: "Register",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+        },
+      ],
       subheading1: "Mental Health Support",
       subheading2: "Charming Soul",
       polaroids: [
@@ -138,7 +165,16 @@ const programsPageProps: ProgramsPageProps = {
       title: "Multiculturalism",
       description:
         "The Multicultural Events are vibrant celebrations of diverse cultures, uniting communities through music, food, art, and traditions from around the world.",
-      link: "https://sites.google.com/view/confident-youth-program/home",
+      buttons: [
+        {
+          label: "Learn more",
+          link: "https://sites.google.com/view/confident-youth-program/home",
+        },
+        {
+          label: "Register",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+        },
+      ],
       subheading1: "Multicultural support",
       subheading2: "Confident Youth",
       polaroids: [
@@ -160,7 +196,20 @@ const programsPageProps: ProgramsPageProps = {
       title: "Tutoring",
       description:
         "Tutoring Camp provides an engaging and educational summer experience where students receive focused academic instruction in a fun and supportive environment.",
-      link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+      buttons: [
+        {
+          label: "Learn more",
+          link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+        },
+        {
+          label: "Register Student",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+        },
+        {
+          label: "Register Tutor",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+        },
+      ],
       subheading1: "Academic Support",
       subheading2: "",
       polaroids: [
@@ -182,7 +231,16 @@ const programsPageProps: ProgramsPageProps = {
       title: "Youth Exchange",
       description:
         "The Youth Exchange Program offers young people the opportunity to explore new cultures, build international friendships, and broaden their perspectives of the world through immersive cross-cultural experiences.",
-      link: "https://sites.google.com/view/confident-youth-program/events/youth-exchange-program",
+      buttons: [
+        {
+          label: "Learn more",
+          link: "https://sites.google.com/view/confident-youth-program/events/youth-exchange-program",
+        },
+        {
+          label: "Register",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+        },
+      ],
       subheading1: "Life-Changing Experience",
       subheading2: "",
       polaroids: [
@@ -461,7 +519,7 @@ const teamPageProps: TeamPageProps = {
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <LandingPage {...landingPageProps} />
       <AboutPage {...aboutPageProps} />
       <ProgramsPage {...programsPageProps} />
