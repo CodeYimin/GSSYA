@@ -82,7 +82,7 @@ export default function OfferingModal({
                     <a
                       href={button.link}
                       key={i}
-                      target="_blank"
+                      target="_self"
                       className="px-5 py-2 bg-zinc-200 hover:bg-zinc-300 rounded-md text-center inline-block"
                     >
                       {button.label}

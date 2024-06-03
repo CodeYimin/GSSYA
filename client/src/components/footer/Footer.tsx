@@ -24,7 +24,7 @@ export default function Footer({}: FooterProps): ReactElement {
         <a
           className="underline hover:text-zinc-50"
           href="https://www.youtube.com/channel/UC0H20TYKqATjGJrK9UILLRg"
-          target="_blank"
+          target="_self"
         >
           Youtube
         </a>
@@ -34,7 +34,7 @@ export default function Footer({}: FooterProps): ReactElement {
         <a
           className="underline hover:text-zinc-50"
           href="https://www.facebook.com/people/Linda-Huang/100079881245341/"
-          target="_blank"
+          target="_self"
         >
           Facebook
         </a>
@@ -44,7 +44,7 @@ export default function Footer({}: FooterProps): ReactElement {
         <a
           className="underline hover:text-zinc-50"
           href="https://twitter.com/gssyatutor"
-          target="_blank"
+          target="_self"
         >
           X
         </a>
@@ -57,7 +57,7 @@ export default function Footer({}: FooterProps): ReactElement {
         <a
           className="underline hover:text-zinc-50"
           href="https://linktr.ee/ssytutor"
-          target="_blank"
+          target="_self"
         >
           Linktree
         </a>
@@ -68,7 +68,7 @@ export default function Footer({}: FooterProps): ReactElement {
       <a
         className="underline hover:text-zinc-50"
         href={(process.env.NEXT_PUBLIC_BASE_PATH || "") + "/terms"}
-        target="_blank"
+        target="_self"
       >
         Terms and conditions
       </a>

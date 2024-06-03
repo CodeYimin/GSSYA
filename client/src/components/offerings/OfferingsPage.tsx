@@ -73,14 +73,14 @@ export default function OfferingsPage({
         <div className="flex gap-3">
           <a
             href={selectedSchedule.scheduleLink}
-            target="_blank"
+            target="_self"
             className="inline-block text-zinc-50 rounded-md bg-zinc-800 py-2 px-5 text-sm hover:bg-zinc-950 mt-2 whitespace-nowrap text-center cursor-pointer"
           >
             Get schedule
           </a>
           <a
             href={selectedSchedule.registerLink}
-            target="_blank"
+            target="_self"
             className="inline-block text-zinc-50 rounded-md bg-zinc-800 py-2 px-5 text-sm hover:bg-zinc-950 mt-2 whitespace-nowrap text-center cursor-pointer"
           >
             Register
