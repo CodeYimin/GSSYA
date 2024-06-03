@@ -1,6 +1,5 @@
 "use client";
 
-import AboutPage from "@/components/about/AboutPage";
 import Footer from "@/components/footer/Footer";
 import LandingPage from "@/components/landing/LandingPage";
 import OfferingsPage from "@/components/offerings/OfferingsPage";
@@ -521,9 +520,9 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <LandingPage {...landingPageProps} />
-      <AboutPage {...aboutPageProps} />
-      <ProgramsPage {...programsPageProps} />
+      {/* <AboutPage {...aboutPageProps} /> */}
       <OfferingsPage {...offeringsPageProps} />
+      <ProgramsPage {...programsPageProps} />
       <TeamPage {...teamPageProps} />
       <Footer />
     </div>

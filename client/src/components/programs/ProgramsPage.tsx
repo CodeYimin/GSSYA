@@ -8,17 +8,17 @@ export default function ProgramsPage({
   return (
     <div id="programs" className="pt-20">
       <div className="font-bold text-center text-3xl md:text-4xl flex flex-col md:gap-3">
-        <p>
+        {/* <p>
           SO WE BUILT A <span className="text-red-500">COMMUNITY</span>
-        </p>
+        </p> */}
         {/* <p>
           WITH <span className="text-red-500">PROGRAMS</span>
         </p> */}
-        <p>
+        {/* <p>
           TO SUPPORT <span className="text-red-500">YOUTH</span>
-        </p>
+        </p> */}
         <p>
-          FOR <span className="text-red-500">FREE</span>
+          CHECK OUT OUR <span className="text-red-500">PROGRAMS</span>
         </p>
       </div>
       <div className="flex flex-col gap-24 mt-14 items-center">
