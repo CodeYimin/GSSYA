@@ -38,7 +38,7 @@ export default function LandingPage({
             images={images.slice(0, Math.floor(images.length / 3))}
             direction="down"
             timePerImage={10}
-            className="-rotate-[7deg] h-[90vh] ml-auto mr-[30%]"
+            className="-rotate-[7deg] h-[90vh] ml-auto mr-[30%] -mt-5"
           />
         </Media>
         <div className="flex flex-col justify-center items-center">
@@ -51,26 +51,26 @@ export default function LandingPage({
             />
           </div>
           <div className="flex flex-col md:gap-1 items-center font-bold mt-1 md:mt-3">
-            <p className="text-red-100 text-3xl md:text-4xl lg:text-5xl">
+            <p className="text-red-600 text-3xl md:text-4xl lg:text-5xl">
               GLOBAL SHARE
             </p>
-            <p className="text-4xl md:text-5xl lg:text-6xl text-red-50">
+            <p className="text-4xl md:text-5xl lg:text-6xl text-red-600">
               SUPPORT YOUTH
             </p>
-            <p className="text-3xl md:text-4xl lg:text-5xl text-red-100">
+            <p className="text-3xl md:text-4xl lg:text-5xl text-red-600">
               ASSOCIATION
             </p>
           </div>
-          <div className="flex gap-8 text-sm md:text-md mt-4 md:mt-8">
+          <div className="flex gap-6 md:gap-8 text-xs md:text-sm md:text-md mt-4 md:mt-8">
             <a
               href="#schedule"
-              className="text-red-50 rounded-md bg-red-500 p-3 w-32 hover:bg-red-600"
+              className="text-red-50 rounded-md bg-red-500 p-3 w-28 md:w-32 hover:bg-red-600"
             >
               Schedule
             </a>
             <a
               href="#programs"
-              className="text-red-50 rounded-md bg-red-500 p-3 w-32  hover:bg-red-600"
+              className="text-red-50 rounded-md bg-red-500  p-3 w-28 md:w-32  hover:bg-red-600"
             >
               Programs
             </a>
@@ -85,7 +85,7 @@ export default function LandingPage({
             )}
             direction="down"
             timePerImage={10}
-            className="rotate-[7deg] h-[90vh] ml-[30%] mr-auto"
+            className="rotate-[7deg] h-[90vh] ml-[30%] mr-auto -mt-5"
           />
         </Media>
       </div>
@@ -118,9 +118,9 @@ export default function LandingPage({
           <NextImage
             src="/images/programs/exchange/7.jpg"
             alt="Background image"
-            className="blur-sm brightness-[.2]"
+            className="blur-sm brightness-[1]"
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-red-900 bg-opacity-10" />
+          <div className="absolute top-0 left-0 w-full h-full bg-red-100 bg-opacity-[88%] brightness-105" />
         </div>
       </div>
     </div>
