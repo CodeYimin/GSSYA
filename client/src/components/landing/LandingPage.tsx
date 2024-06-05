@@ -51,13 +51,13 @@ export default function LandingPage({
             />
           </div>
           <div className="flex flex-col md:gap-1 items-center font-bold mt-1 md:mt-3">
-            <p className="text-red-600 text-3xl md:text-4xl lg:text-5xl">
+            <p className="text-red-500 text-3xl md:text-4xl lg:text-5xl">
               GLOBAL SHARE
             </p>
             <p className="text-4xl md:text-5xl lg:text-6xl text-red-600">
               SUPPORT YOUTH
             </p>
-            <p className="text-3xl md:text-4xl lg:text-5xl text-red-600">
+            <p className="text-3xl md:text-4xl lg:text-5xl text-red-500">
               ASSOCIATION
             </p>
           </div>
