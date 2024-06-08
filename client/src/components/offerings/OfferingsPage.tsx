@@ -1,5 +1,5 @@
 import { Offering, SchedulePageProps } from "@/types/Schedule";
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 
 export default function OfferingsPage({
   offerings,
@@ -9,6 +9,10 @@ export default function OfferingsPage({
   const [selectedSchedule, setSelectedSchedule] = useState<Offering>(
     offerings[0]
   );
+
+  useEffect(() => {
+    setSelectedSchedule(offerings[0]);
+  }, [offerings]);
 
   return (
     <div id="schedule" className="pt-10">
