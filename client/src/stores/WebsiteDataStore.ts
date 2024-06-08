@@ -22,9 +22,11 @@ export const useWebsiteDataStore = create<WebsiteDataState>()(
   persist(
     (set) => ({
       websiteData:
-        languageToData[
-          (localStorage.getItem("website-data") as Language) || "English"
-        ],
+        typeof window !== "undefined"
+          ? languageToData[
+              (localStorage.getItem("website-data") as Language) || "English"
+            ]
+          : englishWebsiteData,
       setWebsiteData: (language: Language) =>
         set((state) => ({ websiteData: languageToData[language] })),
     }),
@@ -37,8 +39,10 @@ export const useWebsiteDataStore = create<WebsiteDataState>()(
           return {
             state: {
               websiteData:
-                languageToData[(language as Language) || "English"] ||
-                englishWebsiteData,
+                typeof window !== "undefined"
+                  ? languageToData[(language as Language) || "English"] ||
+                    englishWebsiteData
+                  : englishWebsiteData,
             },
             version: 1,
           };
