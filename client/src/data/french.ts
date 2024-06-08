@@ -73,11 +73,11 @@ export const frenchWebsiteData: WebsiteData = {
   aboutPage: {
     title1: "UN PEU ",
     title2: "DE NOUS",
-    description: `Global Share Support Youth Association est un organisme de bienfaisance canadien enregistré fondé en 2019 avec plus de 2 000 bénévoles, qui responsabilise les jeunes et leurs familles du monde entier. Nous proposons des événements, des programmes et des clubs gratuits pour soutenir cette communauté.
+    description: `Global Share Support Youth Association (GSSYA) est une organisation caritative canadienne enregistrée, fondée en 2019, avec plus de 2000 bénévoles, qui autonomise les jeunes et leurs familles dans le monde entier. Nous offrons des événements, des programmes et des clubs gratuits pour soutenir cette communauté.
 
-    Nos programmes sont dédiés aux jeunes et comprennent des expositions d'art, des clubs communautaires, des services de santé mentale, des échanges internationaux, des services de tutorat et des opportunités de bénévolat permettant aux jeunes de développer leurs compétences en leadership.
+    Nos programmes sont dédiés aux jeunes et comprennent des expositions d'art, des clubs communautaires, des services de santé mentale, des échanges internationaux, des services de tutorat et des opportunités de bénévolat pour permettre aux jeunes de développer des compétences en leadership.
     
-    Rejoignez-nous pour faire une différence ! Que vous soyez un jeune à la recherche de soutien, un mentor potentiel ou un partisan de l'autonomisation des jeunes, il existe de nombreuses façons de vous impliquer auprès de GSSYA. Ensemble, nous pouvons créer un avenir meilleur pour la prochaine génération.`,
+    Rejoignez-nous pour faire une différence! Que vous soyez un jeune à la recherche de soutien, un mentor potentiel ou un partisan de l'autonomisation des jeunes, il y a de nombreuses façons de vous impliquer avec GSSYA. Ensemble, nous pouvons créer un avenir meilleur pour la prochaine génération.`,
   },
 
   programs: {
