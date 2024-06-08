@@ -8,12 +8,12 @@ export default function AboutPage({
   description,
 }: AboutPageProps): ReactElement {
   return (
-    <div id="about" className="pt-16">
+    <div id="about" className="pt-20">
       <div className="font-bold text-center text-3xl md:text-4xl">
         {title1}
         <span className="text-red-500">{title2}</span>
       </div>
-      <div className="text-center text-sm md:text-base lg:text-left flex flex-col-reverse lg:grid lg:grid-cols-2 items-center py-10 px-10 md:px-16 gap-8">
+      <div className="text-center text-sm md:text-base lg:text-left flex flex-col-reverse lg:grid lg:grid-cols-2 items-center pt-10 px-10 md:px-16 gap-8">
         <div className="mt-5 lg:mt-0 whitespace-pre-line">{description}</div>
         <div className="w-full">
           <YouTubePlayer

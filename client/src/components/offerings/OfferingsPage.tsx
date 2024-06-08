@@ -15,7 +15,7 @@ export default function OfferingsPage({
   }, [offerings]);
 
   return (
-    <div id="schedule" className="pt-10">
+    <div id="schedule" className="pt-20">
       <div className="font-bold text-center text-3xl md:text-4xl flex flex-col gap-3">
         <p>
           {title1}

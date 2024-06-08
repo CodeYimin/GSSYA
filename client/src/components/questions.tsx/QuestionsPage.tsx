@@ -8,7 +8,7 @@ export default function QuestionsPage({
   questions,
 }: QuestionsPageProps): ReactElement {
   return (
-    <div id="questions" className="pt-20">
+    <div id="faq" className="pt-20">
       <div className="font-bold text-center text-3xl md:text-4xl flex flex-col md:gap-3">
         <p>
           {title1}

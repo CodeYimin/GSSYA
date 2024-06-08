@@ -88,7 +88,7 @@ export default function Navbar(): ReactElement {
           >
             GSSYA
           </a>
-          <div className="flex gap-5 items-center">
+          <div className="flex gap-5 items-center z-50">
             <LanguageSelect
               languages={["English", "Français", "简体", "繁體"]}
             />
