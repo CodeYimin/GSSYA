@@ -46,6 +46,7 @@ export default function Navbar(): ReactElement {
                   <a
                     className="cursor-pointer hover:text-zinc-50 w-max"
                     href={link.link}
+                    key={link.label}
                   >
                     {link.label}
                   </a>
@@ -58,6 +59,7 @@ export default function Navbar(): ReactElement {
                     <a
                       className="cursor-pointer hover:text-zinc-50 w-max"
                       href={link.link}
+                      key={link.label}
                     >
                       {link.label}
                     </a>

@@ -47,6 +47,7 @@ export default function LandingPage({
               <a
                 href={button.link}
                 className="text-red-50 rounded-md bg-red-500 p-3 w-28 md:w-32 hover:bg-red-600"
+                key={button.label}
               >
                 {button.label}
               </a>

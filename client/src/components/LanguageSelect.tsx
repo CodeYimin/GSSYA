@@ -40,6 +40,7 @@ export default function LanguageSelect({
         >
           {languages.map((language) => (
             <div
+              key={language}
               className="flex w-full px-4 justify-between items-center gap-5"
               onClick={() => setWebsiteData(language)}
             >
