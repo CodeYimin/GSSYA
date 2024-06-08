@@ -32,24 +32,23 @@ export default function LanguageSelect({
       ref={ref}
     >
       <FaGlobe />
-      {open && (
-        <div
-          className={
-            "absolute bg-zinc-800 flex flex-col gap-2 py-3 transition-all top-0 -right-1 shadow-md rounded-md"
-          }
-        >
-          {languages.map((language) => (
-            <div
-              key={language}
-              className="flex w-full px-4 justify-between items-center gap-5"
-              onClick={() => setWebsiteData(language)}
-            >
-              <a className="hover:text-zinc-50 w-max">{language}</a>
-              {websiteData.language === language && <FaCheck />}
-            </div>
-          ))}
-        </div>
-      )}
+
+      <div
+        className={`absolute bg-zinc-800 flex flex-col gap-2 py-3 transition-all top-0 -right-1 shadow-md rounded-md ${
+          open ? "scale-100" : "scale-0"
+        } transition-all origin-top-right`}
+      >
+        {languages.map((language) => (
+          <div
+            key={language}
+            className="flex w-full px-4 justify-between items-center gap-5"
+            onClick={() => setWebsiteData(language)}
+          >
+            <a className="hover:text-zinc-50 w-max">{language}</a>
+            {websiteData.language === language && <FaCheck />}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
