@@ -1,14 +1,17 @@
 "use client";
 
 import { Media } from "@/app/media";
+import { useWebsiteDataStore } from "@/stores/WebsiteDataStore";
 import { titanOne } from "@/ui/fonts";
 import { usePathname } from "next/navigation";
 import { ReactElement, useEffect, useRef, useState } from "react";
 import { FaBars } from "react-icons/fa6";
+import LanguageSelect from "./LanguageSelect";
 
-interface NavbarProps {}
+export default function Navbar(): ReactElement {
+  const { websiteData } = useWebsiteDataStore();
+  const links = websiteData.navbar.links;
 
-export default function Navbar({}: NavbarProps): ReactElement {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -39,32 +42,26 @@ export default function Navbar({}: NavbarProps): ReactElement {
           <div className="text-zinc-50 relative text-sm">
             <div className="text-zinc-200">
               <div className="flex-grow flex gap-8 float-right absolute right-full items-center h-full">
-                {/* <a href="#about" className="cursor-pointer hover:text-zinc-50">
-                  About
-                </a> */}
-                <a
-                  href="#schedule"
-                  className="cursor-pointer hover:text-zinc-50"
-                >
-                  Schedule
-                </a>
-                <a
-                  href="#programs"
-                  className="cursor-pointer hover:text-zinc-50"
-                >
-                  Programs
-                </a>
+                {links.slice(0, Math.round(links.length / 2)).map((link) => (
+                  <a
+                    className="cursor-pointer hover:text-zinc-50 w-max"
+                    href={link.link}
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
               <div className="absolute flex-grow flex gap-8 left-full items-center h-full">
-                <a href="#team" className="cursor-pointer hover:text-zinc-50">
-                  Team
-                </a>
-                <a
-                  href="#contact"
-                  className="cursor-pointer hover:text-zinc-50"
-                >
-                  Contact
-                </a>
+                {links
+                  .slice(Math.round(links.length / 2), links.length)
+                  .map((link) => (
+                    <a
+                      className="cursor-pointer hover:text-zinc-50 w-max"
+                      href={link.link}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
               </div>
             </div>
             <a
@@ -73,6 +70,11 @@ export default function Navbar({}: NavbarProps): ReactElement {
             >
               GSSYA
             </a>
+          </div>
+          <div className="absolute right-0 h-full mr-5 flex items-center">
+            <LanguageSelect
+              languages={["English", "Français", "简体", "繁體"]}
+            />
           </div>
         </div>
       </Media>
@@ -84,53 +86,35 @@ export default function Navbar({}: NavbarProps): ReactElement {
           >
             GSSYA
           </a>
-          <button
-            onClick={() => setOpen(!open)}
-            className={`cursor-pointer transition-all ${open && "scale-y-125"}`}
-          >
-            <FaBars />
-          </button>
+          <div className="flex gap-5 items-center">
+            <LanguageSelect
+              languages={["English", "Français", "简体", "繁體"]}
+            />
+            <button
+              onClick={() => setOpen(!open)}
+              className={`cursor-pointer transition-all ${
+                open && "scale-y-125"
+              }`}
+            >
+              <FaBars />
+            </button>
+          </div>
 
           <div
             className={`absolute top-full left-0 bg-zinc-950 flex flex-col gap-5 items-center w-full overflow-hidden transition-all ${
               open ? "h-max py-5" : "py-0 h-0"
             }`}
           >
-            {/* <a
-              href="#about"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer hover:text-zinc-50"
-            >
-              About
-            </a> */}
-            <a
-              href="#schedule"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer hover:text-zinc-50"
-            >
-              Schedule
-            </a>
-            <a
-              href="#programs"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer hover:text-zinc-50"
-            >
-              Programs
-            </a>
-            <a
-              href="#team"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer hover:text-zinc-50"
-            >
-              Team
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="cursor-pointer hover:text-zinc-50"
-            >
-              Contact
-            </a>
+            {links.map((link) => (
+              <a
+                href={link.link}
+                onClick={() => setOpen(false)}
+                className="cursor-pointer hover:text-zinc-50"
+                key={link.label}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </Media>

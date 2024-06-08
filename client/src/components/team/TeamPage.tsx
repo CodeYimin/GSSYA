@@ -2,15 +2,23 @@ import { TeamPageProps } from "@/types/Volunteers";
 import { ReactElement } from "react";
 import VolunteerCard from "./VolunteerCard";
 
-export default function TeamPage({ volunteers }: TeamPageProps): ReactElement {
+export default function TeamPage({
+  volunteers,
+  title1,
+  title2,
+  title3,
+  title4,
+}: TeamPageProps): ReactElement {
   return (
     <div id="team" className="pt-20">
       <div className="font-bold text-center text-3xl md:text-4xl flex flex-col md:gap-3">
         <p>
-          MEET OUR <span className="text-red-500">TEAM</span>
+          {title1}
+          <span className="text-red-500">{title2}</span>
         </p>
         <p>
-          OF <span className="text-red-500">VOLUNTEERS</span>
+          {title3}
+          <span className="text-red-500">{title4}</span>
         </p>
       </div>
       <div className="my-16">

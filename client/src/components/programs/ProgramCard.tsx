@@ -5,10 +5,12 @@ import Polaroid from "./Polaroid";
 interface ProgramCardProps {
   program: IProgramCard;
   textPosition: "left" | "right";
+  akaText: string;
 }
 
 export default function ProgramCard({
   program,
+  akaText,
   textPosition,
 }: ProgramCardProps): ReactElement {
   return (
@@ -21,7 +23,9 @@ export default function ProgramCard({
         <p className="font-medium text-xs">{program.subheading1}</p>
         <p className="font-bold text-3xl md:text-4xl">{program.title}</p>
         {program.subheading2 && (
-          <p className="text-xs">a.k.a. {program.subheading2}</p>
+          <p className="text-xs">
+            {akaText} {program.subheading2}
+          </p>
         )}
         <p className="mt-3 text-sm font-medium text-zinc-800">
           {program.description}

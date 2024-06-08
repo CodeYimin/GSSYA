@@ -6,35 +6,16 @@ import FilmTape from "./FilmTape";
 
 export default function LandingPage({
   images,
-  titles,
+  labels,
+  buttons,
+  title,
 }: LandingPageProps): ReactElement {
   return (
     <div id="home" className="w-full mt-12 relative text-center">
-      {/* <Media lessThan="lg">
-        <div className="h-10" />
-        <div className="relative">
-          <FilmTape
-            images={[]}
-            titles={titles}
-            direction="right"
-            timePerImage={10}
-            thickness="12rem"
-            className=" w-[120%] absolute top-0"
-          />
-          <FilmTape
-            images={[]}
-            titles={titles}
-            direction="left"
-            timePerImage={10}
-            thickness="12rem"
-            className="-ml-5 w-[120%] absolute top-5"
-          />
-        </div>
-      </Media> */}
       <div className="flex justify-center h-[30rem] md:h-[80vh] md:min-h-[35rem] overflow-hidden">
         <Media greaterThan="lg" className="flex-grow">
           <FilmTape
-            titles={titles.slice(0, Math.floor(titles.length / 2))}
+            titles={labels.slice(0, Math.floor(labels.length / 2))}
             images={images.slice(0, Math.floor(images.length / 3))}
             direction="down"
             timePerImage={10}
@@ -62,23 +43,19 @@ export default function LandingPage({
             </p>
           </div>
           <div className="flex gap-6 md:gap-8 text-xs md:text-sm md:text-md mt-4 md:mt-8">
-            <a
-              href="#schedule"
-              className="text-red-50 rounded-md bg-red-500 p-3 w-28 md:w-32 hover:bg-red-600"
-            >
-              Schedule
-            </a>
-            <a
-              href="#programs"
-              className="text-red-50 rounded-md bg-red-500  p-3 w-28 md:w-32  hover:bg-red-600"
-            >
-              Programs
-            </a>
+            {buttons.map((button) => (
+              <a
+                href={button.link}
+                className="text-red-50 rounded-md bg-red-500 p-3 w-28 md:w-32 hover:bg-red-600"
+              >
+                {button.label}
+              </a>
+            ))}
           </div>
         </div>
         <Media greaterThan="lg" className="flex-grow">
           <FilmTape
-            titles={titles.slice(Math.floor(titles.length / 2), titles.length)}
+            titles={labels.slice(Math.floor(labels.length / 2), labels.length)}
             images={images.slice(
               Math.floor(images.length / 3),
               Math.floor(images.length / 3) * 2

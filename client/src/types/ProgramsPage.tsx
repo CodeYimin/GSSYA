@@ -1,5 +1,8 @@
 export interface ProgramsPageProps {
+  title1: string;
+  title2: string;
   programs: IProgramCard[];
+  akaText: string;
 }
 
 export interface IProgramCard {

@@ -1,27 +1,10 @@
 export interface SchedulePageProps {
+  title1: string;
+  title2: string;
   offerings: Offering[];
 }
 
-export type Category =
-  | "Tutoring"
-  | "Youth Exchange"
-  | "Multiculturalism"
-  | "Clubs"
-  | "Mental Health"
-  | "Art4Earth"
-  | "Other";
-
-export type OfferingType = "One time" | "Sessional";
-
 export interface Offering {
-  title: string;
-  description: string;
-  category: Category;
-  type: OfferingType;
-  startTime: Date;
-  endTime: Date;
+  category: string;
   buttons: { label: string; link: string }[];
-  images: string[];
-  location: string;
-  thumbnail: string;
 }
