@@ -25,17 +25,12 @@ export default function VolunteerModal({
           <FaXmark className="text-zinc-600 hover:text-zinc-500" />
         </button>
         <div className="relative h-48 w-48">
-          {volunteer.image ? (
-            <NextImage
-              src={volunteer.image}
-              alt="Profile Picture"
-              className="rounded-full"
-            />
-          ) : (
-            <p className="text-5xl text-zinc-700 font-medium select-none w-full h-full bg-zinc-200 rounded-full flex justify-center items-center">
-              {volunteer.firstName[0]}
-            </p>
-          )}
+          <NextImage
+            src={volunteer.image || "/images/logo.svg"}
+            alt="Profile Picture"
+            objectFit={!volunteer.image ? "contain" : "cover"}
+            className="rounded-full"
+          />
         </div>
         <div className="w-72 md:w-96 text-center">
           <div className="text-2xl font-bold mt-4">

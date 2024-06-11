@@ -15,22 +15,17 @@ export default function VolunteerCard({
   return (
     <div className="">
       <div
-        className="relative bg-zinc-200 rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:scale-110 transition-all"
+        className="relative rounded-full w-12 h-12 flex items-center justify-center cursor-pointer hover:scale-110 transition-all"
         onClick={() => {
           setOpen(true);
         }}
       >
-        {volunteer.image ? (
-          <NextImage
-            src={volunteer.image}
-            alt="Profile Picture"
-            className="rounded-full"
-          />
-        ) : (
-          <p className="text-xs text-zinc-700 font-medium select-none">
-            {volunteer.firstName[0]}
-          </p>
-        )}
+        <NextImage
+          src={volunteer.image || "/images/logo.svg"}
+          alt="Profile Picture"
+          objectFit={!volunteer.image ? "contain" : "cover"}
+          className="rounded-full"
+        />
       </div>
       {open && (
         <VolunteerModal
