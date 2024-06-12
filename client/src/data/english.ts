@@ -20,6 +20,10 @@ export const englishWebsiteData: WebsiteData = {
         link: "#faq",
       },
       {
+        label: "Testimonials",
+        link: "#testimonials",
+      },
+      {
         label: "Team",
         link: "#team",
       },
@@ -71,7 +75,7 @@ export const englishWebsiteData: WebsiteData = {
   },
 
   aboutPage: {
-    title1: "A BIT ",
+    title1: "THE STORY ",
     title2: "ABOUT US",
     description: `Global Share Support Youth Association is a registered Canadian charity founded in 2019 with over 2000 volunteers, empowering youth and their families worldwide. We provide free events, programs, and clubs to support this community.
 
@@ -602,6 +606,77 @@ export const englishWebsiteData: WebsiteData = {
         question: "Can I apply online?",
         answer:
           "Yes, you can use the website ssytutor.org, WeChat official account, or email ssytutor@gmail.com.",
+      },
+    ],
+  },
+  testimonials: {
+    title1: "VIEW OUR ",
+    title2: "TESTIMONIALS",
+    testimonials: [
+      {
+        name: "Student",
+        title: "Thank you for teaching me!",
+        video: "https://streamable.com/rrwwge",
+      },
+      {
+        name: "Student",
+        title: "I am thanking my tutor Tony!",
+        video: "https://streamable.com/fwqg4l",
+      },
+      {
+        name: "Student Parent",
+        title: "I love this community!",
+        text: "GSSYA is doing a really good job especially during the pandemic, and GSSYA is giving a chance for my kids to talk to people. Jennifer Li, the tutor of my kids is doing a really good job, both of my kids like her so much. I really like this community!",
+      },
+      {
+        name: "Student Parent",
+        title: "My kid loves this class!",
+        text: "My kid loves the classes and even asks for more classes!",
+      },
+      {
+        name: "Student Parent",
+        title: "Love the volunteers here!",
+        text: "Everyone is very professional. I'd like to thank Linda and the team of volunteers, and tutor Andy Tong for his hard work, teaching, and patient answering, and let the children benefit greatly! Extremely grateful 🙏🙏🙏",
+      },
+      {
+        name: "Student Parent",
+        title: "Make the children happy!",
+        text: "Thank you Linda and volunteers for your public tutoring to make the children happy and spend a happy summer vacation together. Thanks Bernice for patiently tutoring the children and making a lot of progress, thank you for your hard work. 🙏🙏🙏, looking forward to beginning of the next 🙏🙏🙏.",
+      },
+      {
+        name: "Student Parent",
+        title: "Thank you for such a good platform!",
+        text: 'Thank you, Linda, for introducing such a good platform, and asking my family to participate in such an educational public welfare counselling. Thank you for your patience. My son was very impressed. After class, he kept telling me, "My teacher is very good, he knows everything." I\'m deeply grateful. 🌹🌹🌹❤️❤️❤️❤️❤️',
+      },
+      {
+        name: "Student Parent",
+        title: "Teachers are very serious!",
+        text: "We just moved here from Montreal, and the kids were mainly learning French. A friend introduced GSSYA on Thursday. My two children had an English class, and the feedback was that the two teachers were very serious, and they think the class was very helpful. The older brother was especially grateful to his teacher, saying that he had done a lot of preparation before class.",
+      },
+      {
+        name: "Student Parent",
+        title: "Very serious and responsible!",
+        text: "Our teacher Madison is very serious and responsible. Good teacher, looking forward to see her next time.",
+      },
+      {
+        name: "Student Parent",
+        title: "Excellent teaching!",
+        text: "I am Vivian Xu's mother. Lucy is Vivian's French tutor. I want to thank Lucy for her excellent teaching. She is very focused and responsible.",
+      },
+      {
+        name: "Student Parent",
+        title: "Caring Teachers",
+        text: "\nI listened to it today. Miss Hany is very patient in teaching Charlene's math.",
+      },
+      {
+        name: "Student Parent",
+        title: "Patient and Adaptable",
+        text: "Thank you, Crystal, she is very patient with children, knows to consider the interests of children, and teaches according to the child.",
+      },
+      {
+        name: "Student Parent",
+        title: "Amazing Performance",
+        text: "After class on Thursday, the child told me excitedly that she got the second place in mathematics in the class\nThank you @Linda for the professional women who love to volunteer \nThanks @Steven",
       },
     ],
   },

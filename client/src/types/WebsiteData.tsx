@@ -5,6 +5,7 @@ import { NavbarProps } from "./Navbar";
 import { ProgramsPageProps } from "./ProgramsPage";
 import { QuestionsPageProps } from "./Questions";
 import { SchedulePageProps } from "./Schedule";
+import { TestimonialsPageProps } from "./Testimonials";
 import { TeamPageProps } from "./Volunteers";
 
 export interface WebsiteData {
@@ -15,6 +16,7 @@ export interface WebsiteData {
   schedule: SchedulePageProps;
   programs: ProgramsPageProps;
   questions: QuestionsPageProps;
+  testimonials: TestimonialsPageProps;
   team: TeamPageProps;
   contact: ContactPageProps;
 }
