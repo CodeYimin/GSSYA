@@ -24,11 +24,11 @@ export default function TestimonialsPage({
           style={{ marginLeft: `-${index * 100}%` }}
         >
           {testimonials.map((testimonial) => (
-            <div className="min-w-full px-10">
-              <TestimonialCard
-                testimonial={testimonial}
-                key={testimonial.text || testimonial.video}
-              />
+            <div
+              className="min-w-full px-10"
+              key={testimonial.text || testimonial.video}
+            >
+              <TestimonialCard testimonial={testimonial} />
             </div>
           ))}
         </div>
@@ -42,6 +42,7 @@ export default function TestimonialsPage({
         />
         {Array.from({ length: testimonials.length }).map((_, i) => (
           <div
+            key={i}
             className={`w-3 aspect-square rounded-full cursor-pointer ${
               index === i ? "bg-zinc-400" : "bg-zinc-200"
             }`}
