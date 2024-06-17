@@ -31,6 +31,10 @@ export const englishWebsiteData: WebsiteData = {
         label: "Contact",
         link: "#contact",
       },
+      {
+        label: "Donate",
+        link: "#donate",
+      },
     ],
   },
   language: "English",
@@ -610,7 +614,7 @@ export const englishWebsiteData: WebsiteData = {
     ],
   },
   testimonials: {
-    title1: "VIEW OUR ",
+    title1: "BROWSE OUR ",
     title2: "TESTIMONIALS",
     testimonials: [
       {

@@ -12,7 +12,7 @@ export default function TestimonialsPage({
 
   return (
     <div id="testimonials" className="pt-20">
-      <div className="font-bold text-center text-3xl md:text-4xl flex flex-col md:gap-3">
+      <div className="font-bold text-center text-3xl md:text-4xl flex flex-col md:gap-3 px-5">
         <p>
           {title1}
           <span className="text-red-500">{title2}</span>

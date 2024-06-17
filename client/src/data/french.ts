@@ -4,7 +4,7 @@ export const frenchWebsiteData: WebsiteData = {
   navbar: {
     links: [
       {
-        label: "Nous",
+        label: "Accueil",
         link: "#about",
       },
       {
@@ -30,6 +30,10 @@ export const frenchWebsiteData: WebsiteData = {
       {
         label: "Contactez",
         link: "#contact",
+      },
+      {
+        label: "Don",
+        link: "#donate",
       },
     ],
   },
@@ -75,13 +79,13 @@ export const frenchWebsiteData: WebsiteData = {
   },
 
   aboutPage: {
-    title1: "UN PEU ",
-    title2: "DE NOUS",
-    description: `Global Share Support Youth Association (GSSYA) est une organisation caritative canadienne enregistrée, fondée en 2019, avec plus de 2000 bénévoles, qui autonomise les jeunes et leurs familles dans le monde entier. Nous offrons des événements, des programmes et des clubs gratuits pour soutenir cette communauté.
+    title1: "QUI ",
+    title2: "SOMMES-NOUS",
+    description: `Global Share Support Youth Association (GSSYA) est une organisation caritative canadienne enregistrée, fondée en 2019, avec plus de 2000 bénévoles. Notre mission est d'autonomiser les jeunes et leurs familles à travers le monde. Nous offrons gratuitement des événements, des programmes et des clubs gratuits pour soutenir cette communauté.
 
-    Nos programmes sont dédiés aux jeunes et comprennent des expositions d'art, des clubs communautaires, des services de santé mentale, des échanges internationaux, des services de tutorat et des opportunités de bénévolat pour permettre aux jeunes de développer des compétences en leadership.
+    Nos programmes sont dédiés aux jeunes et comprennent des expositions d'art, des clubs communautaires, des services de santé mentale, des échanges internationaux, des services de tutorat et des opportunités de bénévolat a fin de développer leurs compétences en leadership.
     
-    Rejoignez-nous pour faire une différence! Que vous soyez un jeune à la recherche de soutien, un mentor potentiel ou un partisan de l'autonomisation des jeunes, il y a de nombreuses façons de vous impliquer avec GSSYA. Ensemble, nous pouvons créer un avenir meilleur pour la prochaine génération.`,
+    Rejoignez-nous pour faire la différence! Que vous soyez un jeune en quête de soutien, un mentor potentiel ou un partisan de l'autonomisation des jeunes, il y a de nombreuses façons de s'impliquer avec GSSYA. Ensemble, nous pouvons créer un avenir meilleur pour la prochaine génération.`,
   },
 
   programs: {
@@ -611,7 +615,7 @@ export const frenchWebsiteData: WebsiteData = {
     ],
   },
   testimonials: {
-    title1: "VOIR NOS ",
+    title1: "RENCONTREZ NOS ",
     title2: "TÉMOIGNAGES",
     testimonials: [
       {

@@ -31,6 +31,10 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         label: "联系",
         link: "#contact",
       },
+      {
+        label: "捐款",
+        link: "#donate",
+      },
     ],
   },
   language: "简体",
