@@ -677,6 +677,15 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
       },
     ],
   },
+  donate: {
+    title1: "做",
+    title2: "捐献",
+    description: `加入我们，为全世界青年赋权！在 GSSYA，我们提供免费的活动、计划和俱乐部来支持和激励年轻人。您的捐款有助于我们继续提供艺术展览、心理健康服务、国际交流、辅导和领导机会。
+
+  准备好做出改变了吗？您的支持培养了自信、有能力的年轻人。今天捐款，帮助为下一代建设更光明的未来。`,
+    donateText: "捐款",
+    donateLink: "https://www.paypal.com/ca/fundraiser/charity/4606277",
+  },
   contact: {
     title: "联系我们",
     termsLabel: "条款和条件",

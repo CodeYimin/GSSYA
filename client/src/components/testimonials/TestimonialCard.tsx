@@ -1,7 +1,6 @@
 import { Testimonial } from "@/types/Testimonials";
 import { ReactElement } from "react";
 import { FaQuoteLeft } from "react-icons/fa6";
-import StreamablePlayer from "react-player/streamable";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -16,8 +15,8 @@ export default function TestimonialCard({
       <p className="text-2xl italic mt-2 font-medium">{title}</p>
       {text && <p className="text-sm mt-2 italic">{text}</p>}
       {video && (
-        <StreamablePlayer
-          url={video}
+        <iframe
+          src={video}
           width="100%"
           height="100%"
           style={{
@@ -27,6 +26,7 @@ export default function TestimonialCard({
             borderRadius: "0.5rem",
             overflow: "hidden",
           }}
+          allow="autoplay; fullscreen"
         />
       )}
       <p className="mt-3">- {name}</p>

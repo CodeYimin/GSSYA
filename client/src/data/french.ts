@@ -681,6 +681,15 @@ export const frenchWebsiteData: WebsiteData = {
       },
     ],
   },
+  donate: {
+    title1: "FAIRE UN ",
+    title2: "DON",
+    description: `Rejoignez-nous pour responsabiliser les jeunes du monde entier ! Chez GSSYA, nous proposons des événements, des programmes et des clubs gratuits qui soutiennent et inspirent les jeunes. Votre don nous aide à continuer à proposer des expositions d’art, des services de santé mentale, des échanges internationaux, du tutorat et des opportunités de leadership.
+ 
+  Prêt à faire la différence ? Votre soutien nourrit des jeunes confiants et capables. Faites un don aujourd'hui et aidez à bâtir un avenir meilleur pour la prochaine génération.`,
+    donateText: "Faire un don",
+    donateLink: "https://www.paypal.com/ca/fundraiser/charity/4606277",
+  },
   contact: {
     title: "CONNECTEZ-VOUS AVEC NOUS",
     termsLabel: "Termes et conditions",

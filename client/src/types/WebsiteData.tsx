@@ -1,5 +1,6 @@
 import { AboutPageProps } from "./AboutPage";
 import { ContactPageProps } from "./Contact";
+import { DonatePageProps } from "./Donate";
 import { LandingPageProps } from "./LandingPage";
 import { NavbarProps } from "./Navbar";
 import { ProgramsPageProps } from "./ProgramsPage";
@@ -18,6 +19,7 @@ export interface WebsiteData {
   questions: QuestionsPageProps;
   testimonials: TestimonialsPageProps;
   team: TeamPageProps;
+  donate: DonatePageProps;
   contact: ContactPageProps;
 }
 

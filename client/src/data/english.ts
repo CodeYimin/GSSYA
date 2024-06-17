@@ -680,6 +680,15 @@ export const englishWebsiteData: WebsiteData = {
       },
     ],
   },
+  donate: {
+    title1: "MAKE A ",
+    title2: "DONATION",
+    description: `Join us in empowering youth worldwide! At GSSYA, we provide free events, programs, and clubs that support and inspire young people. Your donation helps us continue offering art exhibitions, mental health services, international exchanges, tutoring, and leadership opportunities.
+  
+  Ready to make a difference? Your support nurtures confident, capable youth. Donate today and help build a brighter future for the next generation.`,
+    donateText: "Donate Now",
+    donateLink: "https://www.paypal.com/ca/fundraiser/charity/4606277",
+  },
   contact: {
     title: "CONNECT WITH US",
     termsLabel: "Terms and conditions",

@@ -1,3 +1,4 @@
+import { BASE_PATH } from "@/data/consts";
 import { ContactPageProps } from "@/types/Contact";
 import { ReactElement } from "react";
 import { FaEnvelope, FaFacebook, FaPhoneAlt, FaYoutube } from "react-icons/fa";
@@ -70,7 +71,7 @@ export default function Footer({
       </div>
       <a
         className="underline hover:text-zinc-50"
-        href={(process.env.NEXT_PUBLIC_BASE_PATH || "") + contacts.terms}
+        href={BASE_PATH + contacts.terms}
         target="_self"
       >
         {termsLabel}

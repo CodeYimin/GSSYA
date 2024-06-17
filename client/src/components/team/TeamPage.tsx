@@ -21,7 +21,7 @@ export default function TeamPage({
           <span className="text-red-500">{title4}</span>
         </p>
       </div>
-      <div className="my-16">
+      <div className="mt-16">
         <div className="grid gap-2 mx-auto w-max items-center grid-cols-5">
           {volunteers.map((volunteer, i) => (
             <VolunteerCard volunteer={volunteer} key={i} />

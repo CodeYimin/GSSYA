@@ -16,7 +16,7 @@ export default function ProgramCard({
   return (
     <div className="md:grid md:grid-cols-2 flex flex-col-reverse gap-8 text-zinc-950">
       <div
-        className={`mx-8 max-w-96 text-center md:text-left md:float-right md:mx-[5vw] md:w-[25vw] md:my-auto ${
+        className={`mx-8 max-w-96 text-center md:text-left md:float-right md:mx-[4rem] md:w-[25vw] md:my-auto ${
           textPosition === "right" && "md:order-last"
         }`}
       >
