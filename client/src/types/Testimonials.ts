@@ -9,4 +9,5 @@ export interface TestimonialsPageProps {
   title1: string;
   title2: string;
   testimonials: Testimonial[];
+  formText: string;
 }

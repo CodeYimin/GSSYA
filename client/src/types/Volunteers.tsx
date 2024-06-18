@@ -4,6 +4,8 @@ export interface TeamPageProps {
   title3: string;
   title4: string;
   volunteers: IVolunteerCard[];
+  formText1: string;
+  formText2: string;
 }
 
 export interface IVolunteerCard {

@@ -8,6 +8,8 @@ export default function TeamPage({
   title2,
   title3,
   title4,
+  formText1,
+  formText2,
 }: TeamPageProps): ReactElement {
   return (
     <div id="team" className="pt-20">
@@ -28,6 +30,16 @@ export default function TeamPage({
           ))}
         </div>
       </div>
+      <p className="mt-16 text-sm text-center w-72 m-auto text-zinc-700">
+        {formText1}{" "}
+        <a
+          href={"https://forms.gle/36VkhD7FXUG7CRs48"}
+          className="underline text-zinc-950"
+        >
+          {formText2}
+        </a>
+        .
+      </p>
     </div>
   );
 }

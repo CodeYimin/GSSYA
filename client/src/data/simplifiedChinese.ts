@@ -444,6 +444,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         text: "After class on Thursday, the child told me excitedly that she got the second place in mathematics in the class\nThank you @Linda for the professional women who love to volunteer \nThanks @Steven",
       },
     ],
+    formText: "写感言",
   },
   team: {
     title1: "认识",
@@ -651,6 +652,8 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
           "Bonjour everyone, I'm James, a grade 12 student very interested in helping others in STEM and utilizing the vast community of GSSYA to spread messages like environmental conservation through special events to our young audiences. I enjoy cubing, photography, stargazing, and music in my free time! \n\nThank you.",
       },
     ],
+    formText1: "志愿者：没看到自己吗？",
+    formText2: "完成您的个人资料。",
   },
 
   questions: {

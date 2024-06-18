@@ -581,6 +581,8 @@ export const englishWebsiteData: WebsiteData = {
           "Bonjour everyone, I'm James, a grade 12 student very interested in helping others in STEM and utilizing the vast community of GSSYA to spread messages like environmental conservation through special events to our young audiences. I enjoy cubing, photography, stargazing, and music in my free time! \n\nThank you.",
       },
     ],
+    formText1: "Volunteers: Don't see yourself? Complete your profile",
+    formText2: "here",
   },
 
   questions: {
@@ -683,6 +685,7 @@ export const englishWebsiteData: WebsiteData = {
         text: "After class on Thursday, the child told me excitedly that she got the second place in mathematics in the class\nThank you @Linda for the professional women who love to volunteer \nThanks @Steven",
       },
     ],
+    formText: "Write a testimonial",
   },
   donate: {
     title1: "MAKE A ",

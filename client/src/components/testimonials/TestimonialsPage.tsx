@@ -1,11 +1,12 @@
 import { TestimonialsPageProps } from "@/types/Testimonials";
 import { ReactElement, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { FaChevronLeft, FaChevronRight, FaPencil } from "react-icons/fa6";
 import TestimonialCard from "./TestimonialCard";
 
 export default function TestimonialsPage({
   title1,
   title2,
+  formText,
   testimonials,
 }: TestimonialsPageProps): ReactElement {
   const [index, setIndex] = useState(0);
@@ -58,6 +59,12 @@ export default function TestimonialsPage({
           }}
         />
       </div>
+      <a
+        href={"https://forms.gle/bHuwokmJbdr7C8qf7"}
+        className="bg-zinc-500 text-white font-semibold py-2 px-4 rounded-md mt-12 hover:bg-zinc-600 flex items-center gap-2 w-max mx-auto"
+      >
+        <FaPencil className="inline" /> {formText}
+      </a>
     </div>
   );
 }
