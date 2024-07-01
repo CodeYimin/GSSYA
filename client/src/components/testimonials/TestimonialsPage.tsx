@@ -36,24 +36,16 @@ export default function TestimonialsPage({
       </div>
       <div className="flex gap-2 w-full justify-center items-center mt-8">
         <FaChevronLeft
-          className="text-zinc-400 cursor-pointer text-2xl"
+          className="text-zinc-400 cursor-pointer text-2xl select-none"
           onClick={() => {
             setIndex((index - 1 + testimonials.length) % testimonials.length);
           }}
         />
-        {Array.from({ length: testimonials.length }).map((_, i) => (
-          <div
-            key={i}
-            className={`w-3 aspect-square rounded-full cursor-pointer ${
-              index === i ? "bg-zinc-400" : "bg-zinc-200"
-            }`}
-            onClick={() => {
-              setIndex(i);
-            }}
-          ></div>
-        ))}
+        <div className="text-zinc-400 select-none">
+          {index + 1}/{testimonials.length}
+        </div>
         <FaChevronRight
-          className="text-zinc-400 cursor-pointer text-2xl"
+          className="text-zinc-400 cursor-pointer text-2xl select-none"
           onClick={() => {
             setIndex((index + 1) % testimonials.length);
           }}

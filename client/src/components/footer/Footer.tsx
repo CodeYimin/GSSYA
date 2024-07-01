@@ -76,6 +76,16 @@ export default function Footer({
       >
         {termsLabel}
       </a>
+      <a
+        className="underline hover:text-zinc-50"
+        href={
+          BASE_PATH +
+          "https://drive.google.com/drive/folders/1jVhhGGJj7kXkV_Q8fszm54t1uSGaboDP?usp=sharing"
+        }
+        target="_self"
+      >
+        Maintenance Folder
+      </a>
     </div>
   );
 }
