@@ -94,6 +94,72 @@ export const englishWebsiteData: WebsiteData = {
     title2: "PROGRAMS",
     programs: [
       {
+        title: "Tutoring",
+        description:
+          "Tutoring Camp provides an engaging and educational summer experience where students receive focused academic instruction in a fun and supportive environment.",
+        buttons: [
+          {
+            label: "Learn more",
+            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+          },
+          {
+            label: "Register Student",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+          },
+          {
+            label: "Register Tutor",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+          },
+        ],
+        subheading1: "Academic Support",
+        subheading2: "",
+        polaroids: [
+          {
+            image: "/images/programs/tutoring/2.png",
+            text: "",
+          },
+          {
+            image: "/images/programs/tutoring/4.png",
+            text: "",
+          },
+          {
+            image: "/images/programs/tutoring/3.png",
+            text: "French Tutoring",
+          },
+        ],
+      },
+      {
+        title: "Mental Health",
+        description:
+          "Our Mental Health Service offers compassionate and comprehensive care to individuals seeking support for their emotional well-being, fostering healing and resilience.",
+        buttons: [
+          {
+            label: "Learn more",
+            link: "https://sites.google.com/view/mentalhealthgssya/home",
+          },
+          {
+            label: "Register",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+        ],
+        subheading1: "Mental Health Support",
+        subheading2: "Charming Soul",
+        polaroids: [
+          {
+            image: "/images/programs/mental/3.jpg",
+            text: "",
+          },
+          {
+            image: "/images/programs/mental/2.jpg",
+            text: "",
+          },
+          {
+            image: "/images/programs/mental/1.png",
+            text: "Mental Health Day 2024",
+          },
+        ],
+      },
+      {
         title: "Art Exhibition",
         description:
           "Art4Earth is a series of successful art exhibition events that showcase the work of talented local artists.",
@@ -156,37 +222,6 @@ export const englishWebsiteData: WebsiteData = {
         ],
       },
       {
-        title: "Mental Health",
-        description:
-          "Our Mental Health Service offers compassionate and comprehensive care to individuals seeking support for their emotional well-being, fostering healing and resilience.",
-        buttons: [
-          {
-            label: "Learn more",
-            link: "https://sites.google.com/view/mentalhealthgssya/home",
-          },
-          {
-            label: "Register",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-        subheading1: "Mental Health Support",
-        subheading2: "Charming Soul",
-        polaroids: [
-          {
-            image: "/images/programs/mental/3.jpg",
-            text: "",
-          },
-          {
-            image: "/images/programs/mental/2.jpg",
-            text: "",
-          },
-          {
-            image: "/images/programs/mental/1.png",
-            text: "Mental Health Day 2024",
-          },
-        ],
-      },
-      {
         title: "Multiculturalism",
         description:
           "The Multicultural Events are vibrant celebrations of diverse cultures, uniting communities through music, food, art, and traditions from around the world.",
@@ -214,41 +249,6 @@ export const englishWebsiteData: WebsiteData = {
           {
             image: "/images/programs/talent_show/5.jpg",
             text: "Youth Talent Show 2024",
-          },
-        ],
-      },
-      {
-        title: "Tutoring",
-        description:
-          "Tutoring Camp provides an engaging and educational summer experience where students receive focused academic instruction in a fun and supportive environment.",
-        buttons: [
-          {
-            label: "Learn more",
-            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
-          },
-          {
-            label: "Register Student",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
-          },
-          {
-            label: "Register Tutor",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
-          },
-        ],
-        subheading1: "Academic Support",
-        subheading2: "",
-        polaroids: [
-          {
-            image: "/images/programs/tutoring/2.png",
-            text: "",
-          },
-          {
-            image: "/images/programs/tutoring/4.png",
-            text: "",
-          },
-          {
-            image: "/images/programs/tutoring/3.png",
-            text: "French Tutoring",
           },
         ],
       },
@@ -291,6 +291,36 @@ export const englishWebsiteData: WebsiteData = {
     title2: "SCHEDULE",
     offerings: [
       {
+        category: "Tutoring",
+        buttons: [
+          {
+            label: "Get Schedule",
+            link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
+          },
+          {
+            label: "Register Student",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+          },
+          {
+            label: "Register Tutor",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+          },
+        ],
+      },
+      {
+        category: "Mental Health",
+        buttons: [
+          {
+            label: "Get Schedule",
+            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+          },
+          {
+            label: "Register",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+        ],
+      },
+      {
         category: "Art4Earth",
         buttons: [
           {
@@ -317,19 +347,6 @@ export const englishWebsiteData: WebsiteData = {
         ],
       },
       {
-        category: "Mental Health",
-        buttons: [
-          {
-            label: "Get Schedule",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
-          },
-          {
-            label: "Register",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-      },
-      {
         category: "Multiculturalism",
         buttons: [
           {
@@ -339,23 +356,6 @@ export const englishWebsiteData: WebsiteData = {
           {
             label: "Register",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-      },
-      {
-        category: "Tutoring",
-        buttons: [
-          {
-            label: "Get Schedule",
-            link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
-          },
-          {
-            label: "Register Student",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
-          },
-          {
-            label: "Register Tutor",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
           },
         ],
       },

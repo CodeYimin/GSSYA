@@ -94,6 +94,72 @@ export const frenchWebsiteData: WebsiteData = {
     title2: "PROGRAMMES INNOVANTS",
     programs: [
       {
+        title: "Services de Tutorat",
+        description:
+          "Le camp de tutorat offre une expérience estivale engageante et éducative où les élèves reçoivent un enseignement scolaire ciblé dans un environnement amusant et bienveillant.",
+        buttons: [
+          {
+            label: "En savoir plus",
+            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+          },
+          {
+            label: "S'inscrire comme étudiant",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+          },
+          {
+            label: "S'inscrire comme enseignant",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+          },
+        ],
+        subheading1: "Soutien Scolaire",
+        subheading2: "",
+        polaroids: [
+          {
+            image: "/images/programs/tutoring/2.png",
+            text: "",
+          },
+          {
+            image: "/images/programs/tutoring/4.png",
+            text: "",
+          },
+          {
+            image: "/images/programs/tutoring/3.png",
+            text: "Cours de français",
+          },
+        ],
+      },
+      {
+        title: "Santé Mentale",
+        description:
+          "Notre service de santé mentale offre des soins compatissants et complets aux personnes en quête de bien-être émotionnel, favorisant la guérison et la résilience.",
+        buttons: [
+          {
+            label: "En savoir plus",
+            link: "https://sites.google.com/view/mentalhealthgssya/home",
+          },
+          {
+            label: "S'inscrire maintenant",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+        ],
+        subheading1: "Soutien en santé mentale",
+        subheading2: "l'âme charmante",
+        polaroids: [
+          {
+            image: "/images/programs/mental/3.jpg",
+            text: "",
+          },
+          {
+            image: "/images/programs/mental/2.jpg",
+            text: "",
+          },
+          {
+            image: "/images/programs/mental/1.png",
+            text: "Journée de la santé mentale 2024",
+          },
+        ],
+      },
+      {
         title: "Exposition d'œuvres d'art",
         description:
           "Art2Demain est une série d'expositions d'art réussie qui met en valeur le travail d'artistes locaux talentueux.",
@@ -156,37 +222,6 @@ export const frenchWebsiteData: WebsiteData = {
         ],
       },
       {
-        title: "Santé Mentale",
-        description:
-          "Notre service de santé mentale offre des soins compatissants et complets aux personnes en quête de bien-être émotionnel, favorisant la guérison et la résilience.",
-        buttons: [
-          {
-            label: "En savoir plus",
-            link: "https://sites.google.com/view/mentalhealthgssya/home",
-          },
-          {
-            label: "S'inscrire maintenant",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-        subheading1: "Soutien en santé mentale",
-        subheading2: "l'âme charmante",
-        polaroids: [
-          {
-            image: "/images/programs/mental/3.jpg",
-            text: "",
-          },
-          {
-            image: "/images/programs/mental/2.jpg",
-            text: "",
-          },
-          {
-            image: "/images/programs/mental/1.png",
-            text: "Journée de la santé mentale 2024",
-          },
-        ],
-      },
-      {
         title: "Multiculturalisme",
         description:
           "Les événements multiculturels sont des célébrations vibrantes de diverses cultures, unissant les communautés à travers la musique, la nourriture, l'art et les traditions du monde entier.",
@@ -214,41 +249,6 @@ export const frenchWebsiteData: WebsiteData = {
           {
             image: "/images/programs/talent_show/5.jpg",
             text: "Salon des talents jeunesse 2024",
-          },
-        ],
-      },
-      {
-        title: "Services de Tutorat",
-        description:
-          "Le camp de tutorat offre une expérience estivale engageante et éducative où les élèves reçoivent un enseignement scolaire ciblé dans un environnement amusant et bienveillant.",
-        buttons: [
-          {
-            label: "En savoir plus",
-            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
-          },
-          {
-            label: "S'inscrire comme étudiant",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
-          },
-          {
-            label: "S'inscrire comme enseignant",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
-          },
-        ],
-        subheading1: "Soutien Scolaire",
-        subheading2: "",
-        polaroids: [
-          {
-            image: "/images/programs/tutoring/2.png",
-            text: "",
-          },
-          {
-            image: "/images/programs/tutoring/4.png",
-            text: "",
-          },
-          {
-            image: "/images/programs/tutoring/3.png",
-            text: "Cours de français",
           },
         ],
       },
@@ -291,6 +291,36 @@ export const frenchWebsiteData: WebsiteData = {
     title2: "ACTIVITÉS",
     offerings: [
       {
+        category: "Tutorat",
+        buttons: [
+          {
+            label: "Calendrier",
+            link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
+          },
+          {
+            label: "S'inscrire comme étudiant",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+          },
+          {
+            label: "S'inscrire comme enseignant",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+          },
+        ],
+      },
+      {
+        category: "Santé Mentale",
+        buttons: [
+          {
+            label: "Calendrier",
+            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+          },
+          {
+            label: "S'inscrire maintenant",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+        ],
+      },
+      {
         category: "Art2Demain",
         buttons: [
           {
@@ -316,19 +346,7 @@ export const frenchWebsiteData: WebsiteData = {
           },
         ],
       },
-      {
-        category: "Santé Mentale",
-        buttons: [
-          {
-            label: "Calendrier",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
-          },
-          {
-            label: "S'inscrire maintenant",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-      },
+
       {
         category: "Multiculturalism",
         buttons: [
@@ -339,23 +357,6 @@ export const frenchWebsiteData: WebsiteData = {
           {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-      },
-      {
-        category: "Tutorat",
-        buttons: [
-          {
-            label: "Calendrier",
-            link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
-          },
-          {
-            label: "S'inscrire comme étudiant",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
-          },
-          {
-            label: "S'inscrire comme enseignant",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
           },
         ],
       },

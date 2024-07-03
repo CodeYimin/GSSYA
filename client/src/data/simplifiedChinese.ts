@@ -94,6 +94,72 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
     title2: "创新项目",
     programs: [
       {
+        title: "辅导班",
+        description:
+          "辅导班提供了一种引人入胜且具有教育意义的暑期体验，学生可以在有趣和支持性的环境中接受集中的学术指导。",
+        buttons: [
+          {
+            label: "了解更多",
+            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+          },
+          {
+            label: "学生注册",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+          },
+          {
+            label: "导师注册",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+          },
+        ],
+        subheading1: "学术支持",
+        subheading2: "",
+        polaroids: [
+          {
+            image: "/images/programs/tutoring/2.png",
+            text: "",
+          },
+          {
+            image: "/images/programs/tutoring/4.png",
+            text: "",
+          },
+          {
+            image: "/images/programs/tutoring/3.png",
+            text: "法语辅导",
+          },
+        ],
+      },
+      {
+        title: "心理健康",
+        description:
+          "我们的心理健康服务为寻求情感健康支持、促进康复和恢复能力的个人提供富有同情心和全面的护理。",
+        buttons: [
+          {
+            label: "了解更多",
+            link: "https://sites.google.com/view/mentalhealthgssya/home",
+          },
+          {
+            label: "注册",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+        ],
+        subheading1: "心理健康支持",
+        subheading2: "Charming Soul",
+        polaroids: [
+          {
+            image: "/images/programs/mental/3.jpg",
+            text: "",
+          },
+          {
+            image: "/images/programs/mental/2.jpg",
+            text: "",
+          },
+          {
+            image: "/images/programs/mental/1.png",
+            text: "2024 年心理健康日",
+          },
+        ],
+      },
+      {
         title: "艺术展",
         description:
           "Art4Earth 是一系列成功的艺术展览活动，展示了当地才华横溢的艺术家的作品。",
@@ -156,37 +222,6 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         ],
       },
       {
-        title: "心理健康",
-        description:
-          "我们的心理健康服务为寻求情感健康支持、促进康复和恢复能力的个人提供富有同情心和全面的护理。",
-        buttons: [
-          {
-            label: "了解更多",
-            link: "https://sites.google.com/view/mentalhealthgssya/home",
-          },
-          {
-            label: "注册",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-        subheading1: "心理健康支持",
-        subheading2: "Charming Soul",
-        polaroids: [
-          {
-            image: "/images/programs/mental/3.jpg",
-            text: "",
-          },
-          {
-            image: "/images/programs/mental/2.jpg",
-            text: "",
-          },
-          {
-            image: "/images/programs/mental/1.png",
-            text: "2024 年心理健康日",
-          },
-        ],
-      },
-      {
         title: "多元文化",
         description:
           "多元文化活动是对不同文化的充满活力的庆祝活动，通过音乐、美食、艺术和来自世界各地的传统将社区团结起来。",
@@ -217,41 +252,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
           },
         ],
       },
-      {
-        title: "辅导班",
-        description:
-          "辅导班提供了一种引人入胜且具有教育意义的暑期体验，学生可以在有趣和支持性的环境中接受集中的学术指导。",
-        buttons: [
-          {
-            label: "了解更多",
-            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
-          },
-          {
-            label: "学生注册",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
-          },
-          {
-            label: "导师注册",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
-          },
-        ],
-        subheading1: "学术支持",
-        subheading2: "",
-        polaroids: [
-          {
-            image: "/images/programs/tutoring/2.png",
-            text: "",
-          },
-          {
-            image: "/images/programs/tutoring/4.png",
-            text: "",
-          },
-          {
-            image: "/images/programs/tutoring/3.png",
-            text: "法语辅导",
-          },
-        ],
-      },
+
       {
         title: "青年交换",
         description:
@@ -291,6 +292,36 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
     title2: "活动日程",
     offerings: [
       {
+        category: "辅导班",
+        buttons: [
+          {
+            label: "日程",
+            link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
+          },
+          {
+            label: "学生注册",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
+          },
+          {
+            label: "导师注册",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
+          },
+        ],
+      },
+      {
+        category: "心理健康",
+        buttons: [
+          {
+            label: "日程",
+            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+          },
+          {
+            label: "注册",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+        ],
+      },
+      {
         category: "Art4Earth",
         buttons: [
           {
@@ -317,19 +348,6 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         ],
       },
       {
-        category: "心理健康",
-        buttons: [
-          {
-            label: "日程",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
-          },
-          {
-            label: "注册",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-      },
-      {
         category: "多元文化",
         buttons: [
           {
@@ -339,23 +357,6 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
           {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
-          },
-        ],
-      },
-      {
-        category: "辅导班",
-        buttons: [
-          {
-            label: "日程",
-            link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
-          },
-          {
-            label: "学生注册",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSeGZ85GMYRqHe3Rer-sG8xHMneEAhhHDfRMsmbAiTwceHEz7g/viewform",
-          },
-          {
-            label: "导师注册",
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSfnOYgMnBMiraAaAon810HWXBJS3N3Er3WJV_Ino9T7XUdiCw/viewform",
           },
         ],
       },
