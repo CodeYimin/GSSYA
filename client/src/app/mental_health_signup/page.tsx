@@ -132,9 +132,13 @@ async function getQuestionResponse(
   return await response.text();
 }
 
-async function getCompleteResponse(score: string) {
+async function getCompleteResponse(
+  score: number,
+  maxScore: number,
+  emergency: boolean
+) {
   const response = await fetch(
-    `${API_URL}/mental-health-signup/completeResponse?score=${score}`
+    `${API_URL}/mental-health-signup/completeResponse?score=${score}&scoreMax=${maxScore}&emergency=${emergency}`
   );
   return await response.text();
 }
@@ -144,7 +148,7 @@ interface PageProps {}
 export default function Page({}: PageProps): ReactElement {
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [questionIndex, setQuestionIndex] = useState<number>(0);
+  const [questionIndex, setQuestionIndex] = useState<number>(13);
   const [response, setResponse] = useState<string | null>(null);
   const [loadingResponse, setLoadingResponse] = useState<boolean>(false);
   const [scores, setScores] = useState<number[]>([]);
@@ -161,7 +165,9 @@ export default function Page({}: PageProps): ReactElement {
         {loadingCompleteResponse ? (
           <div className="mt-5 text-zinc-800">Completing form...</div>
         ) : completeResponse ? (
-          <div className="mt-5 text-zinc-800">{completeResponse}</div>
+          <div className="mt-5 text-zinc-800 whitespace-pre-line">
+            {completeResponse}
+          </div>
         ) : (
           <>
             <div className="text-sm mt-5 text-zinc-600">
@@ -207,9 +213,9 @@ export default function Page({}: PageProps): ReactElement {
                       setLoadingCompleteResponse(true);
                       setCompleteResponse(
                         await getCompleteResponse(
-                          `${scores.reduce((a, b) => a + b, 0)}/${
-                            scores.length * 4
-                          }`
+                          scores.reduce((a, b) => a + b, 0),
+                          scores.length * 4,
+                          false
                         )
                       );
                       setLoadingCompleteResponse(false);
