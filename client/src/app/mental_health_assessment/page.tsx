@@ -148,7 +148,7 @@ interface PageProps {}
 export default function Page({}: PageProps): ReactElement {
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [questionIndex, setQuestionIndex] = useState<number>(13);
+  const [questionIndex, setQuestionIndex] = useState<number>(0);
   const [response, setResponse] = useState<string | null>(null);
   const [loadingResponse, setLoadingResponse] = useState<boolean>(false);
   const [scores, setScores] = useState<number[]>([]);
