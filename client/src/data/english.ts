@@ -318,6 +318,10 @@ export const englishWebsiteData: WebsiteData = {
             label: "Register",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
+          {
+            label: "Take Assessment",
+            link: "/mental_health_assessment",
+          },
         ],
       },
       {

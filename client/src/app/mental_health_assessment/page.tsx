@@ -94,10 +94,6 @@ const questions = [
     answers: ["Very often", "Often", "Sometimes", "Rarely", "Never"],
   },
   {
-    question: "Have you experienced any suicidal or self-harm ideations?",
-    answers: ["Very often", "Often", "Sometimes", "Rarely", "Never"],
-  },
-  {
     question: "How often do you spend time with family?",
     answers: ["Never", "Rarely", "Sometimes", "Often", "Very often"],
   },
@@ -117,6 +113,10 @@ const questions = [
   },
   {
     question: "How often do you feel sad?",
+    answers: ["Very often", "Often", "Sometimes", "Rarely", "Never"],
+  },
+  {
+    question: "Have you experienced any suicidal or self-harm ideations?",
     answers: ["Very often", "Often", "Sometimes", "Rarely", "Never"],
   },
 ];
@@ -148,19 +148,20 @@ interface PageProps {}
 export default function Page({}: PageProps): ReactElement {
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [questionIndex, setQuestionIndex] = useState<number>(0);
+  const [questionIndex, setQuestionIndex] = useState<number>(13);
   const [response, setResponse] = useState<string | null>(null);
   const [loadingResponse, setLoadingResponse] = useState<boolean>(false);
   const [scores, setScores] = useState<number[]>([]);
   const [loadingCompleteResponse, setLoadingCompleteResponse] =
     useState<boolean>(false);
   const [completeResponse, setCompleteResponse] = useState<string | null>(null);
+  const [emergency, setEmergency] = useState<boolean>(false);
 
   return (
     <div className="mt-16 p-5 text-center">
       <div>
         <div className="text-3xl font-bold text-zinc-800">
-          Mental Health Signup
+          Mental Health Assessment
         </div>
         {loadingCompleteResponse ? (
           <div className="mt-5 text-zinc-800">Completing form...</div>
@@ -215,7 +216,7 @@ export default function Page({}: PageProps): ReactElement {
                         await getCompleteResponse(
                           scores.reduce((a, b) => a + b, 0),
                           scores.length * 4,
-                          false
+                          scores[14] !== 0
                         )
                       );
                       setLoadingCompleteResponse(false);
