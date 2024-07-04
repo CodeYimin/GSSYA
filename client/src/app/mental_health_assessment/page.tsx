@@ -155,7 +155,6 @@ export default function Page({}: PageProps): ReactElement {
   const [loadingCompleteResponse, setLoadingCompleteResponse] =
     useState<boolean>(false);
   const [completeResponse, setCompleteResponse] = useState<string | null>(null);
-  const [emergency, setEmergency] = useState<boolean>(false);
 
   return (
     <div className="mt-16 p-5 text-center">
@@ -216,7 +215,7 @@ export default function Page({}: PageProps): ReactElement {
                         await getCompleteResponse(
                           scores.reduce((a, b) => a + b, 0),
                           scores.length * 4,
-                          scores[14] !== 0
+                          scores[14] !== 4
                         )
                       );
                       setLoadingCompleteResponse(false);
