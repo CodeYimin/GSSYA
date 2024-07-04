@@ -23,6 +23,7 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "chatgpt": "^5.2.5",
     "public-google-sheets-parser": "^1.5.4",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
