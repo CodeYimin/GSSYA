@@ -28,15 +28,7 @@ export default function Navbar(): ReactElement {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      onClick={(e) => {
-        if (pathname !== "/") {
-          e.preventDefault();
-          window.location.href = "/";
-        }
-      }}
-    >
+    <div ref={ref}>
       <Media greaterThanOrEqual="md">
         <div className="fixed top-0 left-0 bg-zinc-950 w-full flex justify-center p-4 text-zinc-300 items-center z-50">
           <div className="text-zinc-50 relative text-sm">
@@ -45,7 +37,7 @@ export default function Navbar(): ReactElement {
                 {links.slice(0, Math.round(links.length / 2)).map((link) => (
                   <a
                     className="cursor-pointer hover:text-zinc-50 w-max"
-                    href={link.link}
+                    href={"/" + link.link}
                     key={link.label}
                   >
                     {link.label}
@@ -58,7 +50,7 @@ export default function Navbar(): ReactElement {
                   .map((link) => (
                     <a
                       className="cursor-pointer hover:text-zinc-50 w-max"
-                      href={link.link}
+                      href={"/" + link.link}
                       key={link.label}
                     >
                       {link.label}
@@ -67,7 +59,7 @@ export default function Navbar(): ReactElement {
               </div>
             </div>
             <a
-              href="#home"
+              href={"/" + "#home"}
               className={`${titanOne.className} text-2xl cursor-pointer hover:text-red-400 box-content mx-8`}
             >
               GSSYA
@@ -83,7 +75,7 @@ export default function Navbar(): ReactElement {
       <Media lessThan="md">
         <div className="fixed top-0 left-0 px-5 bg-zinc-950 w-full flex justify-between p-4 text-zinc-200 items-center z-50">
           <a
-            href="#home"
+            href={"/" + "#home"}
             className={`${titanOne.className} text-2xl cursor-pointer hover:text-red-400 box-content`}
           >
             GSSYA
@@ -109,7 +101,7 @@ export default function Navbar(): ReactElement {
           >
             {links.map((link) => (
               <a
-                href={link.link}
+                href={"/" + link.link}
                 onClick={() => setOpen(false)}
                 className="cursor-pointer hover:text-zinc-50"
                 key={link.label}

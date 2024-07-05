@@ -88,15 +88,17 @@ export default function Footer({
         Maintenance Folder
       </a>
       <div className="text-lg mt-5">Funded with help from:</div>
-      <div className="relative w-32 h-32 mt-2">
-        <NextImage src="/images/TD_logo.png" alt="TD_logo" />
-      </div>
-      <div className="relative w-32 h-32">
-        <NextImage
-          src="/images/canada_logo.jpg"
-          alt="Canada_logo"
-          objectFit="contain"
-        />
+      <div className="flex gap-2 items-center mt-2">
+        <div className="relative w-20 h-12">
+          <NextImage
+            src="/images/canada_logo.jpg"
+            alt="Canada_logo"
+            objectFit="contain"
+          />
+        </div>
+        <div className="relative w-12 h-12">
+          <NextImage src="/images/TD_logo.png" alt="TD_logo" />
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { API_URL, MENTAL_HEALTH_ASSESSMENT_QUESTIONS } from "@/data/consts";
 import clsx from "clsx";
 import { ReactElement, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
+import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
 
 async function getQuestionResponse(
   question: string,
@@ -19,13 +20,21 @@ async function getQuestionResponse(
 async function getCompleteResponse(
   age: string,
   email: string,
-  scores: number[]
+  scores: number[],
+  questions: any[],
+  responses: string[],
+  sendEmail: boolean
 ) {
   const response = await fetch(
-    `${API_URL}/mental-health-assessment/completeResponse?age=${age}&email=${email}&scores=${scores}`
+    `${API_URL}/mental-health-assessment/completeResponse?age=${age}&email=${email}&scores=${scores}&questions=${JSON.stringify(
+      questions
+    )}&responses=${JSON.stringify(responses)}&sendEmail=${sendEmail}`
   );
   return await response.text();
 }
+
+const disclaimer =
+  "The information provided in this assessment response is for informational purposes only and should not be taken as professional medical advice. Always consult with a qualified healthcare provider regarding your health and medical conditions. Do not disregard or delay seeking professional medical advice because of something you have read in this assessment response.";
 
 interface PageProps {}
 
@@ -33,12 +42,14 @@ export default function Page({}: PageProps): ReactElement {
   const [email, setEmail] = useState<string>("");
   const [age, setAge] = useState<string>("");
   const [questionIndex, setQuestionIndex] = useState<number>(-1);
-  const [response, setResponse] = useState<string | null>(null);
+  const [responses, setResponses] = useState<string[]>([]);
+  const response = responses[questionIndex];
   const [loadingResponse, setLoadingResponse] = useState<boolean>(false);
   const [scores, setScores] = useState<number[]>([]);
   const [loadingCompleteResponse, setLoadingCompleteResponse] =
     useState<boolean>(false);
   const [completeResponse, setCompleteResponse] = useState<string | null>(null);
+  const [sendEmail, setSendEmail] = useState<boolean>(true);
 
   return (
     <div className="mt-16 p-5 text-center">
@@ -68,6 +79,7 @@ export default function Page({}: PageProps): ReactElement {
             >
               Next
             </button>
+            <p className="text-xs text-zinc-600 w-[30rem]">{disclaimer}</p>
           </div>
         ) : loadingCompleteResponse ? (
           <div className="mt-5 text-zinc-800 flex gap-5 justify-center items-center">
@@ -103,20 +115,22 @@ export default function Page({}: PageProps): ReactElement {
                         : "hover:bg-zinc-600"
                     )}
                     onClick={async () => {
-                      if (response !== null || loadingResponse) {
+                      console.log(responses);
+                      if (response || loadingResponse) {
                         return;
                       }
 
                       setScores([...scores, score]);
                       setLoadingResponse(true);
-                      setResponse(
+                      setResponses([
+                        ...responses,
                         await getQuestionResponse(
                           MENTAL_HEALTH_ASSESSMENT_QUESTIONS[questionIndex]
                             .question,
                           answer,
                           `${score + 1}/5`
-                        )
-                      );
+                        ),
+                      ]);
                       setLoadingResponse(false);
                     }}
                   >
@@ -129,7 +143,7 @@ export default function Page({}: PageProps): ReactElement {
               <AiOutlineLoading className="animate-spin h-8 w-8 mt-5 mx-auto" />
             )}
             {!loadingResponse && response && (
-              <div>
+              <div className="flex flex-col items-center">
                 <div className="">{response}</div>
                 <button
                   className="mt-5 bg-zinc-500 text-white text-sm py-2 px-4 rounded-md hover:bg-zinc-600"
@@ -140,17 +154,39 @@ export default function Page({}: PageProps): ReactElement {
                     ) {
                       setLoadingCompleteResponse(true);
                       setCompleteResponse(
-                        await getCompleteResponse(age, email, scores)
+                        await getCompleteResponse(
+                          age,
+                          email,
+                          scores,
+                          MENTAL_HEALTH_ASSESSMENT_QUESTIONS,
+                          responses,
+                          sendEmail
+                        )
                       );
                       setLoadingCompleteResponse(false);
+                      setResponses([]);
                       return;
                     }
-                    setResponse(null);
                     setQuestionIndex(questionIndex + 1);
                   }}
                 >
-                  Next
+                  {questionIndex ===
+                  MENTAL_HEALTH_ASSESSMENT_QUESTIONS.length - 1
+                    ? "Finish"
+                    : "Next"}
                 </button>
+                {questionIndex ===
+                  MENTAL_HEALTH_ASSESSMENT_QUESTIONS.length - 1 && (
+                  <div
+                    className="flex gap-1 items-center mt-2 cursor-pointer text-lg"
+                    onClick={() => setSendEmail(!sendEmail)}
+                  >
+                    {sendEmail ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}{" "}
+                    <p className="text-sm">
+                      Save copy of responses to my email
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </>

@@ -23,6 +23,8 @@ export default function Page({}: PageProps): ReactElement {
       score: number;
       emergency: boolean;
       date: string;
+      responses: string[];
+      overallFeedback: string;
     }[]
   >([]);
 

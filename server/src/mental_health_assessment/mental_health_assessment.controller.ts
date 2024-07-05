@@ -1,6 +1,13 @@
-import { Controller, Get, ParseArrayPipe, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  ParseArrayPipe,
+  ParseBoolPipe,
+  Query,
+} from '@nestjs/common';
 import fs from 'fs/promises';
-import { CHATGPT_API_KEY, PASSWORD } from 'src/consts';
+import nodemailer from 'nodemailer';
+import { CHATGPT_API_KEY, GMAIL_APP_PASSWORD, PASSWORD } from 'src/consts';
 
 @Controller('mental-health-assessment')
 export class MentalHealthAssessmentController {
@@ -31,9 +38,14 @@ export class MentalHealthAssessmentController {
     @Query('age') age: string,
     @Query('email') email: string,
     @Query('scores', ParseArrayPipe) scoresRaw: string[],
+    @Query('questions') questionsRaw: string,
+    @Query('responses') responsesRaw: string,
+    @Query('sendEmail', ParseBoolPipe) sendEmail: boolean,
   ) {
     const { ChatGPTAPI } = await import('chatgpt');
 
+    const questions = JSON.parse(questionsRaw);
+    const responses = JSON.parse(responsesRaw);
     const scores = scoresRaw.map(Number);
     const score = scores.reduce((a, b) => a + b, 0);
     const scoreMax = scores.length * 4;
@@ -46,7 +58,9 @@ export class MentalHealthAssessmentController {
       },
     });
 
-    const percent = (score / scoreMax) * 100;
+    const disclaimer =
+      'The information provided in this assessment response is for informational purposes only and should not be taken as professional medical advice. Always consult with a qualified healthcare provider regarding your health and medical conditions. Do not disregard or delay seeking professional medical advice because of something you have read in this assessment response.';
+    const percent = Math.round((score / scoreMax) * 100);
     const hardRes = emergency
       ? "Based on the responses you've provided in the questionnaire, it appears you may be experiencing severe mental health issues. It's important to reach out for help immediately. If you reside in Canada, please call the 988 Suicide & Crisis Lifeline for confidential support available 24/7."
       : percent < 25
@@ -58,15 +72,30 @@ export class MentalHealthAssessmentController {
       : 'Minimal mental health issues. Join our Global Share Support Youth Organization to make new friends and build social connections, which can enhance your well-being and help you enjoy life more.';
 
     const res = await api.sendMessage(
-      `This is a mental health questionaire. Give feedback and advice to someone who responded in a mental health questionnaire with an overall mental health score of ${percent}% with higher being the best mental health. Do NOT ask a question. Do NOT comment on if the user was honest or not. Tell the user the score in the response.`,
+      `This is a mental health questionaire. Give feedback and advice to someone who responded in a mental health questionnaire with an overall mental health score of ${percent}% with higher being the best mental health. ${
+        emergency
+          ? 'Regardless of the overall score, the person responded they had suicidal intentions, so this is treated as an emergency.'
+          : ''
+      } Do NOT ask a question. Do NOT comment on if the user was honest or not. Tell the user the score in the response.`,
     );
+    const overallFeedback = hardRes + '\n\n' + res.text + '\n\n' + disclaimer;
 
     const oldJson = (await doesFileExist('./data/assessments.json'))
       ? JSON.parse(await fs.readFile('./data/assessments.json', 'utf-8'))
       : [];
     const newJson = [
       ...oldJson,
-      { email, age, scores, score, scoreMax, emergency, date: new Date() },
+      {
+        email,
+        age,
+        scores,
+        score,
+        scoreMax,
+        emergency,
+        date: new Date(),
+        responses,
+        overallFeedback,
+      },
     ];
     fs.mkdir('./data').catch(() => {});
     await fs.writeFile(
@@ -74,7 +103,42 @@ export class MentalHealthAssessmentController {
       JSON.stringify(newJson, null, 2),
     );
 
-    return hardRes + '\n\n' + res.text;
+    if (sendEmail) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'info.mentalhealth2024',
+            pass: GMAIL_APP_PASSWORD,
+          },
+        });
+
+        const mailResult = await transporter.sendMail({
+          to: email,
+          subject: 'Mental Health Assessment Results',
+          html: `<div style="white-space: pre-line;"><b>Overall Score:</b> ${percent}% (${score}/${scoreMax})
+          <b>Emergency:</b> ${emergency ? 'Yes' : 'No'}
+          
+          ${questions
+            .map(
+              (q, i) =>
+                `<b>${q.question}:</b> ${q.answers[scores[i]]} (${
+                  scores[i]
+                }/4)\n\n${responses[i]}`,
+            )
+            .join('\n\n')}
+          
+          <b>Overall feedback:</b>
+          ${overallFeedback}</div>`,
+        });
+
+        console.log('Email sent: ' + mailResult);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    return overallFeedback;
   }
 
   @Get('getResponses')

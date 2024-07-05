@@ -10,6 +10,8 @@ interface RecordProps {
     score: number;
     emergency: boolean;
     date: string;
+    responses: string[];
+    overallFeedback: string;
   };
 }
 
@@ -61,8 +63,13 @@ export default function Record({ record }: RecordProps): ReactElement {
                 {MENTAL_HEALTH_ASSESSMENT_QUESTIONS[i].question}:{" "}
               </span>
               {MENTAL_HEALTH_ASSESSMENT_QUESTIONS[i].answers[score]} ({score}/4)
+              <p className="mt-2">{record.responses[i]}</p>
             </div>
           ))}
+          <div>
+            <span className="font-semibold">Overall Feedback:</span>
+            <p className="mt-2">{record.overallFeedback}</p>
+          </div>
         </div>
       )}
     </div>
