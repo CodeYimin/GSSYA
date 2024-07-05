@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MentalHealthAssessmentModule } from './mental_health_assessment/mental_health_assessment';
 import { TestimonialsModule } from './testimonials/testimonials.module';
 import { VolunteersModule } from './volunteers/volunteers.module';
-import { MentalHealthSignupModule } from './mental_health_signup/mental_health_signup.module';
 
 @Module({
-  imports: [TestimonialsModule, VolunteersModule, MentalHealthSignupModule],
+  imports: [TestimonialsModule, VolunteersModule, MentalHealthAssessmentModule],
   controllers: [AppController],
   providers: [AppService],
 })

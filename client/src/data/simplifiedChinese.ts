@@ -141,6 +141,10 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
+          {
+            label: "进行评估",
+            link: "/mental_health_assessment",
+          },
         ],
         subheading1: "心理健康支持",
         subheading2: "Charming Soul",
@@ -318,6 +322,10 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
           {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
+          },
+          {
+            label: "进行评估",
+            link: "/mental_health_assessment",
           },
         ],
       },

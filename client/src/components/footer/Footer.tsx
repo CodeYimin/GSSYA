@@ -5,6 +5,7 @@ import { FaEnvelope, FaFacebook, FaPhoneAlt, FaYoutube } from "react-icons/fa";
 import { FaLocationDot, FaSquareXTwitter } from "react-icons/fa6";
 import { IoLogoWechat } from "react-icons/io5";
 import { SiLinktree } from "react-icons/si";
+import NextImage from "../NextImage";
 
 export default function Footer({
   contacts,
@@ -86,6 +87,17 @@ export default function Footer({
       >
         Maintenance Folder
       </a>
+      <div className="text-lg mt-5">Funded with help from:</div>
+      <div className="relative w-32 h-32 mt-2">
+        <NextImage src="/images/TD_logo.png" alt="TD_logo" />
+      </div>
+      <div className="relative w-32 h-32">
+        <NextImage
+          src="/images/canada_logo.jpg"
+          alt="Canada_logo"
+          objectFit="contain"
+        />
+      </div>
     </div>
   );
 }

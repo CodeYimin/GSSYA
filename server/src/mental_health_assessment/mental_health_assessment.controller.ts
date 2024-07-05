@@ -1,14 +1,9 @@
-import {
-  Controller,
-  Get,
-  ParseBoolPipe,
-  ParseIntPipe,
-  Query,
-} from '@nestjs/common';
-import { CHATGPT_API_KEY } from 'src/consts';
+import { Controller, Get, ParseArrayPipe, Query } from '@nestjs/common';
+import fs from 'fs/promises';
+import { CHATGPT_API_KEY, PASSWORD } from 'src/consts';
 
-@Controller('mental-health-signup')
-export class MentalHealthSignupController {
+@Controller('mental-health-assessment')
+export class MentalHealthAssessmentController {
   @Get('questionResponse')
   async get(
     @Query('question') question: string,
@@ -33,11 +28,16 @@ export class MentalHealthSignupController {
 
   @Get('completeResponse')
   async getComplete(
-    @Query('score', ParseIntPipe) score: number,
-    @Query('scoreMax', ParseIntPipe) scoreMax: number,
-    @Query('emergency', ParseBoolPipe) emergency: boolean,
+    @Query('age') age: string,
+    @Query('email') email: string,
+    @Query('scores', ParseArrayPipe) scoresRaw: string[],
   ) {
     const { ChatGPTAPI } = await import('chatgpt');
+
+    const scores = scoresRaw.map(Number);
+    const score = scores.reduce((a, b) => a + b, 0);
+    const scoreMax = scores.length * 4;
+    const emergency = scores[14] !== 4;
 
     const api = new ChatGPTAPI({
       apiKey: CHATGPT_API_KEY,
@@ -61,6 +61,36 @@ export class MentalHealthSignupController {
       `This is a mental health questionaire. Give feedback and advice to someone who responded in a mental health questionnaire with an overall mental health score of ${percent}% with higher being the best mental health. Do NOT ask a question. Do NOT comment on if the user was honest or not. Tell the user the score in the response.`,
     );
 
+    const oldJson = (await doesFileExist('./data/assessments.json'))
+      ? JSON.parse(await fs.readFile('./data/assessments.json', 'utf-8'))
+      : [];
+    const newJson = [
+      ...oldJson,
+      { email, age, scores, score, scoreMax, emergency, date: new Date() },
+    ];
+    fs.mkdir('./data').catch(() => {});
+    await fs.writeFile(
+      './data/assessments.json',
+      JSON.stringify(newJson, null, 2),
+    );
+
     return hardRes + '\n\n' + res.text;
+  }
+
+  @Get('getResponses')
+  async getResponses(@Query('password') password: string) {
+    if (password !== PASSWORD) {
+      return 'Incorrect password';
+    }
+
+    return JSON.parse(await fs.readFile('./data/assessments.json', 'utf-8'));
+  }
+}
+
+async function doesFileExist(path) {
+  try {
+    return (await fs.stat(path)).isFile();
+  } catch (e) {
+    return false;
   }
 }

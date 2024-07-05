@@ -141,6 +141,10 @@ export const frenchWebsiteData: WebsiteData = {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
+          {
+            label: "Passer une évaluation",
+            link: "/mental_health_assessment",
+          },
         ],
         subheading1: "Soutien en santé mentale",
         subheading2: "l'âme charmante",
@@ -318,7 +322,10 @@ export const frenchWebsiteData: WebsiteData = {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
-          // TODO
+          {
+            label: "Passer une évaluation",
+            link: "/mental_health_assessment",
+          },
         ],
       },
       {
