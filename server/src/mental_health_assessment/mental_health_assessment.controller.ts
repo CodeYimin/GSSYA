@@ -131,8 +131,6 @@ export class MentalHealthAssessmentController {
           <b>Overall feedback:</b>
           ${overallFeedback}</div>`,
         });
-
-        console.log('Email sent: ' + mailResult);
       } catch (e) {
         console.log(e);
       }
