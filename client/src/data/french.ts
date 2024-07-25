@@ -7,17 +7,13 @@ export const frenchWebsiteData: WebsiteData = {
         label: "Accueil",
         link: "#about",
       },
-      {
-        label: "Calendrier",
-        link: "#schedule",
-      },
+      // {
+      //   label: "Calendrier",
+      //   link: "#schedule",
+      // },
       {
         label: "Programmes",
         link: "#programs",
-      },
-      {
-        label: "Questions",
-        link: "#faq",
       },
       {
         label: "Témoignages",
@@ -28,12 +24,16 @@ export const frenchWebsiteData: WebsiteData = {
         link: "#team",
       },
       {
-        label: "Contactez",
-        link: "#contact",
+        label: "Questions",
+        link: "#faq",
       },
       {
         label: "Don",
         link: "#donate",
+      },
+      {
+        label: "Contactez",
+        link: "#contact",
       },
     ],
   },
@@ -68,8 +68,8 @@ export const frenchWebsiteData: WebsiteData = {
     ],
     buttons: [
       {
-        label: "Calendrier",
-        link: "#schedule",
+        label: "Accueil",
+        link: "#about",
       },
       {
         label: "Programmes",
@@ -100,7 +100,11 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+            link: "https://tutoring.gssya.org",
+          },
+          {
+            label: "Calendrier",
+            link: "https://tutoring.gssya.org/schedule",
           },
           {
             label: "S'inscrire comme étudiant",
@@ -138,6 +142,10 @@ export const frenchWebsiteData: WebsiteData = {
             link: "https://sites.google.com/view/mentalhealthgssya/home",
           },
           {
+            label: "Calendrier",
+            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+          },
+          {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
@@ -170,8 +178,12 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/vibrant-living-biodiversity/virtual-art-gallery",
+            link: "https://sites.google.com/view/gssyaart",
           },
+          // {
+          //   label: "Calendrier",
+          //   link: "https://sites.google.com/view/gssyaart/schedule",
+          // },
           {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
@@ -202,6 +214,10 @@ export const frenchWebsiteData: WebsiteData = {
           {
             label: "En savoir plus",
             link: "https://sites.google.com/view/gssya/clubs/chess-club",
+          },
+          {
+            label: "Calendrier",
+            link: "https://sites.google.com/view/gssya/schedule",
           },
           {
             label: "S'inscrire maintenant",
@@ -235,6 +251,10 @@ export const frenchWebsiteData: WebsiteData = {
             link: "https://sites.google.com/view/confident-youth-program/home",
           },
           {
+            label: "Calendrier",
+            link: "https://sites.google.com/view/confident-youth-program/schedule",
+          },
+          {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
@@ -263,7 +283,11 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/gssya-youth-exchange/home",
+            link: "https://youthexchange.gssya.org",
+          },
+          {
+            label: "Calendrier",
+            link: "https://youthexchange.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",

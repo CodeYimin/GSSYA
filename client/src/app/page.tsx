@@ -4,7 +4,6 @@ import AboutPage from "@/components/about/AboutPage";
 import DonatePage from "@/components/donate/DonatePage";
 import Footer from "@/components/footer/Footer";
 import LandingPage from "@/components/landing/LandingPage";
-import OfferingsPage from "@/components/offerings/OfferingsPage";
 import ProgramsPage from "@/components/programs/ProgramsPage";
 import QuestionsPage from "@/components/questions.tsx/QuestionsPage";
 import TeamPage from "@/components/team/TeamPage";
@@ -38,13 +37,13 @@ export default function Home() {
     <div className="overflow-x-hidden">
       <LandingPage {...websiteData.landingPage} />
       <AboutPage {...websiteData.aboutPage} />
-      <OfferingsPage {...websiteData.schedule} />
+      {/* <OfferingsPage {...websiteData.schedule} /> */}
       <ProgramsPage {...websiteData.programs} />
-      <QuestionsPage {...websiteData.questions} />
       <TestimonialsPage
         {...{ ...websiteData.testimonials, testimonials: testimonials }}
       />
       <TeamPage {...{ ...websiteData.team, volunteers: volunteers }} />
+      <QuestionsPage {...websiteData.questions} />
       <DonatePage {...websiteData.donate} />
       <Footer {...websiteData.contact} />
     </div>

@@ -7,17 +7,13 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         label: "关于",
         link: "#about",
       },
-      {
-        label: "日程",
-        link: "#schedule",
-      },
+      // {
+      //   label: "日程",
+      //   link: "#schedule",
+      // },
       {
         label: "项目",
         link: "#programs",
-      },
-      {
-        label: "常见问题",
-        link: "#faq",
       },
       {
         label: "感言",
@@ -28,12 +24,16 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         link: "#team",
       },
       {
-        label: "联系",
-        link: "#contact",
+        label: "常见问题",
+        link: "#faq",
       },
       {
         label: "捐款",
         link: "#donate",
+      },
+      {
+        label: "联系",
+        link: "#contact",
       },
     ],
   },
@@ -68,8 +68,8 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
     ],
     buttons: [
       {
-        label: "日程",
-        link: "#schedule",
+        label: "关于",
+        link: "#about",
       },
       {
         label: "项目",
@@ -100,7 +100,11 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+            link: "https://tutoring.gssya.org",
+          },
+          {
+            label: "日程",
+            link: "https://tutoring.gssya.org/schedule",
           },
           {
             label: "学生注册",
@@ -138,6 +142,10 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
             link: "https://sites.google.com/view/mentalhealthgssya/home",
           },
           {
+            label: "日程",
+            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+          },
+          {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
@@ -170,8 +178,12 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/vibrant-living-biodiversity/virtual-art-gallery",
+            link: "https://sites.google.com/view/gssyaart",
           },
+          // {
+          //   label: "日程",
+          //   link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
+          // },
           {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
@@ -202,6 +214,10 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
           {
             label: "了解更多",
             link: "https://sites.google.com/view/gssya/clubs/chess-club",
+          },
+          {
+            label: "日程",
+            link: "https://sites.google.com/view/gssya/schedule",
           },
           {
             label: "注册",
@@ -235,6 +251,10 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
             link: "https://sites.google.com/view/confident-youth-program/home",
           },
           {
+            label: "日程",
+            link: "https://sites.google.com/view/confident-youth-program/schedule",
+          },
+          {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
@@ -264,7 +284,11 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/gssya-youth-exchange/home",
+            link: "https://youthexchange.gssya.org",
+          },
+          {
+            label: "日程",
+            link: "https://youthexchange.gssya.org/schedule",
           },
           {
             label: "注册",

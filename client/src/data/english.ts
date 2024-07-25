@@ -7,17 +7,13 @@ export const englishWebsiteData: WebsiteData = {
         label: "About",
         link: "#about",
       },
-      {
-        label: "Schedule",
-        link: "#schedule",
-      },
+      // {
+      //   label: "Schedule",
+      //   link: "#schedule",
+      // },
       {
         label: "Programs",
         link: "#programs",
-      },
-      {
-        label: "FAQ",
-        link: "#faq",
       },
       {
         label: "Testimonials",
@@ -28,12 +24,16 @@ export const englishWebsiteData: WebsiteData = {
         link: "#team",
       },
       {
-        label: "Contact",
-        link: "#contact",
+        label: "FAQ",
+        link: "#faq",
       },
       {
         label: "Donate",
         link: "#donate",
+      },
+      {
+        label: "Contact",
+        link: "#contact",
       },
     ],
   },
@@ -68,8 +68,8 @@ export const englishWebsiteData: WebsiteData = {
     ],
     buttons: [
       {
-        label: "Schedule",
-        link: "#schedule",
+        label: "About",
+        link: "#about",
       },
       {
         label: "Programs",
@@ -100,7 +100,11 @@ export const englishWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "Learn more",
-            link: "https://sites.google.com/view/gssya-tutoring-camp/home",
+            link: "https://tutoring.gssya.org",
+          },
+          {
+            label: "View Schedule",
+            link: "https://tutoring.gssya.org/schedule",
           },
           {
             label: "Register Student",
@@ -138,6 +142,10 @@ export const englishWebsiteData: WebsiteData = {
             link: "https://sites.google.com/view/mentalhealthgssya/home",
           },
           {
+            label: "View Schedule",
+            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+          },
+          {
             label: "Register",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
@@ -170,8 +178,12 @@ export const englishWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "Learn more",
-            link: "https://sites.google.com/view/vibrant-living-biodiversity/virtual-art-gallery",
+            link: "https://sites.google.com/view/gssyaart/",
           },
+          // {
+          //   label: "View Schedule",
+          //   link: "https://sites.google.com/view/gssyaart/schedule",
+          // },
           {
             label: "Register",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
@@ -202,6 +214,10 @@ export const englishWebsiteData: WebsiteData = {
           {
             label: "Learn more",
             link: "https://sites.google.com/view/gssya/clubs/chess-club",
+          },
+          {
+            label: "View Schedule",
+            link: "https://sites.google.com/view/gssya/schedule",
           },
           {
             label: "Register",
@@ -235,6 +251,10 @@ export const englishWebsiteData: WebsiteData = {
             link: "https://sites.google.com/view/confident-youth-program/home",
           },
           {
+            label: "View Schedule",
+            link: "https://sites.google.com/view/confident-youth-program/schedule",
+          },
+          {
             label: "Register",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
           },
@@ -263,7 +283,11 @@ export const englishWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "Learn more",
-            link: "https://sites.google.com/view/gssya-youth-exchange/home",
+            link: "https://youthexchange.gssya.org",
+          },
+          {
+            label: "View Schedule",
+            link: "https://youthexchange.gssya.org/schedule",
           },
           {
             label: "Register",
