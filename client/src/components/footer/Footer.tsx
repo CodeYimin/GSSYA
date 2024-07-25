@@ -87,7 +87,7 @@ export default function Footer({
       >
         Maintenance Folder
       </a>
-      <div className="text-lg mt-5">Funded with help from:</div>
+      <div className="text-lg mt-5">Funded by:</div>
       <div className="flex gap-2 items-center mt-2">
         <div className="relative w-20 h-12">
           <NextImage
