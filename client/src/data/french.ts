@@ -83,7 +83,7 @@ export const frenchWebsiteData: WebsiteData = {
     title2: "SOMMES-NOUS",
     description: `Global Share Support Youth Association (GSSYA) est une organisation caritative canadienne enregistrée, fondée en 2019, avec plus de 2000 bénévoles. Notre mission est d'autonomiser les jeunes et leurs familles à travers le monde. Nous offrons gratuitement des événements, des programmes et des clubs gratuits pour soutenir cette communauté.
 
-    Nos programmes sont dédiés aux jeunes et comprennent des expositions d'art, des clubs communautaires, des services de santé mentale, des échanges internationaux, des services de tutorat et des opportunités de bénévolat a fin de développer leurs compétences en leadership.
+    Nos programmes s'adressent aux jeunes de divers horizons, notamment les francophones, les Afro-Canadiens noirs, les Africains, les Asiatiques, les Européens et d'autres communautés de couleur canadiennes. Nos programmes comprennent des expositions d'art, des clubs communautaires, des services de santé mentale, des échanges internationaux, des services de tutorat et des possibilités de bénévolat pour permettre aux jeunes de développer leurs compétences en leadership.
     
     Rejoignez-nous pour faire la différence! Que vous soyez un jeune en quête de soutien, un mentor potentiel ou un partisan de l'autonomisation des jeunes, il y a de nombreuses façons de s'impliquer avec GSSYA. Ensemble, nous pouvons créer un avenir meilleur pour la prochaine génération.`,
   },
@@ -96,7 +96,7 @@ export const frenchWebsiteData: WebsiteData = {
       {
         title: "Services de Tutorat",
         description:
-          "Le camp de tutorat offre une expérience estivale engageante et éducative où les élèves reçoivent un enseignement scolaire ciblé dans un environnement amusant et bienveillant.",
+          "Le camp de tutorat offre une expérience engageante et éducative où les élèves reçoivent un enseignement scolaire ciblé dans un environnement amusant et bienveillant.",
         buttons: [
           {
             label: "En savoir plus",
@@ -139,11 +139,11 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/mentalhealthgssya/home",
+            link: "https://mentalhealth.gssya.org/home",
           },
           {
             label: "Calendrier",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+            link: "https://mentalhealth.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",
@@ -178,12 +178,12 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/gssyaart",
+            link: "https://art.gssya.org",
           },
-          // {
-          //   label: "Calendrier",
-          //   link: "https://sites.google.com/view/gssyaart/schedule",
-          // },
+          {
+            label: "Calendrier",
+            link: "https://art.gssya.org/schedule",
+          },
           {
             label: "S'inscrire maintenant",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
@@ -213,11 +213,11 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/gssya/clubs/chess-club",
+            link: "https://clubs.gssya.org/clubs/chess-club",
           },
           {
             label: "Calendrier",
-            link: "https://sites.google.com/view/gssya/schedule",
+            link: "https://clubs.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",
@@ -248,11 +248,11 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "En savoir plus",
-            link: "https://sites.google.com/view/confident-youth-program/home",
+            link: "https://multiculturalism.gssya.org/home",
           },
           {
             label: "Calendrier",
-            link: "https://sites.google.com/view/confident-youth-program/schedule",
+            link: "https://multiculturalism.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",
@@ -340,7 +340,7 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "Calendrier",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+            link: "https://mentalhealth.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",
@@ -370,7 +370,7 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "Calendrier",
-            link: "https://sites.google.com/view/gssya/schedule",
+            link: "https://clubs.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",
@@ -384,7 +384,7 @@ export const frenchWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "Calendrier",
-            link: "https://sites.google.com/view/confident-youth-program/schedule",
+            link: "https://multiculturalism.gssya.org/schedule",
           },
           {
             label: "S'inscrire maintenant",

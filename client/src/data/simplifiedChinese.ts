@@ -83,7 +83,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
     title2: "我们",
     description: `全球青少年互助联盟 (GSSYA) 是一家由青年领导并由志愿者推动的加拿大100%免费的注册慈善机构。全球青少年互助联盟成立于 2019 年，提供各种旨在促进社区連系、鼓励多元文化和支持青年的项目。
 
-    我们的项目专门针对青年，包括艺术展览、社区俱乐部、心理健康服务、国际交流、辅导服务和志愿者机会，以培养青年的领导能力。
+    我们的项目专门面向来自不同背景的青少年，包括法语国家、非裔加拿大人、非洲人、亚洲人、欧洲人和其他有色人种的加拿大社区。我们的项目包括艺术展览、社区俱乐部、心理健康服务、国际交流、辅导服务和志愿者机会，帮助青少年培养领导能力。
     
     我们致力于授权青年为我们的社区带来积极的变化，并为志愿者提供一个平台，让他们連系并为社區做出贡献。`,
   },
@@ -96,7 +96,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
       {
         title: "辅导班",
         description:
-          "辅导班提供了一种引人入胜且具有教育意义的暑期体验，学生可以在有趣和支持性的环境中接受集中的学术指导。",
+          "辅导班提供了一种引人入胜且具有教育意义的体验，学生可以在有趣和支持性的环境中接受集中的学术指导。",
         buttons: [
           {
             label: "了解更多",
@@ -139,11 +139,11 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/mentalhealthgssya/home",
+            link: "https://mentalhealth.gssya.org/home",
           },
           {
             label: "日程",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+            link: "https://mentalhealth.gssya.org/schedule",
           },
           {
             label: "注册",
@@ -178,12 +178,12 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/gssyaart",
+            link: "https://art.gssya.org",
           },
-          // {
-          //   label: "日程",
-          //   link: "https://sites.google.com/view/gssyatutoringcamp/schedule",
-          // },
+          {
+            label: "日程",
+            link: "https://art.gssya.org/schedule",
+          },
           {
             label: "注册",
             link: "https://docs.google.com/forms/d/e/1FAIpQLSdP4VaKrFvBlLDNGRJgemTEbRJo-q_ccD4cdX8mRNfegMX6xg/viewform",
@@ -213,11 +213,11 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/gssya/clubs/chess-club",
+            link: "https://clubs.gssya.org/clubs/chess-club",
           },
           {
             label: "日程",
-            link: "https://sites.google.com/view/gssya/schedule",
+            link: "https://clubs.gssya.org/schedule",
           },
           {
             label: "注册",
@@ -248,11 +248,11 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "了解更多",
-            link: "https://sites.google.com/view/confident-youth-program/home",
+            link: "https://multiculturalism.gssya.org/home",
           },
           {
             label: "日程",
-            link: "https://sites.google.com/view/confident-youth-program/schedule",
+            link: "https://multiculturalism.gssya.org/schedule",
           },
           {
             label: "注册",
@@ -341,7 +341,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "日程",
-            link: "https://sites.google.com/view/mentalhealthgssya/schedule",
+            link: "https://mentalhealth.gssya.org/schedule",
           },
           {
             label: "注册",
@@ -371,7 +371,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "日程",
-            link: "https://sites.google.com/view/gssya/schedule",
+            link: "https://clubs.gssya.org/schedule",
           },
           {
             label: "注册",
@@ -384,7 +384,7 @@ export const simplifiedChineseWebsiteData: WebsiteData = {
         buttons: [
           {
             label: "日程",
-            link: "https://sites.google.com/view/confident-youth-program/schedule",
+            link: "https://multiculturalism.gssya.org/schedule",
           },
           {
             label: "注册",
